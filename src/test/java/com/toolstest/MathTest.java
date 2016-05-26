@@ -1,5 +1,5 @@
 package com.toolstest;
-import org.j2eedev.calc.Calculation;
+import com.toolstest.Calculation;
 import junit.framework.TestCase;
 public class MathTest extends TestCase {
 private int value1;
