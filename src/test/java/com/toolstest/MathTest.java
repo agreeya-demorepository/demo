@@ -18,7 +18,7 @@ value1 = 0;
 value2 = 0;
 }
 public void testAdd() {
-int total = 8;
+int total = 10;
 int sum = Calculation.add(value1, value2);
 assertEquals(sum, total);
 }
