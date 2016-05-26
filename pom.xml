@@ -63,7 +63,7 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.0.1</version>
                 <configuration>
-                    <targetJdk>1.6</targetJdk>
+                    <targetJdk>1.8</targetJdk>
                     <!--<rulesets>-->
                     <!--<ruleset>pmd_rules.xml</ruleset>-->
                     <!--</rulesets>-->
