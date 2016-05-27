@@ -19,7 +19,7 @@ value2 = 0;
 }
 public void testAdd() {
 int total = 8;
-int sum = Calculation.add(value1, value2);
+int sum = Calculation.add(3, 5);
 assertEquals(sum, total);
 }
 public void testFailedAdd() {
