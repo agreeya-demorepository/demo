@@ -22,8 +22,7 @@
 <div class="container whitebg">
   <div class="MainContainer">
     <header>
-      <div class="row">
-        <div class="col-xs-12 col-sm-3 col-md-2"><a href="default.html"><img src="images/logo.png" class="img-responsive logo" alt=""/></a></div>
+      <div class="row"> <div class="col-xs-12 col-sm-3 col-md-2"><a href="default.html"><img src="images/logo.png" class="img-responsive logo" alt=""/></a></div>
         <div class="col-xs-12 col-sm-9 col-md-10"><!--Navigation-->
           <div class="text-right" id="loginNavContainer">
             <ul class="loginNav" id="loginNav">
@@ -37,7 +36,7 @@
             <nav class="navbar navbar-default"> 
               
               <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
+               <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                 <span class="spn_welcome">Welcome Robert Wordsworth</span>
               </div>
@@ -75,69 +74,128 @@
         <div class="col-xs-12"> <img src="images/bannerImage.jpg" class="img-responsive" alt=""/> </div>
       </div>
       <div class="row marginTop20">
-        <div class="col-xs-12 h1 txtBlue ">Manage Profile</div>
+        <div class="col-xs-12 h1 txtBlue">Child Residential Facility</div>
       </div>
       <div class="row">
-        <div class="col-sm-3 leftNav"><!--Left Nav-->
-          <div class="row">
-            <div class="col-xs-12">
-              <ul class="nav nav-pills tabPills  nav-stacked">
-                <li><a href="MyApplication.html">My Page</a></li>
-                <li class="active"><a href="#">Manage Profile</a></li>
-                <li><a href="childResidentialFacility.html">Child Residential Facility</a></li>
+      	<div class="col-sm-3 leftNav"><!--Left Nav-->
+        <div class="row">
+        <div class="col-xs-12">
+          <ul class="nav nav-pills tabPills  nav-stacked">
+            <li><a href="MyApplication.html">My Page</a></li>
+            <li><a href="ManageProfile-Step1.html">Manage Profile</a></li>
+            <li class="active"><a href="childResidentialFacility.html">Child Residential Facility</a></li>
 			<li><a href="fosterCareAgency.html">Foster Care Agency</a></li>
 <li><a href="inbox.html">Inbox</a></li>
-              </ul>
-            </div>
-          </div>
+          </ul>
+        </div>
+      </div>
         </div>
         <div class="col-sm-9 rightSection">
-          <div class="row">
-            <div class="col-xs-12">
-              <ul class="nav nav-pills nav-justified tabPills">
-                <li  class="active"><a href="ManageProfile-Step1.html">Update<br/>
-                  Account Detail</a></li>
-                <li ><a href="ManageProfile-Step2.html">Update<br/>
-                  Personal Information</a></li>
-                <li ><a href="ManageProfile-Step3.html">Update Family
-                  Narrative &amp; Preferences</a></li>
-                <li ><a href="ManageProfile-Step4.html">Update License &amp; Agency Detail</a></li>
-              </ul>
-            </div>
+      
+      <div class="form-horizontal marginTop20">
+        
+		<div class="form-group required">
+          <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Enter Zip Code</label>
+          <div class="col-sm-4">
+            <input class="form-control">
           </div>
-          <div class="form-horizontal marginTop20">
-            <div class="form-group required">
-              <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Username</label>
-              <div class="col-sm-3">
-                <input class="form-control" value="robertW">
-              </div>
-            
-              <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Email Id</label>
-              <div class="col-sm-3">
-                <input class="form-control" value="Robert.Wordsworth@gmail.com">
-              </div>
-            </div>
-            <div class="form-group required">
-              <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Password</label>
-              <div class="col-sm-3">
-                <input class="form-control" type="password" value="Robert">
-              </div>
-           
-              <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Confirm Password</label>
-              <div class="col-sm-3">
-                <input class="form-control" type="password" value="Robert">
-              </div>
-            </div>
-           
-            <div class="form-group">
-              <div class="col-sm-6 col-sm-offset-5">
-                <input class="btn btn-primary" value="Update" type="button" onClick="location.href='ManageProfile-Step2.html'">
-           	 	<input class="btn btn-default" value="Cancel" type="button"  onClick="location.href='MyApplication.html'">
-              </div>
-            </div>
+		  <div class="col-sm-1">
+            <button class="btn btn-primary" onClick="showResult()"><i class="glyphicon glyphicon-search"></i> Search</button>
           </div>
-          <!-- /.form-horizontal --></div>
+        </div>
+        
+        <div id="searchResult" class="hideMe">
+		<h4>Search Results</h4>
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered"> 
+				<thead> 
+					<tr> 
+					<th>Facility Type</th> 
+					<th>Facility Number</th> 
+					<th>Facility Name</th> 
+					<th>Facility License Type</th> 
+					<th>Facility Contact</th>
+					<th>Address</th>
+					</tr> 
+				</thead> 
+				<tbody>
+					<tr> 
+						<td>Foster Family Agency</td> 
+						<td>107201412</td> 
+						<td>Proteus Foster Family</td> 
+						<td>Proteus INC.</td> 
+						<td>(559)499-2535</td> 
+						<td>265 N VAMNESS</td>
+					</tr>
+					<tr> 
+						<td>Adoption Agency</td> 
+						<td>15200804</td> 
+						<td>Alemeda county social services</td> 
+						<td>Alemeda county social services</td> 
+						<td>(501)268-2422</td> 
+						<td>401 Broadway</td>
+					</tr> 
+					<tr> 
+						<td>Adoption Agency</td> 
+						<td>15201920</td> 
+						<td>AASIK</td> 
+						<td>AASIK</td> 
+						<td>(510)271-0204</td> 
+						<td>401-Grand Ave Suite</td>
+					</tr> 
+					<tr> 
+						<td>Foster Family Agency</td> 
+						<td>107201412</td> 
+						<td>Proteus Foster Family</td> 
+						<td>Proteus INC.</td> 
+						<td>(559)499-2535</td> 
+						<td>265 N VAMNESS</td>
+					</tr> 
+					<tr> 
+						<td>Adoption Agency</td> 
+						<td>15200804</td> 
+						<td>Alemeda county social services</td> 
+						<td>Alemeda county social services</td> 
+						<td>(501)268-2422</td> 
+						<td>401 Broadway</td>
+					</tr> 
+					<tr> 
+						<td>Adoption Agency</td> 
+						<td>15201920</td> 
+						<td>AASIK</td> 
+						<td>AASIK</td> 
+						<td>(510)271-0204</td> 
+						<td>401-Grand Ave Suite</td>
+					</tr> 
+					<tr> 
+						<td>Foster Family Agency</td> 
+						<td>107201412</td> 
+						<td>Proteus Foster Family</td> 
+						<td>Proteus INC.</td> 
+						<td>(559)499-2535</td> 
+						<td>265 N VAMNESS</td>
+					</tr>
+					<tr> 
+						<td>Adoption Agency</td> 
+						<td>15201920</td> 
+						<td>AASIK</td> 
+						<td>AASIK</td> 
+						<td>(510)271-0204</td> 
+						<td>401-Grand Ave Suite</td>
+					</tr>  
+				</tbody> 
+			</table>
+		</div>
+		</div>
+		
+		
+        
+      </div><!-- /.form-horizontal -->
+	  </div>
+        
       </div>
+      
+      
       <div class="row lightGrayBG marginTop20">
         <div class="col-md-10 col-md-offset-1">
           <div class="row marginTop10">
@@ -224,6 +282,9 @@ function moveSecondaryNav() {
 		
     });
 
+	function showResult(){
+			$("#searchResult").slideDown();
+	}
 </script>
 </body>
 </html>

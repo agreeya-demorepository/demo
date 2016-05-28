@@ -102,7 +102,7 @@ h1, h4{color: #3f67c0}
 @media (max-width: 767px) {
 	.text-center-xs{text-align:center;}
 	.logo{margin:0px auto;}
-	.userLoginBox{width:200px;}
+	.userLoginBox{width:100%;}
 	.btn-search{color:white;background-color:#35b5eb;border:0px;border-radius:0px;font-size:0.9em;height:24px;line-height:24px;padding:0px 12px;vertical-align:top;}
 	.footer ul.footerLinks li{float: left; list-style-type: none; margin: 0.75em 0.5em; padding: 10px}
 	.marginBottom10-xs{margin-bottom:10px;}
