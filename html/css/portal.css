@@ -47,6 +47,10 @@ body{font-family:Segoe, "Segoe UI", Arial;font-size:12px;background-color:#F9F9F
 .marginTop10{margin-top:10px;}
 .marginBottom10{margin-bottom:10px;}
 
+.paddingTop10{padding-top:10px;}
+.paddingTop7{padding-top:7px;}
+
+
 .carousel-caption h4{color:white;}
 .carousel-caption{text-align:left;left:3%;right:auto;text-shadow:none;}
 .carousel-caption a{color:white;}
@@ -58,10 +62,7 @@ body{font-family:Segoe, "Segoe UI", Arial;font-size:12px;background-color:#F9F9F
 .txtWhite{color:white}
 
 h1, h4{color: #3f67c0}
-.footer {
-  width: 100%;
-  background-color: #3f67c0;
-}
+.footer {  width: 100%;  background-color: #3f67c0;}
 .footer ul.footerLinks{/*margin-top: 33px;margin-bottom: 33px;*/}
 .footer ul.footerLinks li{float: left; list-style-type: none; margin: 2em 1.5em; padding: 10px}
 .footer ul.footerLinks li a{color: #fff; font-size: 1.5em;}
@@ -72,16 +73,24 @@ h1, h4{color: #3f67c0}
 .tabPills.nav-pills > li > a{border-radius:0px;background-color:#eae6e8;}
 .tabPills.nav-pills > li.active > a{background-color:#3f67c0;color:white;}
 
-.leftNav{background:#E9E9E9;min-height:500px;}
-.rightSection{min-height:500px;border:1px solid #e9e9e9;}
+.leftNav{background:#E9E9E9;}
+.rightSection{border:1px solid #e9e9e9;}
 .rightSection .tabPills.nav-pills > li >a {font-size:1.1em;color:#333;}
 .rightSection .tabPills.nav-pills > li.active > a{background-color:#35b5eb;color:white;}
 
+.font2em{font-size:2em;}
+.font1dot5em{font-size:1.5em;}
+.font1em{font-size:1em;}
+.font0dot9em{font-size:0.9em;}
+.font1dot3em{font-size:1.3em;}
 
 .form-group.required .control-label:after { content:"*"; color:red;} 
 
 .date input{border:0px;width:100%;}
 .hideMe{display:none;}
+
+.cursorHand{cursor:pointer}
+
 @media (max-width: 1170px) {
 .navbar-default .navbar-nav > li > a{font-size:1.15em;}
 }
@@ -107,6 +116,11 @@ h1, h4{color: #3f67c0}
 	.topNavigation{margin-top:30px}
 	.noPaddingLeft-sm{padding-left:0px;}
 	.noPaddingRight-sm{padding-right:0px;}
+	
+	.leftNav{min-height:500px;}
+	.rightSection{min-height:500px;}
+	.stepCount{display:block;margin-top:32px; text-align:right;}
+
 }
 
 

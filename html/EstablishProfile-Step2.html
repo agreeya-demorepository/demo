@@ -83,8 +83,10 @@
         <div class="col-xs-12"> <img src="images/bannerImage.jpg" class="img-responsive" alt=""/> </div>
       </div>
       <div class="row marginTop20">
-        <div class="col-xs-12 h1 txtBlue ">Establish Profile</div>
+        <div class="col-xs-12 col-sm-6 h1 txtBlue">Establish Profile</div>
+        <div class="col-xs-12 col-sm-6 txtBlue font1dot5em"><span class="stepCount">Step <span class="badge alert-info font1em">2</span> of <span class="badge alert-info font1em">4</span><span></div>
       </div>
+
       <div class="row">
         <div class="col-xs-12">
           <ul class="nav nav-pills nav-justified tabPills">
@@ -97,26 +99,23 @@
       </div>
       <div class="form-horizontal marginTop20">
         <div class="form-group required">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">First Name</label>
-          <div class="col-sm-6">
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">First Name</label>
+          <div class="col-sm-3">
+            <input class="form-control">
+          </div>
+       
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Last Name</label>
+          <div class="col-sm-3">
             <input class="form-control">
           </div>
         </div>
         <div class="form-group required">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Last Name</label>
-          <div class="col-sm-6">
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Contact Number</label>
+          <div class="col-sm-3">
             <input class="form-control">
           </div>
-        </div>
-        <div class="form-group required">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Contact Number</label>
-          <div class="col-sm-6">
-            <input class="form-control">
-          </div>
-        </div>
-
-        <div class="form-group ">
-          <label class="col-xs-3 control-label">Date of Birth</label>
+        
+          <label class="col-sm-2 control-label">Date of Birth</label>
           <div class="col-sm-3 ">
                <div class="input-append date form-control datepicker" id="dp3" data-date-format="dd-mm-yyyy">
                   <input class="span2" size="16" type="text" value="">
@@ -125,15 +124,14 @@
           </div>
         </div>
         <div class="form-group ">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Gender</label>
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Gender</label>
           <div class="col-sm-3">
             <select class="form-control">
               <option>Select</option>
             </select>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Marital Status</label>
+        
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Marital Status</label>
           <div class="col-sm-3">
             <select class="form-control" id="MaritalStatusSelector">
                <option value="status">Select Status</option>
@@ -147,28 +145,26 @@
   <div class="panel-body">
 		
 		<div class="form-group">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Spouse Name</label>
-          <div class="col-sm-6">
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Spouse Name</label>
+          <div class="col-sm-3">
             <input class="form-control">
           </div>
-        </div>
-		<div class="form-group">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Spouse Contact Number</label>
-          <div class="col-sm-6">
+        
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Spouse Contact Number</label>
+          <div class="col-sm-3">
             <input class="form-control">
           </div>
         </div>
 		<div class="form-group ">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Spouse DOB</label>
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Spouse DOB</label>
           <div class="col-sm-3">
             <div class="input-append date form-control datepicker" id="dp3" data-date-format="dd-mm-yyyy">
                   <input class="span2 " size="16" type="text" value="">
                   <span class="add-on"><i class="icon-th"></i></span>
                 </div>
           </div>
-        </div>
-		<div class="form-group ">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Race</label>
+       
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Race</label>
           <div class="col-sm-3">
             <select class="form-control">
               <option>Select</option>
@@ -176,32 +172,48 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Religion</label>
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Religion</label>
           <div class="col-sm-3">
             <select class="form-control">
               <option>Select</option>
             </select>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Choose your Preferences</label>
+        
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Choose your Preferences</label>
           <div class="col-sm-3">
             <select class="form-control">
               <option>Select</option>
             </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Write about your hobbies</label>
-          <div class="col-sm-6">
-            <textarea type="text" class="form-control" placeholder=" "></textarea>
           </div>
         </div>
 		<div class="form-group">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7"> </label>
-          <div class="col-sm-6">
-            <button type="submit" class="btn btn-primary">Save</button>
-            <button type="submit" class="btn btn-default">Cancel</button>
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Gender</label>
+          <div class="col-sm-3">
+            <select class="form-control">
+              <option>Select</option>
+            </select>
+          </div>
+        
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Occupation</label>
+          <div class="col-sm-3">
+            <input class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Income</label>
+          <div class="col-sm-3">
+            <input class="form-control">
+          </div>
+        
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Write about your hobbies</label>
+          <div class="col-sm-3">
+            <input class="form-control">
+          </div>
+        </div>
+		<div class="form-group">
+          
+          <div class="col-sm-12 text-center">
+            <button type="submit" class="btn btn-default"  onClick="$('#Married').hide()" >Cancel</button>
           </div>
         </div>
 		</div><!--/.panel-body -->
@@ -209,54 +221,47 @@
 		
 		
         <div class="form-group">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Race</label>
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Race</label>
           <div class="col-sm-3">
             <select class="form-control">
               <option>Select</option>
             </select>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Religion</label>
-          <div class="col-sm-3">
-            <select class="form-control">
-              <option>Select</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Choose your Preferences</label>
-          <div class="col-sm-3">
-            <select class="form-control">
-              <option>Select</option>
-            </select>
-          </div>
-        </div>
         
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Religion</label>
+          <div class="col-sm-3">
+            <select class="form-control">
+              <option>Select</option>
+            </select>
+          </div>
+        </div>
         <div class="form-group">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Occupation</label>
-          <div class="col-sm-6">
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Choose your Preferences</label>
+          <div class="col-sm-3">
+            <select class="form-control">
+              <option>Select</option>
+            </select>
+          </div>
+        
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Occupation</label>
+          <div class="col-sm-3">
             <input class="form-control">
           </div>
         </div>
          <div class="form-group">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Income</label>
-          <div class="col-sm-6">
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Income</label>
+          <div class="col-sm-3">
             <input class="form-control">
           </div>
-        </div>
         
-        <div class="form-group">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Write about your hobbies</label>
-          <div class="col-sm-6">
-            <textarea type="text" class="form-control" placeholder=" "></textarea>
+          <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Write about your hobbies</label>
+          <div class="col-sm-3">
+            <input class="form-control" />
           </div>
         </div>
         <div class="form-group">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7"> </label>
-          <div class="col-sm-6">
-            <button type="submit" class="btn btn-primary">Save</button>
-            <button type="submit" class="btn btn-default">Cancel</button>
+          <div class="col-sm-12 text-center">
+           <input class="btn btn-primary" value="Save" type="button" onClick="location.href='EstablishProfile-Step3.html'"> <input class="btn btn-default" value="Cancel" type="button"  onClick="location.href='EstablishProfile-Step1.html'">
           </div>
         </div>
       </div>
@@ -313,7 +318,7 @@
         <li><a href="#">Behance</a></li>
         <li><a href="#">Dribbble</a></li>
         <li><a href="#">GitHub</a></li>
-<li><a href="#">Report an Incident</a></li>
+<li><a href="#">Report Tech Issue</a></li>
       </ul>
     </div>
   </div>
