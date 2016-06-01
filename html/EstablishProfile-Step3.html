@@ -7,6 +7,7 @@
 <title>CHHS</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/font-awesome.min.css">
 
 <!--Custom CSS-->
 <link href="css/portal.css" rel="stylesheet">
@@ -19,9 +20,8 @@
     <![endif]-->
 </head>
 <body>
-<div class="container whitebg">
-  <div class="MainContainer">
-    <header>
+<header class="navbar-fixed-top">
+	<div class="container whitebg">
       <div class="row">
         <div class="col-xs-12 col-sm-3 col-md-2"><a href="default.html"><img src="images/logo.png" class="img-responsive logo" alt=""/></a></div>
         <div class="col-xs-12 col-sm-9 col-md-10"><!--Navigation-->
@@ -34,18 +34,16 @@
                       <input type="text" class="form-control txtBoxLoginBox" placeholder="Username" value="Username" onFocus="if(this.value=='Username')this.value=''" onBlur="if(this.value=='')this.value='Username'">
                       <input type="password" class="form-control txtBoxLoginBox marginTop10" placeholder="Password" value="Password" onFocus="if(this.value=='Password')this.value=''" onBlur="if(this.value=='')this.value='Password'">
                       <button type="submit" class="btn btn-primary btn-search  marginTop10" onclick="location.href='MyApplication.html'">LOGIN</button>
-                      <a href="#" class="forgotPwd">Forgot Password?</a> </div>
+                      <a href="javascript:void(0)" class="forgotPwd">Forgot Password?</a> </div>
                   </li>
                 </ul>
               </li>
-              <li><a href="#">Help</a></li>
-              <li><a href="#">About Us</a></li>
+              <li><a href="javascript:void(0)">Help</a></li>
+              <li><a href="javascript:void(0)">About Us</a></li>
             </ul>
           </div>
           <div class="topNavigation">
-            <nav class="navbar navbar-default"> 
-              
-              <!-- Brand and toggle get grouped for better mobile display -->
+            <nav class="navbar navbar-default navbar-right"> <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
               </div>
@@ -53,23 +51,55 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="bs-navbar">
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="default.html">Home</a></li>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">For Families</a></li>
-                  <li><a href="#">Training</a></li>
-                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="default.html">Home</a></li>
+                   <li class="dropdown">
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
+                      <ul class="dropdown-menu navbar-leftAlign">
+                        <li><a href="javascript:void(0)">Our Services</a></li>
+                        <li><a href="javascript:void(0)">News &amp; Announcements</a></li>
+                      </ul>
+                    </li>
+                   <li class="dropdown">
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">For Families <b class="caret"></b></a>
+                      <ul class="dropdown-menu navbar-leftAlign">
+                        <li><a href="javascript:void(0)">Family Registration	</a></li>
+                        <li><a href="javascript:void(0)">Eligibility Criteria	</a></li>
+                        <li><a href="javascript:void(0)">Foster Parenting Guidelines	</a></li>
+                        <li><a href="javascript:void(0)">Registration Process</a></li>
+                        <li><a href="javascript:void(0)">FAQ</a></li>
+                      </ul>
+                    </li>
+                   <li class="dropdown">
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Foster Families Alumini <b class="caret"></b></a>
+                      <ul class="dropdown-menu navbar-leftAlign">
+                        <li><a href="javascript:void(0)">Our Network</a></li>
+                        <li><a href="javascript:void(0)">Success Stories</a></li>
+                        <li><a href="javascript:void(0)">Foster Parenting Tips</a></li>
+                      </ul>
+                    </li>
+                     <li class="dropdown">
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Talk to Us <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)">Contact a Case Worker</a></li>
+                        <li><a href="javascript:void(0)">Contact Us</a></li>
+                      </ul>
+                    </li>
                   <li class="dropdown searchBoxContainer" role="presentation"><a aria-expanded="false" aria-haspopup="true" role="button" href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-search"></i></a>
-                    <ul class="dropdown-menu">
-                      <li class="userSearchBox">
-                        <div class="form-group form-inline">
-                          <input type="text" class="form-control" placeholder="Search"/>
-                          <button type="submit" class="btn btn-primary btn-search"><i class="glyphicon glyphicon-search"></i> SEARCH</button>
-                        </div>
-                      </li>
-                    </ul>
+                <ul class="dropdown-menu">
+                  <li class="userSearchBox">
+                    <div class="form-group form-inline">
+                            <input type="text" class="form-control" placeholder="Search"/>
+                            <button type="submit" class="btn btn-primary btn-search"><i class="glyphicon glyphicon-search"></i> SEARCH</button>
+                    </div>
                   </li>
                 </ul>
-                <span id="loginBoxNewPosition"> </span> </div>
+              </li>
+                </ul>
+                
+                <span id="loginBoxNewPosition">
+                
+                </span>
+              </div>
               <!-- /.navbar-collapse --> 
               
             </nav>
@@ -77,13 +107,22 @@
         </div>
         <!--/Navigation--> 
       </div>
-    </header>
-    <section>
-      <div class="row">
-        <div class="col-xs-12"> <img src="images/bannerImage.jpg" class="img-responsive" alt=""/> </div>
       </div>
-     <div class="row marginTop20">
-        <div class="col-xs-12 col-sm-6 h1 txtBlue ">Establish Profile</div>
+</header>
+<div class="container whitebg">
+  <div class="MainContainer" id="MainContainer">
+
+    <div class="row">
+   		<div class="col-sm-12">
+        	 <ol class="breadcrumb">
+               <li><a href="default.html">Home</a></li>
+              <li><a href="default.html">Register Profile</a></li>
+               <li class="active">Family Narrative &amp; Preferences</li>
+            </ol>
+        </div>
+	</div>
+    <section> <div class="row marginTop20 lightGrayBG">
+        <div class="col-xs-12 col-sm-6 h1 txtBlue marginTop7">Register Profile</div>
         <div class="col-xs-12 col-sm-6 txtBlue font1dot5em"><span class="stepCount">Step <span class="badge alert-info font1em">3</span> of <span class="badge alert-info font1em">4</span><span></div>
       </div>
       <div class="row">
@@ -96,15 +135,16 @@
           </ul>
         </div>
       </div>
-      <div class="form-horizontal marginTop20">
+      <div class="row">
+      	<div class="col-sm-7"> <div class="form-horizontal marginTop20">
         <div class="form-group required">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Please provide as much information to describe you and your family. </label>
+          <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Please provide as much information to describe you and your family. </label>
           <div class="col-sm-6">
             <textarea type="text" class="form-control"></textarea>
           </div>
         </div>
         <div class="form-group required">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Do you have Kids?</label>
+          <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Do you have Kids?</label>
           <div class="col-sm-6">
             <p>
               <label>
@@ -119,8 +159,8 @@
           </div>
         </div>
         <div class="form-group  required hideMe" id="dv_numofkids">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Number of Kids</label>
-          <div class="col-sm-3">
+          <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Number of Kids</label>
+          <div class="col-sm-6">
             <select class="form-control" id="ddl_numofKids" onChange="showKidsDetails()">
               <option>Select</option>
               <option>1</option>
@@ -132,21 +172,21 @@
           <div class="panel-heading"><b>First Kid Details</b></div>
           <div class="panel-body">
             <div class="form-group required">
-              <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Name</label>
+              <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Name</label>
               <div class="col-sm-6">
                 <input class="form-control">
               </div>
             </div>
             <div class="form-group required ">
-              <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Age Group of First Kid</label>
-              <div class="col-sm-3">
+              <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Age Group of First Kid</label>
+              <div class="col-sm-6">
                 <select class="form-control">
                   <option>Select</option>
                 </select>
               </div>
             </div>
             <div class="form-group required">
-              <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Hobbies</label>
+              <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Hobbies</label>
               <div class="col-sm-6">
                 <input class="form-control">
               </div>
@@ -157,21 +197,21 @@
           <div class="panel-heading"><b>Second Kid Details</b></div>
           <div class="panel-body">
             <div class="form-group required">
-              <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Name</label>
+              <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Name</label>
               <div class="col-sm-6">
                 <input class="form-control">
               </div>
             </div>
             <div class="form-group required ">
-              <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Age Group of Second Kid</label>
-              <div class="col-sm-3">
+              <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Age Group of Second Kid</label>
+              <div class="col-sm-6">
                 <select class="form-control">
                   <option>Select</option>
                 </select>
               </div>
             </div>
             <div class="form-group required">
-              <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Hobbies</label>
+              <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Hobbies</label>
               <div class="col-sm-6">
                 <input class="form-control">
               </div>
@@ -179,55 +219,24 @@
           </div>
         </div>
         <div class="form-group required">
-          <label for="inputPassword" class="control-label col-sm-3 paddingTop7">Please be open in expressing your Kids behaviour, emotional and other preferences</label>
+          <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Please be open in expressing your Kids behaviour, emotional and other preferences</label>
           <div class="col-sm-6">
             <textarea type="text" class="form-control"></textarea>
           </div>
         </div>
         <div class="form-group">
-          <div class="col-sm-6 col-sm-offset-3">
+          <div class="col-sm-6 col-sm-offset-4">
             <input class="btn btn-primary" value="Save" type="button" onClick="location.href='EstablishProfile-Step4.html'"> <input class="btn btn-default" value="Save & Exit" type="button"  onClick="location.href='default.html'">
           </div>
         </div>
       </div>
-      <!-- /.form-horizontal -->
-      
-      <div class="row lightGrayBG ">
-        <div class="col-md-10 col-md-offset-1">
-          <div class="row marginTop10">
-            <div class="col-md-12 text-center">
-              <h2 class="txtBlue">GET IN TOUCH</h2>
-              <div class="text-center"><img src="images/h-separator.png" border="0" /></div>
-              <h4>California Health and Human Services 1600 Ninth Street, Room 460 Sacramento, CA 95814</h4>
-            </div>
-          </div>
-          <!-- /.row -->
-          <div class="row marginTop10">
-            <div class="col-sm-5">
-              <input type="text" class="form-control marginBottom10" placeholder="Your Name*">
-            </div>
-            <div class="col-sm-5">
-              <input type="text" class="form-control marginBottom10" placeholder="Your Email*">
-            </div>
-            <div class="col-sm-2">
-              <input type="text" class="form-control marginBottom10" placeholder="Mobile">
-            </div>
-          </div>
-          <!-- /.row -->
-          <div class="row marginTop10">
-            <div class="col-sm-12">
-              <textarea type="text" class="form-control" placeholder="Your Query*"></textarea>
-            </div>
-          </div>
-          <!-- /.row -->
-          <div class="row marginTop10 marginBottom10">
-            <div class="col-sm-12 text-center">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-          </div>
-          <!-- /.row --> 
-        </div>
+      <!-- /.form-horizontal --></div>
+      	<div class="col-sm-5 marginTop20">
+        <img src="images/registerFiller.jpg" width="388" height="408" alt="" class="img-responsive"/> </div>        
       </div>
+     
+      
+      
     </section>
   </div>
 </div>
@@ -235,12 +244,12 @@
   <div class="container">
     <div class="row">
       <ul class="footerLinks">
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Google+</a></li>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">GitHub</a></li>
-        <li><a href="#">Report Tech Issue</a></li>
+        <li><a href="javascript:void(0)" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="javascript:void(0)" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="javascript:void(0)" title="Google+"><i class="fa fa-google-plus"></i></a></li>
+        <li><a href="javascript:void(0)" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="javascript:void(0)" title="GitHub"><i class="fa fa-github"></i></a></li>
+        <li class="pull-right"><a href="javascript:void(0)">Report Tech Issue</a></li>
       </ul>
     </div>
   </div>
@@ -269,12 +278,26 @@ function moveSecondaryNav() {
 
     $(document).ready(function () {
         moveSecondaryNav();
-    });
-
-    $(window).resize(function () {
+		$('#MainContainer').css('margin-top',$('header').height()+"px");
+$('ul.nav li.dropdown').hover(function() {
+			  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+			}, function() {
+			  $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+			});
+    });  $(window).resize(function () {
         moveSecondaryNav();
 		
     });
+$(window).scroll(function() {
+  if ($(document).scrollTop() > 50) {
+    $('header').addClass('shrink');
+	$('#loginNavContainer').slideUp('fast');
+	$('#MainContainer').css('margin-top',$('header').height()+"px")
+  } else {  $('header').removeClass('shrink');
+	$('#loginNavContainer').slideDown('fast');
+	$('#MainContainer').css('margin-top',$('header').height()+"px")
+  }
+});
 	
 	function showNumofKids(flag)
 	{
