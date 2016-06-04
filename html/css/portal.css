@@ -2,12 +2,12 @@
 /* CSS Document */
 body{font-family:Segoe, "Segoe UI", Arial;font-size:12px;background-color:#F9F9F9;}
 
-.logo{margin-top:10px;margin-bottom:10px;}
+.logo{margin-top:5px;}
 
 .loginNav{margin:0px;padding:0px;list-style:none;font-size:1em;}
 .login{color:white;}
 .loginNav li{display:inline-block;	margin-right:5px;}
-.loginNav li a{padding:15px 10px 10px 10px;display:block;color:#000000;}
+.loginNav li a{padding:10px;display:block;color:#000000;}
 .loginNav li.login{background-color:#3f67c0;}
 .loginNav li.login a{color:white}
 .loginNav li.login .dropdown-menu{background-color:transparent;margin-top:0px;border-radius:0px;padding:0px;border:0px;box-shadow:0px 0px 0px;}
@@ -40,7 +40,7 @@ body{font-family:Segoe, "Segoe UI", Arial;font-size:12px;background-color:#F9F9F
 .bannerContent{background:#3f67c0;display:block;width:100%;height:100%;	}
 
 
-
+.fixedHeightHomeBanner{}
 /*Margins*/
 .marginTop12{margin-top:12px;}
 .marginTop20{margin-top:20px;}
@@ -53,7 +53,9 @@ body{font-family:Segoe, "Segoe UI", Arial;font-size:12px;background-color:#F9F9F
 
 
 .carousel-caption h4,.carousel-caption h1{color:white;}
-.carousel-caption{text-align:left;left:3%;right:auto;text-shadow:none;top:100px;}
+.carousel-caption h2{margin-bottom:0px;margin-top:0px;}
+.carousel-caption h3{margin-bottom:0px;margin-top:0px;}
+.carousel-caption{text-align:left;left:3%;right:auto;text-shadow:none;top:0px;padding-top:0px;}
 .carousel-caption a{color:white;}
 .carouselContentBG{background-color:rgba(47,168,219,0.8);padding:10px;;}
 
@@ -89,7 +91,8 @@ h1, h4{color: #3f67c0}
 .font0dot9em{font-size:0.9em;}
 .font1dot3em{font-size:1.3em;}
 
-.form-group.required .control-label:after { content:"*"; color:red;} 
+.form-group.required .control-label:after { content:"*"; color:red;margin-left:3px;} 
+.panel-body{padding-left:0px;padding-right:0px;}
 
 .date input{border:0px;width:100%;}
 .hideMe{display:none;}
@@ -103,7 +106,7 @@ h1, h4{color: #3f67c0}
 
 .shrink .logo{max-width:80px;margin-top:5px;margin-bottom:5px;}
 /*.shrink #loginNavContainer{display:none;}*/
-.shrink .topNavigation{margin-top:10px;}
+.shrink .topNavigation{margin-top:5px;}
 .shrink .navbar{margin-bottom:10px;}
 
 @media (max-width: 1170px) {
@@ -179,22 +182,26 @@ h1, h4{color: #3f67c0}
 	.navbar{border:0px;border-radius:0px;}
 	.text-right-sm{text-align:right;}
 	.navbar-collapse{padding-left:40px;}
-	.topNavigation{margin-top:30px}
+	.topNavigation{margin-top:5px}
 	.noPaddingLeft-sm{padding-left:0px;}
 	.noPaddingRight-sm{padding-right:0px;}
 	
 	.leftNav{min-height:500px;}
 	.rightSection{min-height:500px;}
-	.stepCount{display:block;margin-top:15px; text-align:right;}
+	.stepCount{display:block;margin-top:7px; text-align:right;}
 	.navbar-nav > li > a{padding-top:12px;padding-bottom:12px;}
 	.dropdown-menu > li > a{padding-top:10px;padding-bottom:10px;}
 	.navbar-leftAlign.dropdown-menu{left:0px;min-width:200px;;}
+	
+	.topNavigation .navbar{margin-bottom:5px;}
+	
 }
 
 
 @media (min-width: 992px) {
+.LeftDivider{border-left:1px solid #e1e1e1;min-height:200px;}
 
 }
 @media (min-width: 1200px) {
-	
+.carousel-caption h3{margin-bottom:0px;margin-top:20px;}	
 }
