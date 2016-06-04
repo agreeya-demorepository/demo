@@ -1,37 +1,36 @@
-+## URL 
+# URL 
 +
-+ https://fostercaredemo-agreeya.com
+## https://fostercaredemo-agreeya.com
 +
-+## Synopsis
+# Synopsis
 +
 + This project is about building a working prototype that would enable Families to Register and Manage their profiles so that they can receive foster placements.
   Apart from Registering their Profiles, prototype functionality would allow registered users to Manage Profiles , Search through Children Residential Facilities         within their zipcode and locate Foster care agencies in their nearby neighbourhood.Registered users can view their private mailbox for communication emails 
   sent or received.The prototype utilizes the publicly exposed HHS API to retrieve information related to the Foster Care Agencies in nearby neighbourhood 
   of the user.
 +
-+## Technical Approach
+# Technical Approach
 +
 
 
 
 +
 +
-+## Branches
+## Branches
 +
-+  Master Branch : This branch contains the Final version of the source code , UI designs/HTML, Style Checker guide , Code Conventions reference , 
+###  Master Branch : This branch contains the Final version of the source code , UI designs/HTML, Style Checker guide , Code Conventions reference , 
    project management artifacts. Using the instructions in the INSTALL and DEPLOYMENT SECTION this version of code base can be re-deployed to another machine
 +
-+  Dev Branch : This is the main development branch which includes codebase used to build and deploy to QA server or any other server for testing or demo purposes. 
+###  Dev Branch : This is the main development branch which includes codebase used to build and deploy to QA server or any other server for testing or demo purposes. 
    Commits to this branch will result in execution of automated build and deployment process. This branch should be reviewed to establish time to time code merges made    by the front end and back end developers.
 + 
-+  Local Branch FrontEnd Development : 
-+ 
-+  Local Branch BackEnd Development : 
+###  Local Branch FrontEnd Development : 
+###  Local Branch BackEnd Development : 
 +
 +
-+## Development Methodology 
+# Development Methodology 
 +
-+  Agile-SCRUM Model : The development of this prototype is carried out using the Agile SCRUM model. Multi disciplinary team comprising 
+##  Agile-SCRUM Model : The development of this prototype is carried out using the Agile SCRUM model. Multi disciplinary team comprising 
    PRODUCT OWNER , Scrum Master,Business Analyst, Web Designer,S/W Backend Developer, Fontend Developer, S/W Tester , Configuration Manager
    The whole process is carried out using Agile software development capabilities with iterartive and incremental development through sprints.Product Backlog - User       Stories and Tasks are managed through the REDMINE Project Management and Bug Tracking tool.
    Two dev sprints of 4 days each in duration are executed to cover the development of work items. Prior to the first Sprint a Design phase is executed to 
@@ -69,12 +68,12 @@
 				f. Setup a multidisciplinary team with a identified leader as PRODUCT OWNER and single point of authority for the team for approvals 					   and decision, direction for the team . Refer the team members and roles of the scrum team at 
 				   GITHUB > demo > project-mgmt > docs > Bocklog >Backlog Details.jpg
                                  
-+## Development Technology Stack 
+# Development Technology Stack 
 +
-+  Front End Technologies
+##  Front End Technologies
 				a. Responsive UI Designs - Bootstrap/HTML5 Ver 3.3.6  OPEN SOURCE 
 				b. UI Development - AngularJS Ver 1.5	OPEN SOURCE
-+  BackEnd Technologies & Tools
+##  BackEnd Technologies & Tools
 				a. Java JDK ver 1.8 OPEN SOURCE
 				b. Application Server - Tomacat Ver OPEN SOURCE
 				c. Spring Framework 4.2.6  OPEN SOURCE
@@ -84,46 +83,46 @@
 				g. JUnits Ver. OPEN SOURCE
 				h. Continous Integration - Build Automation & Deployment - Jenkins Ver  OPEN SOURCE
 				i. IDE - Eclipse Ver  OPEN SOURCE
-+  Platform
+##  Platform
 				a. OS - Ubuntu Ver.  OPEN SOURCE
-+  Database
+##  Database
 				a. MYSQL Ver.  OPEN SOURCE
-+  Source Control
+##  Source Control
 				a. GITHUB  
 
-+  BACKLOG & Defect Management Tool
+##  BACKLOG & Defect Management Tool
 				a. REDMINE Ver 3.2.2	OPEN SOURCE
 
-+
-+## Responsive Deisgn 
+
+# Responsive Deisgn 
 + UI is designed using the Bootstrap front end framework. UI designs are responsive in nature and hence compatible with multiple mobile devices and platforms like 
 smartphones, tablets on  Android, iOS
 +
 +
-+## Style Guide & Coding Conventions
+# Style Guide & Coding Conventions
 +
 
 +
-+## Unit & Automation Testing
+# Unit & Automation Testing
 +
 
 +
-+## Configuration Management
+# Configuration Management
  
 +
-+## Continous Integration
+# Continous Integration
 
 +  
-+## User Acceptance Testing (UAT)
+# User Acceptance Testing (UAT)
 +
   
 +
-+## Monitoring
+# Monitoring
 +
   
 +
 
-+## INSTALL and DEPLOYMENT INSTRUCTIONS
+# INSTALL and DEPLOYMENT INSTRUCTIONS
 +
   
 +
