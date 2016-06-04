@@ -1,0 +1,41 @@
+<div class="row">
+     <div class="col-md-12">
+   <h1 class="txtBlue txtNormal">Eligibility Criteria to become Foster Parent</h1>
+   </br>
+   <ul>
+     <li>You must be min. 21 years of age</li>
+     <li>Must have no criminal background</li>
+     <li>Should have regular source of income… </li>
+   </ul>
+   <button class="btn btn-info">Read More</button>
+   </div>
+   </div><!-- /.row -->
+ <div class="row marginBottom10 marginTop10">
+   <div class="radio">
+     <label>
+     Are you done with home study &nbsp;&nbsp;
+     <label class="radio-inline">
+       <input type="radio" name="inlineRadioOptions" id="inlineRadio1" ng-model="model.homeStudy.value" value="yes"> Yes
+     </label>
+     <label class="radio-inline">
+       <input type="radio" name="inlineRadioOptions" id="inlineRadio2" ng-model="model.homeStudy.value" value="no"> No
+     </label>
+     </label>
+   </div>
+   <div class="radio">
+     <label>
+     Have you ever gone through prior training to become foster parent &nbsp;&nbsp;
+     <label class="radio-inline">
+       <input type="radio" name="inlineRadioOptions2" id="inlineRadio1" ng-model="model.priorTraining.value" value="yes"> Yes
+     </label>
+     <label class="radio-inline">
+       <input type="radio" name="inlineRadioOptions2" id="inlineRadio2" ng-model="model.priorTraining.value" value="no"> No
+     </label>
+     </label>
+   </div>
+ </div><!-- /.row -->
+ <div class="row marginTop10">
+     <div class="col-md-12">
+   <button class="btn btn-primary" ng-click="model.GoTo()">Next</button>
+   </div>
+   </div><!-- /.row -->
