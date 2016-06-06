@@ -1,9 +1,9 @@
 {
-  "name": "angular15",
-  "description": "Develope a sample app using angular1.5",
+  "name": "chhsdemo",
+  "description": "Develope a demo app for foster families",
   "main": "index.js",
   "authors": [
-    "maniish.kumar"
+    "as-manish"
   ],
   "license": "ISC",
   "homepage": "",
