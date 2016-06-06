@@ -2,7 +2,7 @@ package com.agreeya.chhs.exception;
 
 /**
  * Top-level exception for account aggregation services.
- * 
+ * @author Agreeya Solutions
  */
 public class MembershipException extends CHHSException {
 

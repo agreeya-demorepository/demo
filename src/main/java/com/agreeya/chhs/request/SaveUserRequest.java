@@ -12,7 +12,8 @@ import com.agreeya.chhs.request.user.UserPersonal;
 import com.agreeya.chhs.request.user.UserProfile;
 
 /**
- * @author amit.sharma
+ * Request POJO for Save User API
+ * @author AgreeYa Solutions
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)

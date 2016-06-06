@@ -12,9 +12,9 @@ import com.agreeya.chhs.util.Constants;
 
 /**
  * This class has methods that store and fetches the membership details in
- * 
+ * @author amit.sharma
+ *
  */
-
 public class MemberServiceDAOImpl extends BaseDAOImpl implements MemberServiceDAO {
 
 	private static Logger log = Logger.getLogger(MemberServiceDAOImpl.class);

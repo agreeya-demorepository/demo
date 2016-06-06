@@ -21,13 +21,10 @@ import com.agreeya.chhs.service.MemberService;
 import com.agreeya.chhs.util.CHHSErrorCodes;
 import com.agreeya.chhs.util.Constants;
 
-/**
- * This Class contains service methods related to ENRICH membership.
- * 
- */
 
 /**
- * 
+ * Implementation class for MemberService
+ * @author AgreeYa Solutions
  */
 public class MemberServiceImpl implements MemberService {
 

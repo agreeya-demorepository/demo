@@ -7,7 +7,9 @@ import com.agreeya.chhs.model.ApplicationLog;
 import com.agreeya.chhs.service.ApplicationLoggerService;
 
 /**
- * @author amit.sharma
+ * Implementation for ApplicationLoggerService
+ * 
+ * @author AgreeYa Solutions
  *
  */
 public class ApplicationLoggerServiceImpl implements ApplicationLoggerService {

@@ -6,7 +6,7 @@ import com.sun.jersey.spi.container.ContainerResponseFilter;
 
 /**
  * CORS filter for Cross Site origin
- * @author amit.sharma
+ * @author AgreeYa Solutions
  * 
  */
 public class CORSFilter implements ContainerResponseFilter {

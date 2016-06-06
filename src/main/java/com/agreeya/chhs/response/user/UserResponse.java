@@ -11,7 +11,8 @@ import com.agreeya.chhs.response.WSResponse;
 import com.agreeya.chhs.to.UserTO;
 
 /**
- * @author amit.sharma
+ * Response object for User Response 
+ * @author AgreeYa Solutions
  * 
  */
 @XmlRootElement

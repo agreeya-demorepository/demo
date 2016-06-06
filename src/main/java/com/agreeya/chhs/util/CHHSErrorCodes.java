@@ -1,11 +1,8 @@
 package com.agreeya.chhs.util;
 
 /**
- * Enrich error codes and messages sent in the REST API responses.
- * 
- */
-/**
- * @author amit.sharma
+ * error codes and messages sent in the REST API responses
+ * @author AgreeYa Solutions
  *
  */
 public class CHHSErrorCodes {
@@ -45,7 +42,8 @@ public class CHHSErrorCodes {
 	public static final String LOGOUT_USER_FAILED_MESSAGE = "Unable to logout the user";
 	public static final String GET_REGISTERED_USER_FAILED_MESSAGE = "get registered user failed";
 	public static final String INVALID_REQUEST_MESSAGE = "INVALID_REQUEST";
-
+	public static final String USER_DETAILS_CHECK_FAILED = "USR-010";
+	public static final String USER_DETAILS_CHECK_FAILED_MESSAGE = "Failed to check the user detail";
 	
 
 	
@@ -94,20 +92,8 @@ public class CHHSErrorCodes {
 	public static final String USER_NOT_ACTIVE_MESSAGE = "USer is not Active";
 	public static final String USER_NOT_FOUND = "USR-003";
 	public static final String USER_NOT_FOUND_MESSAGE = "User Not found";
-	public static final String GET_USER_FAILED = "USR-004";
-	public static final String GET_USER_FAILED_MESSAGE = "Failed to get Users";
-	public static final String SAVE_USER_FAILED = "USR-005";
 	public static final String SAVE_USER_FAILED_MESSAGE = "Failed to save Users";
-	public static final String GET_USER_BYID_FAILED = "USR-006";
-	public static final String GET_USER_BYID_FAILED_MESSAGE = "Failed to get User ByID";
-	public static final String UPDATE_USER_FAILED = "USR-007";
-	public static final String UPDATE_USER_FAILED_MESSAGE = "Failed to update Users";
-	public static final String DELETE_USER_FAILED = "USR-008";
-	public static final String DELETE_USER_FAILED_MESSAGE = "Failed to delete Users";
-	public static final String GET_ALL_USERS_FAILED = "USR-009";
-	public static final String GET_ALL_USERS_FAILED_MESSAGE = "Failed to get all Users";
-	public static final String USER_DETAILS_CHECK_FAILED = "USR-010";
-	public static final String USER_DETAILS_CHECK_FAILED_MESSAGE = "Failed to check the user detail";
+	
 	
 	public static final String USER_INBOX_GET_FAILED = "INB-001";
 	public static final String  USER_INBOX_GET_FAILED_MESSAGE = "Failed to check the user detail";

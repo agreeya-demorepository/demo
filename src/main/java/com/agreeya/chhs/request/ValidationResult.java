@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author amit.sharma
+ * @author AgreeYa Solutions
  *
  */
 public class ValidationResult {

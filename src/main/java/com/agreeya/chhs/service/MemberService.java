@@ -15,11 +15,7 @@ import com.agreeya.chhs.response.UserInboxResponse;
 
 /**
  * Interface for general membership services functions.
- * 
- */
-
-/**
- * 
+ * @author AgreeYa Solutions
  */
 public interface MemberService {
 

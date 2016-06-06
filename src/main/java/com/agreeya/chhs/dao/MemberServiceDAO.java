@@ -4,8 +4,8 @@ import com.agreeya.chhs.model.User;
 import com.agreeya.chhs.model.UserSession;
 
 /**
- *  @author amit.sharma
  * Provides methods to store and fetches the membership details.
+ *  @author AgreeYa Solutions
  * 
  */
 

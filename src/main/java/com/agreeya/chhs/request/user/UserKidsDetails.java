@@ -3,7 +3,7 @@ package com.agreeya.chhs.request.user;
 /**
  * Transfer Object class for User family Information
  * 
- * @author amit.sharma
+ * @author AgreeYa Solutions
  *
  */
 public class UserKidsDetails {

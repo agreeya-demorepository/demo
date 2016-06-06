@@ -32,11 +32,11 @@ import com.agreeya.chhs.util.CHHSErrorCodes;
 import com.agreeya.chhs.util.Constants;
 
 /**
- * Business delegate class for the Membership-related services
- *
- */
-/**
+ * Imlementation Class for MemberServiceBD, this class provides
+ * methods to authenticate user, session validation and save register etc 
  * 
+ * @author AgreeYa Solutions
+ *
  */
 public class MemberServiceBDImpl implements MemberServiceBD {
 

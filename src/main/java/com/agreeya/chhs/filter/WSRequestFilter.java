@@ -56,7 +56,7 @@ import com.agreeya.chhs.util.XMLBinder;
  * Tasks Done: intercept of request Api request object creation Application
  * logging Role identification and permission check
  * 
- * 
+ * @author AgreeYa Solutions
  */
 public class WSRequestFilter implements Filter {
 
@@ -225,9 +225,9 @@ public class WSRequestFilter implements Filter {
 
 		log.info("Inside preProcess method");
 		populateContextFromHeader(request);
-		//String supportedContentType = httpRequest.getContentType();
+		String supportedContentType = httpRequest.getContentType();
 		
-		String supportedContentType = "application/json";
+		
 		
 		String requestUri = httpRequest.getRequestURI();
 		Object reqObj = null;
@@ -252,7 +252,8 @@ public class WSRequestFilter implements Filter {
 			// Content-Type check
 			if (!((supportedContentType != null) && supportedContentType.equals(WSConstants.REQ_CONTENT_TYPE_JSON)
 					|| supportedContentType.equals(WSConstants.REQ_CONTENT_TYPE_XML)
-					|| supportedContentType.equals(WSConstants.REQ_CONTENT_TYPE_JSON_UTF))) {
+					|| supportedContentType.equals(WSConstants.REQ_CONTENT_TYPE_JSON_UTF) 
+					|| supportedContentType.equals(WSConstants.REQ_CONTENT_TYPE_XWWW))) {
 				log.error(CHHSErrorCodes.UNSUPPORTED_REQUEST_CONTENT_TYPE_MESSAGE);
 				throw new WSException(CHHSErrorCodes.INVALID_SERVICE_REQUEST, 
 						CHHSErrorCodes.UNSUPPORTED_REQUEST_CONTENT_TYPE_MESSAGE);

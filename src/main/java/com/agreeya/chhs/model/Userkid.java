@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 /**
  * The persistent class for the userkids database table.
- * 
+ * @author AgreeYa Solutions
  */
 @Entity
 @Table(name = "userkids")

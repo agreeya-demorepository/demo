@@ -4,6 +4,7 @@ package com.agreeya.chhs.to;
  * Class used by the REST layer to transmit any error messages that are to be sent to the client. This class encapsulates an 'CHHS'-
  * specific error message instead of the raw error messages that might have been received from any external system.
  * 
+ * @author AgreeYa Solutions
  */
 public class ErrorMessageTO {
 

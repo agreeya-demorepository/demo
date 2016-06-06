@@ -8,7 +8,7 @@ import com.agreeya.chhs.to.UserContextTO;
 
 /**
  * Returns user context
- * 
+ * @author AgreeYa Solutions
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)

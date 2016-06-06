@@ -15,7 +15,8 @@ import com.agreeya.chhs.request.UserRegistrationRequest;
 import com.agreeya.chhs.response.UserInboxResponse;
 
 /**
- * @author amit.sharma
+ * Provides methods to store and fetches the user details.
+ * @author AgreeYa Solutions
  * 
  */
 public interface UserDAO extends BaseDAO {

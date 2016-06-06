@@ -5,7 +5,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 /**
- * @author amit.sharma
+ * Context Provider to get handle of Spring context
+ * @author AgreeYa Solutions
  *
  */
 public class ContextProvider implements ApplicationContextAware {

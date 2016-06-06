@@ -10,7 +10,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * @author amit.sharma
+ * POJO for UserContext that will be used for all API validation and Security
+ * @author AgreeYa Solutions
  *
  */
 @XmlRootElement

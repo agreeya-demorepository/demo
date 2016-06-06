@@ -26,7 +26,9 @@ import com.agreeya.chhs.util.JsonConverter;
 import com.agreeya.chhs.util.WSConstants;
 
 /**
- * 
+ * Controller class for all APIs related to facility search
+ * @author AgreeYa Solutions
+ *
  */
 @Path("/facilities")
 public class FacilitiesController {

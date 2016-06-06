@@ -4,7 +4,9 @@
 package com.agreeya.chhs.exception;
 
 /**
- * 
+ * User Exception
+ * @author AgreeYa Solutions
+ *
  */
 public class UserException extends CHHSException {
 

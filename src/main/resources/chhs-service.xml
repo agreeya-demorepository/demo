@@ -12,17 +12,10 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-	<!-- Entries for User service -->
-	<bean id="userService" class="com.agreeya.chhs.service.impl.UserServiceImpl">
-		<property name="userDAO" ref="userDAO"/>
-	</bean>
-	
 	<bean id="memberService" class="com.agreeya.chhs.service.impl.MemberServiceImpl">
 		<property name="memberServiceDAO" ref="memberServiceDAO"/>
 		<property name="userDAO" ref="userDAO"/>
 	</bean>
-	
-	
 	
 	<!-- Entries for Application Logger -->
 	<bean id="applicationLoggerService" class="com.agreeya.chhs.service.impl.ApplicationLoggerServiceImpl">

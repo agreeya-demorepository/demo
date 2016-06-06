@@ -11,7 +11,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
 /**
- * @author amit.sharma
+ * @author AgreeYa Solutions
  *
  */
 public class ResourceBundleUtil extends PropertyPlaceholderConfigurer {

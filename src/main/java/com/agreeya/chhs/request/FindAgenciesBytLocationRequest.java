@@ -8,7 +8,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
- * @author amit.sharma
+ * Request POJO for finding Facilities by Location
+ * @author AgreeYa Solutions
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)

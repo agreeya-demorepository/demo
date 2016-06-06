@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.agreeya.chhs.dao.impl;
 
 import java.sql.SQLException;
@@ -39,6 +36,9 @@ import com.agreeya.chhs.util.DateUtil;
 
 /**
  * 
+ * implementation class for UserDAO
+ * @author AgreeYa Solutions
+ *
  */
 public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 

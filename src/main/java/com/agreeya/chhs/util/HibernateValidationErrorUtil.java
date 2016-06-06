@@ -11,7 +11,7 @@ import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
 /**
  * utility is used to get the server side validation message from the properties file
- * @author amit.sharma
+ * @author AgreeYa Solutions
  *
  */
 public class HibernateValidationErrorUtil extends PropertyPlaceholderConfigurer {

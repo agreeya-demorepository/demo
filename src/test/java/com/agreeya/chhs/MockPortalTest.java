@@ -44,7 +44,8 @@ import com.agreeya.chhs.util.ContextProvider;
 import com.google.gson.Gson;
 
 /**
- * @author amit.sharma
+ * Mock Test class to call all API's
+ * @author AgreeYa Solutions
  *
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -183,7 +184,7 @@ public class MockPortalTest {
 	 */
 
 	@Test
-	public void floginNegativeTest() throws Exception {
+	public void loginNegativeTest() throws Exception {
 
 		CreateUserContextRequest usReq = new CreateUserContextRequest();
 
@@ -379,7 +380,7 @@ public class MockPortalTest {
 	 * @throws Exception
 	 */
 	@Test
-	public void bregisterUserNegativeTest() throws Exception {
+	public void registerUserNegativeTest() throws Exception {
 
 		UserRegistrationRequest urr = new UserRegistrationRequest();
 
@@ -425,11 +426,15 @@ public class MockPortalTest {
 	}
 
 	@Test
-	public void aregisterUserTest() throws Exception {
+	public void registerUserTest() throws Exception {
 
 		UserRegistrationRequest urr = new UserRegistrationRequest();
+		
+		String userName = "test" + String.valueOf(System.currentTimeMillis());
+		String email =  String.valueOf(System.currentTimeMillis()) + "@test.com";
+		
 
-		UserProfile personalProfile = new UserProfile("y", "y", "a88@a.com", "testUser88", "testUser");
+		UserProfile personalProfile = new UserProfile("y", "y", email, userName, "testUser");
 		UserSpouseDetails userSpouseDetails = new UserSpouseDetails("9876543210", "05/31/2016", "fnameTest", "M", "hobbies Test", "200",
 				"occupation", "preference", "race", "religion");
 		UserPersonal personalDetails = new UserPersonal("9872664213", "05/31/2016", "spfN test", "f", "hobbies test", "12345",

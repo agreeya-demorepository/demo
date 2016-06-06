@@ -3,7 +3,8 @@ package com.agreeya.chhs.response;
 import com.agreeya.chhs.response.hhsapi.FacilityList;
 
 /**
- * @author amit.sharma
+ *  Facility finder API response
+ * @author AgreeYa Solutions
  *
  */
 public class FacilityFinderResponse extends WSResponse {

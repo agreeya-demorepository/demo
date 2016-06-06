@@ -2,7 +2,8 @@ package com.agreeya.chhs.request;
 
 
 /**
- * @author amit.sharma
+ * Reuest class Abstraction for paths which dont require login details
+ * @author AgreeYa Solutions
  *
  */
 public abstract class AbstractDoesNotRequireAnyContext {

@@ -1,7 +1,7 @@
 package com.agreeya.chhs.response;
 
 /**
- * @author amit.sharma
+ * @author AgreeYa Solutions
  *
  */
 public class SessionValidateResponse extends WSResponse {

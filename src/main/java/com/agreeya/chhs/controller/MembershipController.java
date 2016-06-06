@@ -27,7 +27,9 @@ import com.agreeya.chhs.util.JsonConverter;
 import com.agreeya.chhs.util.WSConstants;
 
 /**
- * @author amit.sharma REST controller for getting UserDetails.
+ * REST controller for getting UserDetails, save register.
+ * 
+ * @author AgreeYa Solutions 
  */
 @Path("/member")
 public class MembershipController {

@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Transfer Object class for User family Information
  * 
- * @author amit.sharma
+ * @author AgreeYa Solutions
  *
  */
 public class UserFamilyDetails {

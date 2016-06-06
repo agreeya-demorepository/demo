@@ -16,7 +16,7 @@ import javax.persistence.TemporalType;
 
 /**
  * The persistent class for the userspouse database table.
- * 
+ * @author AgreeYa Solutions
  */
 @Entity
 @Table(name = "userspouse")

@@ -16,7 +16,7 @@ import javax.persistence.TemporalType;
 
 /**
  * The persistent class for the userfamily database table.
- * 
+ * @author AgreeYa Solutions
  */
 @Entity
 @Table(name = "userfamily")

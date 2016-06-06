@@ -22,7 +22,8 @@ import com.agreeya.chhs.exception.WSException;
 import com.agreeya.chhs.util.CHHSErrorCodes;
 
 /**
- *
+ * Imlementation for AESSecurityBD, this class provides methods
+ * for AES security encryption, Decryption
  */
 public class AESSecurityBDImpl implements AESSecurityBD {
 

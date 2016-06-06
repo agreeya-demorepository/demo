@@ -8,6 +8,7 @@ import com.agreeya.chhs.util.Constants.ErrorType;
 
 /**
  * Top level exception class for the various services in CHHS application.
+ * @author AgreeYa Solutions
  * 
  */
 public class CHHSException extends RuntimeException {

@@ -1,7 +1,8 @@
 package com.agreeya.chhs.util;
 
 /**
- * @author amit.sharma
+ * Constants file for Application
+ * @author AgreeYa Solutions
  *
  */
 public class Constants {
@@ -44,57 +45,4 @@ public class Constants {
 	public enum UserStatusType {
 		ACTIVE, INACTIVE, INCOMPLETE
 	}
-
-	/**
-	 * day of week
-	 *
-	 */
-	public enum DayOfWeek {
-
-		SUNDAY(1), MONDAY(2), TUESDAY(3), WEDNESDAY(4), THURSDAY(5), FRIDAY(6), SATURDAY(7);
-
-		private int day;
-
-		DayOfWeek(int day) {
-			this.day = day;
-		}
-
-		public int getDay() {
-			return day;
-		}
-
-		public static int fromString(String day) {
-			int retValue = 0;
-			if (day != null) {
-				String upperDay = day.toUpperCase();
-				switch (upperDay) {
-				case "SUNDAY":
-					retValue = DayOfWeek.SUNDAY.getDay();
-					break;
-				case "MONDAY":
-					retValue = DayOfWeek.MONDAY.getDay();
-					break;
-				case "TUESDAY":
-					retValue = DayOfWeek.TUESDAY.getDay();
-					break;
-				case "WEDNESDAY":
-					retValue = DayOfWeek.WEDNESDAY.getDay();
-					break;
-				case "THURSDAY":
-					retValue = DayOfWeek.THURSDAY.getDay();
-					break;
-				case "FRIDAY":
-					retValue = DayOfWeek.FRIDAY.getDay();
-					break;
-				case "SATURDAY":
-					retValue = DayOfWeek.SATURDAY.getDay();
-					break;
-				default:
-					break;
-				}
-			}
-			return retValue;
-		}
-	}
-
 }

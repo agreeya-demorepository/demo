@@ -18,7 +18,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 /**
- * @author amit.sharma
+ * utility class to call HHS API
+ * @author AgreeYa Solutions
  *
  */
 public class HHSApiCaller {
