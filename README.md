@@ -9,8 +9,49 @@
 
 ### Technical Approach
 +
+CHHS Prototype development is carried out using the Agile Scrum methodology that provides ability to develop iteratively and incrementally. A multidisciplinary team led by the Product Owner carries out all the activities required to be done in order to successfully deliver a working software system.
+The entire requirements elicitation, design and development process involved representatives from usergroups to work in collaboration with the scrum team. Joint Application Development Sessions(JAD) are conducted to understand the need/requirement, deliberate functionality workflows, design screen mockups and document Business Requirement Document (BRD).Basis this BRD,The product backlog -Feature/User stories, Tasks are created with approved backlog priority in the Redmine tool. Daily standups, Task Boarding are done to review the progress of the work items.
 
+#####Technical Approach and General Architectural considerations
 
+#####Service Oriented Architecture 
+The prototype is based on the Service oriented architecture (SOA) with the client-tier, business-tier and data-tier layers. The solution is built using AngularJS client-tier and Java backend with Jersey RESTful Web Services framework. 
+
+#####Loose Coupling 
+All services are loosely coupled  and autonomous to provide maximum flexibility in development, deployment and usage. Each service communicates with another through a service invocation and need not to be concerned with the service's internal implementation. Also loose coupling will be implemented by layering the architecture in multiple tiers and segregating presentation, application and database layer.
+
+#####Data communication Protocol -Data Exchange Format 
+Data exchange between client-tier and business-tier (services) would happen using JSON objects. JSON is a lightweight data interchange format and its use moves the processing of data (returned) on to the browser and hence reduces load on the server. Even though usage of JSON is recommended, we can alternatively just exchange plain XML data also.
+
+#####Audit Trail 
+At the backend layer the logging  and tracing is handled at the controller level to capture the details of the entire API calls. The application log table will store these details.
+
+##### Usability 
+The user interface must have dynamic structure that does not require complete page refreshes to complete tasks. The System shall provide the ability to efficiently add data – minimizing to the greatest extent possible, the number of keystrokes required to enter all required information. AngularJs library is used for Ajax interactions at client layer and to a build highly interactive rich UI web application.
+
+#####Maintenance and Portability 
+The whole application’s business logic and data can be packaged and transferred from one platform to other like local deployment to hosted solution, hosted solution to localized deployment, from one hosted solution to the other with minimum interruption. The application is developed using standard web technologies to provide full accessibility from desktop/laptop and tablet browsers.
+
+#####Security  – As soon the user logs into the application a sessionid is created that is applicable to the specific user and does not time out until the subscriber is inactive for configurable period of time. The handshake between client and API calls is enabled by sharing this sessionid in very subsequent API calls by that client. This secures client access in the application. Additionally, the application can be accessed over the http secure using ssl certificate for secure communication.
+
+#####Sample Request Flow
+The client request coming from web browser, Android Tablet/Smartphone will hit the Business-tier which is composed of java backend services (REST - WS). The java backend services would in turn fetch the data and response back relevant data to the presentation layer. Data exchange between client and/or business services happens using JSON objects.
+The prototype development follows standards of Java code conventions and checkstyle guides as prescribed by AgreeYa Solutions Design team. This enforces greater consistency in the code that makes it easier to develop and maintain. Integrating these guidelines with IDE facilitates clean, consistent code pattern and reduces build time issues.
+#####Prototype Screen Workflows
+
+1.	User enters the URL , https://fostercaredemo-agreeya.com in the web browser or smartphone
+2.	User lands on the Home page from where a new user can initiate creation of  a Family profile by clicking on the Family Registration link.
+3.	Family Registration is a step by step process involving fulfillment of Eligibility Criteria upon doing so user is directed sequentially to Account Details, 		Personal Information, Family Narratives & Preferences, License & Agency Details tabs. Upon successfully entering relevant information user can Submit the 		Profile details which are saved into the database. User receives acknowledgement for completing the registration process which is under review till approved.
+	During the family registration process user can partially fill the form, save and exit from the application to return later to continue filling the form by 		login to the system and subsequently clicking on the Manage Profiles.
+4.	An existing user (with login credentials) can login to the application by clicking the Login link on the Home page.
+5.	An existing user can click on the Manage profiles link to update their approved profiles details anytime at a later stage.
+6.	An existing user can search through the Children Residential Facilities within a given zip. Upon entering a zip code the application communicates with the HHS 		API to fetch data for all the facilities (Adoption Agency, Foster Family Agency and Foster Family Sub-Agency) within the entered zipcode and displays it in a 		grid on the screen.
+7.	An existing user can search through the Foster Care Agencies in their nearby neighborhood. Upon entering a radius limit of users current geo location, the 		application communicates with the HHS API to fetch data for the facilities with Facility type Foster Family Agency within the given coordinates range. The 		details of Foster Care Agencies are displayed in a grid on the screen.
+8.	An existing user can view a Private mailbox.
+9.	A logged in User can log out by clicking the logout link
+
+The Prototype testing involved execution of automated Unit test cases using JUnits. Additionally, automation system test case suite is build to test the entire application. During sprint reviews the usergroup are involved to gather feedback around usability and accepted refinements are added as new backlog work items. User feedbacks are ultimate to successful release of the application.
+Automated unit test cases and system test cases are integrated with the build and deployment process executed using the Jenkins Continuous integration tool. Successful builds(.war files) are deployed automatically to a target server. An automated smoke test case is executed to confirm the successful working of the application.
 
 +
 +
@@ -32,7 +73,7 @@
 
 ##### Agile-SCRUM Model :
    The development of this prototype is carried out using the Agile SCRUM model. Multi disciplinary team comprising 
-   PRODUCT OWNER , Scrum Master,Business Analyst, Web Designer,S/W Backend Developer, Fontend Developer, S/W Tester , Configuration Manager
+   PRODUCT OWNER , Scrum Master,Business Analyst, Web Designer,S/W Backend Developer, Frontend Developer, S/W Tester , Configuration Manager
    The whole process is carried out using Agile software development capabilities with iterartive and incremental development through sprints.Product Backlog - User       Stories and Tasks are managed through the REDMINE Project Management and Bug Tracking tool.
    Two dev sprints of 4 days each in duration are executed to cover the development of work items. Prior to the first Sprint a Design phase is executed to 
    cover activitites related to UI Design, Technical Architecture Design, DB Design, Product Backlog Planning , Sprint Scheduling , Test Planning. 
@@ -95,22 +136,26 @@
 				a. REDMINE Ver 3.2.2	OPEN SOURCE
 
 
-### Responsive Deisgn 
+### Responsive Design 
  UI is designed using the Bootstrap front end framework. UI designs are responsive in nature and hence compatible with multiple mobile devices and platforms like 
  smartphones, tablets on  Android, iOS
+This demonstrates the screens to be accessible from multiple devices.
 
 
 ### Style Guide & Coding Conventions
-
+As part of coding conventions and stylechecks we have used a set of standard guidelines so as to have consistency in coding approach during 
+the course of development of this prototype.File stylecheck.xml provides the list of stylechecks used and PDM is used for following coding conventions and standards for development of Java backend.
+This demonstrates adherence to the use of a Style Guide during the prototype development process.
 
 
 ### Unit & Automation Testing
 Junit based units test cases are developed as part of the code . These are executed by the developer as part of the development activity . JUnits are exeucted automatically during the Build process.
-
 There are two ways in which System Testing for the application is done. Manual test case execution and automation test case suite is created 
 to run the test case automatically using a script. The results of the automation test cases are published in a file .
 Pl refer the GITHUB folder 
 
+Pl refer GITHUB folder for Automation test cases scripts 
+This demonstrates the adherence to the US Digital Services playbook play AUTOMATION TESTING AND DEPLOYMENTS
 
 ### Configuration Management
  
@@ -128,7 +173,7 @@ Developers work in their local branch(local-branch) on GITHUB and whenever they 
 		6. If the Build fails due to violation of checkstyle, Unit Test failure , compilation error due to some dependencies a notification of build failure is 		   sent to the team , team needs to fix the the issue and initiate rebuild.
 
 Pl refer GITHUB folder for Builds and their results published.
-		
+This demonstrates during the prototype development process the use of a setup  that provides continous integration framework.
 
 
   
@@ -136,7 +181,7 @@ Pl refer GITHUB folder for Builds and their results published.
 Post the system test , a User Acceptance Test with usergroup is conducted to validate usability and system functionality. Users 
   
 
-### Monitoring
+### Continous Monitoring
 
   
 
