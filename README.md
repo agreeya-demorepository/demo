@@ -32,11 +32,13 @@ The user interface must have dynamic structure that does not require complete pa
 #####Maintenance and Portability 
 The whole application’s business logic and data can be packaged and transferred from one platform to other like local deployment to hosted solution, hosted solution to localized deployment, from one hosted solution to the other with minimum interruption. The application is developed using standard web technologies to provide full accessibility from desktop/laptop and tablet browsers.
 
-#####Security  – As soon the user logs into the application a sessionid is created that is applicable to the specific user and does not time out until the subscriber is inactive for configurable period of time. The handshake between client and API calls is enabled by sharing this sessionid in very subsequent API calls by that client. This secures client access in the application. Additionally, the application can be accessed over the http secure using ssl certificate for secure communication.
+#####Security  
+As soon the user logs into the application a sessionid is created that is applicable to the specific user and does not time out until the subscriber is inactive for configurable period of time. The handshake between client and API calls is enabled by sharing this sessionid in very subsequent API calls by that client. This secures client access in the application. Additionally, the application can be accessed over the http secure using ssl certificate for secure communication.
 
 #####Sample Request Flow
 The client request coming from web browser, Android Tablet/Smartphone will hit the Business-tier which is composed of java backend services (REST - WS). The java backend services would in turn fetch the data and response back relevant data to the presentation layer. Data exchange between client and/or business services happens using JSON objects.
 The prototype development follows standards of Java code conventions and checkstyle guides as prescribed by AgreeYa Solutions Design team. This enforces greater consistency in the code that makes it easier to develop and maintain. Integrating these guidelines with IDE facilitates clean, consistent code pattern and reduces build time issues.
+
 #####Prototype Screen Workflows
 
 1.	User enters the URL , https://fostercaredemo-agreeya.com in the web browser or smartphone
