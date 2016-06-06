@@ -21,22 +21,16 @@
 
           if(userResponse.userContext){
             $cookieStore.put("userContext", userResponse);
-            var context = $cookieStore.get('userContext');
-            console.log("Get the context from cookieStore");
-            console.log(context);
-            if(context.userContext){
-              if(context.userContext.firstName != ""){
-                model.fullName = context.userContext.firstName + ' ' + context.userContext.lastName;
+
+              if(userResponse.userContext.firstName != ""){
+                model.fullName = userResponse.userContext.firstName + ' ' + userResponse.userContext.lastName;
               } else {
-                model.fullName = context.userContext.userName;
+                model.fullName = userResponse.userContext.userName;
               }
               model.isLoggedIn = true;
               toaster.pop('success', "Login", "You are successfully logged in.");
               location.href="index.html";
-            } else {
-              toaster.pop('error', "Login", "Wrong credentials! Please try again.");
-              model.isLoggedIn = false;
-            }
+
           }
         } else {
          toaster.pop('error', "Login", "Wrong credentials! Please try again.");
@@ -56,7 +50,7 @@
             if(userResponse.status == "0"){
               $cookieStore.remove('userContext');
               model.isLoggedIn = false;
-              location.href="#/";
+              location.href="index.html";
             } else {
               toaster.pop('error', "Logout", userResponse.message);
               model.isLoggedIn = true;
@@ -66,7 +60,7 @@
         toaster.pop('error', "Logout", "Error in logout");
         $cookieStore.remove('userContext');
         model.isLoggedIn = false;
-        location.href="#/";
+        location.href="index.html";
       });
 
     }

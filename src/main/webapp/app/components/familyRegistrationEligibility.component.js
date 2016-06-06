@@ -14,7 +14,7 @@
       if(model.homeStudy.value.toLowerCase() === "yes" && model.priorTraining.value.toLowerCase() === "yes"){
         model.$router.navigate(['FamilyRegistrationProfile']);
       } else {
-        toaster.pop('error', "Eligibility Criteria to become Foster Parent", "Selected criteria does not match!");
+        toaster.pop('error', 'Eligibility criteria', "For now, you do not meet the eligibility criteria to become a foster parent. Please Contact Us, we would be happy to assist you.");
         console.log("Selected criteria does not match");
         location.href="#/home";
       }
