@@ -76,14 +76,14 @@
 				b. UI Development - AngularJS Ver 1.5	OPEN SOURCE
 #####  BackEnd Technologies & Tools
 				a. Java JDK ver 1.8 OPEN SOURCE
-				b. Application Server - Tomacat Ver OPEN SOURCE
-				c. Spring Framework 4.2.6  OPEN SOURCE
-				d. Web Services - Jersey RESTful Web Services framework REST JAX-RS(Jersey) Ver 2.2.1 OPEN SOURCE
-				e. ORM Tool - Hibernate Ver 5 OPEN SOURCE
-				f. Build Tool - Maven Ver. OPEN SOURCE
-				g. JUnits Ver. OPEN SOURCE
-				h. Continous Integration - Build Automation & Deployment - Jenkins Ver  OPEN SOURCE
-				i. IDE - Eclipse Ver  OPEN SOURCE
+				b. Application Server - Tomacat Ver 7.0.69 OPEN SOURCE
+				c. Spring Framework Release 4.2.6  OPEN SOURCE
+				d. Web Services - Jersey RESTful Web Services framework REST JAX-RS(Jersey) Ver 1.19 OPEN SOURCE
+				e. ORM Tool - Hibernate Ver 5.0.3 FINAL OPEN SOURCE
+				f. Build Tool - Maven Ver.3 OPEN SOURCE
+				g. JUnits Ver. 4.12 OPEN SOURCE
+				h. Continous Integration - Build Automation & Deployment - Jenkins Ver 1.65 OPEN SOURCE
+				i. IDE - Eclipse MARS OPEN SOURCE
 #####  Platform
 				a. OS - Ubuntu Ver.  OPEN SOURCE
 #####  Database
@@ -105,17 +105,35 @@
 
 
 ### Unit & Automation Testing
+Junit based units test cases are developed as part of the code . These are executed by the developer as part of the development activity . JUnits are exeucted automatically during the Build process.
 
+There are two ways in which System Testing for the application is done. Manual test case execution and automation test case suite is created 
+to run the test case automatically using a script. The results of the automation test cases are published in a file .
+Pl refer the GITHUB folder 
 
 
 ### Configuration Management
  
 
-### Continous Integration
+### Continous Integration & Deployment
+During the course of development of this prototype , we have followed automated build and deployment process using the Jenkins Continous Integration tool.
+Developers work in their local branch(local-branch) on GITHUB and whenever they are done with their workitems, they can commit their changes to Dev branch
+( Dev-branch). Jenkins CI tool monitors the changes done on the GITHUB repository and perfoms following steps in a sequence
+				
+		1. Validates the Checkstyle per checkstyle guide . Checktyle.xml contains some of the checkstyles we used during development of backend java code
+		2. Builds and runs the Junit based Unit and Integrations test Cases
+		3. On successfull build, assigns a build ID to the version of the code that is compiled
+		4. A notification for successful build is sent to the team .
+		5. Automatically deploys the application ( .war file) in a different server using the Deploy to Container plugin of the Jenkins tool
+		6. If the Build fails due to violation of checkstyle, Unit Test failure , compilation error due to some dependencies a notification of build failure is 		   sent to the team , team needs to fix the the issue and initiate rebuild.
+
+Pl refer GITHUB folder for Builds and their results published.
+		
+
 
   
 ### User Acceptance Testing (UAT)
-
+Post the system test , a User Acceptance Test with usergroup is conducted to validate usability and system functionality. Users 
   
 
 ### Monitoring
