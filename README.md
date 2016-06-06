@@ -2,47 +2,73 @@
 ##### https://fostercaredemo-agreeya.com
 
 ### Synopsis
-  This project is about building a working prototype that would enable Families to Register and Manage their profiles so that they can receive foster placements.
-  Apart from Registering their Profiles, prototype functionality would allow registered users to Manage Profiles , Search through Children Residential Facilities         within their zipcode and locate Foster care agencies in their nearby neighbourhood.Registered users can view their private mailbox for communication emails 
-  sent or received.The prototype utilizes the publicly exposed HHS API to retrieve information related to the Foster Care Agencies in nearby neighbourhood 
-  of the user.
-********************************************************************************************************************************************************************
+  This project is about building a working prototype that would enable Families to Register and Manage their profiles so that they can receive foster  
+  placements.Apart from Registering their Profiles, prototype functionality would allow registered users to Manage Profiles , Search through Children  
+  Residential Facilities within their zipcode and locate Foster care agencies in their nearby neighbourhood.Registered users can view their private  
+  mailbox for communication emails sent or received.The prototype utilizes the publicly exposed HHS API to retrieve information related to the Foster  
+  Care Agencies in nearby neighbourhood of the user.  
+
+***********************************************************************************************************************************************************
 ### CHHS Prototype Development Approach
-AgreeYa as a CMMI certified organization brings over 17 years of experience of delivering complex and large projects leveraging Agile development methodology, templates and guidelines. We recognize each of the projects have a set of unique strategic objectives, business needs, operational considerations and organizational challenges. As a result, we believe in a collaborative, well-communicated and consultative approach
+AgreeYa as a CMMI certified organization brings over 17 years of experience of delivering complex and large projects leveraging Agile development  
+methodology,templates and guidelines. We recognize each of the projects have a set of unique strategic objectives, business needs, operational  
+considerations and organizational challenges. As a result, we believe in a collaborative, well-communicated and consultative approach  
 
-In this case as well the CHHS Prototype development was carried out following Agile Scrum methodology that provides ability to develop iteratively and incrementally. A multidisciplinary team led by experienced Product Owner/Project Manager carried out all the activities in order to successfully deliver a working CHHS prototype. The entire requirements elicitation, design and development process involved representatives from usergroups to work in collaboration with the scrum team. 
+In this case as well the CHHS Prototype development was carried out following Agile Scrum methodology that provides ability to develop iteratively and  
+incrementally.A multidisciplinary team led by experienced Product Owner/Project Manager carried out all the activities in order to successfully deliver  
+a working CHHS prototype. The entire requirements elicitation, design and development process involved representatives from usergroups to work in  
+collaboration with the scrum team.  
 
-During the prototype development Joint Application Development Sessions (JAD) were conducted to understand the need/requirement, deliberated functionality workflows, design screen mockups and documented Business Requirement Document (BRD). Basis this BRD, the product backlog -Feature/User stories, tasks were created with approved backlog priority in the Redmine tool. Daily standups, Task Boarding were done to review the progress of the work.
-
+During the prototype development Joint Application Development Sessions (JAD) were conducted to understand the need/requirement, deliberated functionality  
+workflows,design screen mockups and documented Business Requirement Document (BRD). Basis this BRD, the product backlog -Feature/User stories, tasks were  
+created with approved backlog priority in the Redmine tool. Daily standups, Task Boarding were done to review the progress of the work.  
 
 
 #####Technical Approach and General Architectural considerations
 
 ######Service Oriented Architecture 
-The prototype is based on the Service oriented architecture (SOA) with the client-tier, business-tier and data-tier layers. The solution is built using AngularJS client-tier and Java backend with Jersey RESTful Web Services framework which is an open source, production quality, framework for developing RESTful Web Services in Java. 
+The prototype is based on the Service oriented architecture (SOA) with the client-tier, business-tier and data-tier layers. The solution is built using  
+AngularJS client-tier and Java backend with Jersey RESTful Web Services framework which is an open source, production quality, framework for developing  
+RESTful Web Services in Java. 
 
 ######Loose Coupling 
-All services are loosely coupled and autonomous to provide maximum flexibility in development, deployment and usage. Each service communicates with another through a service invocation and allow ease of communication without much concerns of service's internal implementation. Also loose coupling are implemented by layering the architecture in multiple tiers and segregating presentation, application and database layer.
+All services are loosely coupled and autonomous to provide maximum flexibility in development, deployment and usage. Each service communicates with another  
+through a service invocation and allow ease of communication without much concerns of service's internal implementation. Also loose coupling are implemented  
+by layering the architecture in multiple tiers and segregating presentation, application and database layer.  
 
 ######Lightweight Data Exchange Format  
-Data exchange between client-tier and business-tier (services) is through JSON objects. We believe JSON is a lightweight data interchange format and its use moves the processing of data (returned) on to the browser and hence reduces load on the server. Even though usage of JSON is recommended, we can alternatively just exchange plain XML data also.
+Data exchange between client-tier and business-tier (services) is through JSON objects. We believe JSON is a lightweight data interchange format and its  
+use moves the processing of data (returned) on to the browser and hence reduces load on the server. Even though usage of JSON is recommended, we can 
+alternatively just exchange plain XML data also.
 
 ######Audit Trail 
-At the backend layer the logging and tracing is handled at the controller level to capture the details of the entire API calls. The application log table will store these details.
+At the backend layer the logging and tracing is handled at the controller level to capture the details of the entire API calls. The application log table  
+will store these details.
 
 ######Usability 
-The user interfaces have dynamic structure that do not require complete page refreshes to complete tasks The CHHS application has ability to efficiently support data – minimizing i.e. user will have to follow minimum number of keystrokes to enter all required information. An AngularJs library is used for Ajax interactions at client layer and to build highly interactive rich UI web application.
+The user interfaces have dynamic structure that do not require complete page refreshes to complete tasks. The CHHS application has ability to efficiently  
+add data i.e. user will have to follow minimum number of keystrokes to enter all required information. An AngularJs library is used for Ajax interactions  
+at client layer and to build highly interactive rich UI web application.
 
 ######Maintenance and Portability 
-The whole application’s business logic and data can be packaged and transferred from one platform to other like local deployment to hosted solution, hosted solution to localized deployment, from one hosted solution to the other with minimum interruption. The application is developed using standard web technologies to provide full accessibility from desktop/laptop and tablet browsers.
+The whole application’s business logic and data can be packaged and transferred from one platform to other like local deployment to hosted solution,  
+hosted solution to localized deployment, from one hosted solution to the other with minimum interruption. The application is developed using standard web  
+technologies to provide full accessibility from desktop/laptop and tablet browsers.
 
 ######Security  
-As soon the user logs into the application a user specific session-Id is created which does not get time out until the subscriber gets inactive during configured duration. The handshake between client & API calls is enabled by sharing this session-Id in every subsequent API calls by that client. This secures client access in the application. Additionally, the application can be accessed over the http secure using ssl certificate for secure communication.
+As soon the user logs into the application a user specific session-Id is created which does not get time out until the subscriber gets inactive during  
+configured duration. The handshake between client & API calls is enabled by sharing this session-Id in every subsequent API calls by that client.  
+This secures client access in the application. Additionally, the application can be accessed over the http secure using ssl certificate for secure  
+communication.
 
 #####Sample Request Flow
-The client request coming from web browser, Android Tablet/Smartphone hits the Business-tier which is composed of java backend services (REST - WS). The java backend services would fetch the data and response back relevant data to the presentation layer. Data exchange between client and/or business services happens using JSON objects.
+The client request coming from web browser, Android Tablet/Smartphone hits the Business-tier which is composed of java backend services (REST - WS).  
+The java backend services would fetch the data and response back relevant data to the presentation layer. Data exchange between client and/or business  
+services happens using JSON objects.
 
-The CHHS prototype development follows standards of Java code conventions and checkstyle guides as prescribed by AgreeYa Solutions Design team. This enforces greater consistency in the code that makes it easier to develop and maintain. Integrating these guidelines with IDE facilitates clean and consistent code pattern that reduces build time issues.
+The CHHS prototype development follows standards of Java code conventions and checkstyle guides as prescribed by AgreeYa Solutions Design team. This  
+enforces greater consistency in the code that makes it easier to develop and maintain. Integrating these guidelines with IDE facilitates clean and  
+consistent code pattern that reduces build time issues.
 
 
 #####Prototype Screen Workflows
