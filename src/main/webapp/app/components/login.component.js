@@ -18,7 +18,6 @@
       var userContext;
       userService.validateUser(userName, psd).then(function(userResponse){
         if(userResponse) {
-          toaster.pop('success', "Login", "You are successfully logged in.");
 
           if(userResponse.userContext){
             $cookieStore.put("userContext", userResponse);
@@ -32,6 +31,7 @@
                 model.fullName = context.userContext.userName;
               }
               model.isLoggedIn = true;
+              toaster.pop('success', "Login", "You are successfully logged in.");
               location.href="index.html";
             } else {
               toaster.pop('error', "Login", "Wrong credentials! Please try again.");
