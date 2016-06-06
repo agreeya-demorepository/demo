@@ -6,9 +6,8 @@
   Apart from Registering their Profiles, prototype functionality would allow registered users to Manage Profiles , Search through Children Residential Facilities         within their zipcode and locate Foster care agencies in their nearby neighbourhood.Registered users can view their private mailbox for communication emails 
   sent or received.The prototype utilizes the publicly exposed HHS API to retrieve information related to the Foster Care Agencies in nearby neighbourhood 
   of the user.
-
+********************************************************************************************************************************************************************
 ### Technical Approach
-+
 CHHS Prototype development is carried out using the Agile Scrum methodology that provides ability to develop iteratively and incrementally. A multidisciplinary team led by the Product Owner carries out all the activities required to be done in order to successfully deliver a working software system.
 The entire requirements elicitation, design and development process involved representatives from usergroups to work in collaboration with the scrum team. Joint Application Development Sessions(JAD) are conducted to understand the need/requirement, deliberate functionality workflows, design screen mockups and document Business Requirement Document (BRD).Basis this BRD,The product backlog -Feature/User stories, Tasks are created with approved backlog priority in the Redmine tool. Daily standups, Task Boarding are done to review the progress of the work items.
 
@@ -55,8 +54,7 @@ The prototype development follows standards of Java code conventions and checkst
 The Prototype testing involved execution of automated Unit test cases using JUnits. Additionally, automation system test case suite is build to test the entire application. During sprint reviews the usergroup are involved to gather feedback around usability and accepted refinements are added as new backlog work items. User feedbacks are ultimate to successful release of the application.
 Automated unit test cases and system test cases are integrated with the build and deployment process executed using the Jenkins Continuous integration tool. Successful builds(.war files) are deployed automatically to a target server. An automated smoke test case is executed to confirm the successful working of the application.
 
-+
-+
+********************************************************************************************************************************************************************
 ### Branches
 
 #####  Master Branch : 
