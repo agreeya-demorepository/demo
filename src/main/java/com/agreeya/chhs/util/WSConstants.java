@@ -2,6 +2,7 @@ package com.agreeya.chhs.util;
 
 /**
  * Contains constants used in the REST services.
+ * @author AgreeYa Solutions
  * 
  */
 public class WSConstants {
@@ -16,6 +17,7 @@ public class WSConstants {
 	public static final String REQ_CONTENT_TYPE_JSON = "application/json";
 	public static final String REQ_CONTENT_TYPE_JSON_UTF = "application/json; charset=UTF-8";
 	public static final String REQ_CONTENT_TYPE_XML = "text/xml";
+	public static final String REQ_CONTENT_TYPE_XWWW = "application/x-www-form-urlencode";
 
 	public static final String STATUS_SUCCESS = "SUCCESS";
 	public static final String STATUS_EXCEPTION = "EXCEPTION";

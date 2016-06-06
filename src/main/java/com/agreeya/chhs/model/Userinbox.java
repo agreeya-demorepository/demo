@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 
 /**
  * The persistent class for the userinbox database table.
- * 
+ * @author AgreeYa Solutions
  */
 @Entity
 @Table(name = "userinbox")

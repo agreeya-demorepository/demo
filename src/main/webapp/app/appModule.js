@@ -1,5 +1,5 @@
-(function () {
-    "use strict";
+(function (angular) {
+    'use strict';
     // get ag-Grid to create an Angular module and register the ag-Grid directive
     agGrid.initialiseAgGridWithAngular1(angular);
     var module = angular.module("chhsDemo", ["toaster", "ngComponentRouter", "ngResource", "ngCookies", "angular-cache", "agGrid", 'ngSanitize','ui.bootstrap', 'dialogs.main']);
@@ -10,9 +10,9 @@
       angular.extend(CacheFactoryProvider.defaults, { maxAge: 15 * 60 * 1000 });
     });
 
-    module.value("$routerRootComponent", "movieApp");
+    module.value("$routerRootComponent", "mainApp");
 
     module.component("appAbout", {
        template: "This is a about page"
     });
-}())
+}(window.angular))

@@ -14,7 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
 /**
- * @author amit.sharma
+ * REST specific filter to copy Request 
+ * @author AgreeYa Solutions
  *
  */
 public class HttpServletRequestCopier extends HttpServletRequestWrapper {

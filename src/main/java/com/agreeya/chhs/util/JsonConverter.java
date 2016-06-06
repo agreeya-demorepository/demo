@@ -9,6 +9,7 @@ import com.google.gson.GsonBuilder;
 
 /**
  * Class to convert JSON to/from Java/XML.
+ * @author AgreeYa Solutions
  * 
  */
 public class JsonConverter {

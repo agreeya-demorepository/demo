@@ -10,7 +10,7 @@ import com.agreeya.chhs.dao.ApplicationLoggerDAO;
 import com.agreeya.chhs.model.ApplicationLog;
 
 /**
- * @author amit.sharma
+ * @author AgreeYa Solutions
  *
  */
 public class CHHSLoggerListener implements MessageListener {

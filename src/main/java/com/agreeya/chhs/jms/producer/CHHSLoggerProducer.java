@@ -3,7 +3,7 @@ package com.agreeya.chhs.jms.producer;
 import com.agreeya.chhs.model.ApplicationLog;
 
 /**
- * @author amit.sharma
+ * @author AgreeYa Solutions
  *
  */
 public interface CHHSLoggerProducer {

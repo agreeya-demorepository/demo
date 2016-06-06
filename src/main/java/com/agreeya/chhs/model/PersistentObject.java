@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 /**
- * @author amit.sharma
+ * @author AgreeYa Solutions
  *
  */
 @MappedSuperclass

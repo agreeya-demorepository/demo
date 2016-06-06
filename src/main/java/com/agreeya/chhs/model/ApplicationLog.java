@@ -14,7 +14,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * The persistent class for the applicationlog database table.
+ * The persistent class for the application log database table.
+ * @author AgreeYa Solutions
  * 
  */
 @Entity

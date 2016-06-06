@@ -3,7 +3,8 @@ package com.agreeya.chhs.response.hhsapi;
 import java.util.List;
 
 /**
- * @author amit.sharma
+ * Trasfer Object of Facilities
+ * @author AgreeYa Solutions
  *
  */
 public class FacilityList {

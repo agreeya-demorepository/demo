@@ -11,7 +11,8 @@ import com.agreeya.chhs.dao.BaseDAO;
 import com.agreeya.chhs.util.TypeCast;
 
 /**
- * @author amit.sharma
+ * Implementation class for BaseDAO 
+ * @author AgreeYa Solutions
  *
  */
 public class BaseDAOImpl implements BaseDAO {

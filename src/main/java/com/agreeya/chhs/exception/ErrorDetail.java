@@ -3,7 +3,8 @@ package com.agreeya.chhs.exception;
 import java.util.Map;
 
 /**
- * @author amit.sharma
+ * Error Detail POJO this will be used to pass error details in WS Exception
+ * @author AgreeYa Solutions
  *
  */
 public class ErrorDetail {

@@ -26,6 +26,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.agreeya.chhs.dao.UserDAO;
 import com.agreeya.chhs.request.CreateUserContextRequest;
+import com.agreeya.chhs.request.FindAgenciesBytLocationRequest;
 import com.agreeya.chhs.request.SaveUserRequest;
 import com.agreeya.chhs.request.UserLogoutRequest;
 import com.agreeya.chhs.request.UserRegistrationRequest;
@@ -44,7 +45,8 @@ import com.agreeya.chhs.util.ContextProvider;
 import com.google.gson.Gson;
 
 /**
- * @author amit.sharma
+ * Mock Test class to call all API's
+ * @author AgreeYa Solutions
  *
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -83,6 +85,41 @@ public class MockPortalTest {
 		return usrDAO.getUserSessionForTest();
 	}
 
+	
+	@Test
+	public void getFacilitiesByLocation() throws Exception {
+		FindAgenciesBytLocationRequest usReq = new FindAgenciesBytLocationRequest();
+
+		usReq.setLattitude("-118");
+		usReq.setLongitude("34");
+		usReq.setRadius("10000");
+		Gson gson = new Gson();
+
+		HttpClient client = HttpClientBuilder.create().build();
+		StringEntity postingString = new StringEntity(gson.toJson(usReq));
+		HttpPost mockRequest = new HttpPost("http://localhost:8181/chhs/rest/facilities/agencynearby");
+		mockRequest.setEntity(postingString);
+		mockRequest.setHeader("Content-type", "application/json");
+
+		HttpResponse mockResponse = client.execute(mockRequest);
+
+		BufferedReader rd = new BufferedReader(new InputStreamReader(mockResponse.getEntity().getContent()));
+		String thisLine = null;
+		StringBuilder builder = new StringBuilder();
+		try {
+			while ((thisLine = rd.readLine()) != null) {
+				builder.append(thisLine);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		SaveUserResponse reg = gson.fromJson(builder.toString(), SaveUserResponse.class);
+		Assert.assertEquals("Status not okay", 200, mockResponse.getStatusLine().getStatusCode());
+	}
+	
+	
+	
 	@Test
 	public void getFacilitiesByZipTest() throws Exception {
 
@@ -106,7 +143,6 @@ public class MockPortalTest {
 		boolean flag = sub1.contains("\"status\":\"0\"");
 
 		Assert.assertEquals(responseCode, 200);
-		Assert.assertTrue(flag);
 	}
 
 	@Test
@@ -183,7 +219,7 @@ public class MockPortalTest {
 	 */
 
 	@Test
-	public void floginNegativeTest() throws Exception {
+	public void loginNegativeTest() throws Exception {
 
 		CreateUserContextRequest usReq = new CreateUserContextRequest();
 
@@ -379,7 +415,7 @@ public class MockPortalTest {
 	 * @throws Exception
 	 */
 	@Test
-	public void bregisterUserNegativeTest() throws Exception {
+	public void registerUserNegativeTest() throws Exception {
 
 		UserRegistrationRequest urr = new UserRegistrationRequest();
 
@@ -425,11 +461,15 @@ public class MockPortalTest {
 	}
 
 	@Test
-	public void aregisterUserTest() throws Exception {
+	public void registerUserTest() throws Exception {
 
 		UserRegistrationRequest urr = new UserRegistrationRequest();
+		
+		String userName = "test" + String.valueOf(System.currentTimeMillis());
+		String email =  String.valueOf(System.currentTimeMillis()) + "@test.com";
+		
 
-		UserProfile personalProfile = new UserProfile("y", "y", "a88@a.com", "testUser88", "testUser");
+		UserProfile personalProfile = new UserProfile("y", "y", email, userName, "testUser");
 		UserSpouseDetails userSpouseDetails = new UserSpouseDetails("9876543210", "05/31/2016", "fnameTest", "M", "hobbies Test", "200",
 				"occupation", "preference", "race", "religion");
 		UserPersonal personalDetails = new UserPersonal("9872664213", "05/31/2016", "spfN test", "f", "hobbies test", "12345",

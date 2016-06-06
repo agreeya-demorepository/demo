@@ -7,7 +7,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * Transfer Object class for User profile and account details
- * @author amit.sharma
+ * @author AgreeYa Solutions
  *
  */
 public class UserProfile {

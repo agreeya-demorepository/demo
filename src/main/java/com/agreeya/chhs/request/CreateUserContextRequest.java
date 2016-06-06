@@ -10,7 +10,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 
 /**
- * @author amit.sharma
+ * Request POJO for Loginn API
+ * @author AgreeYa Solutions
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)

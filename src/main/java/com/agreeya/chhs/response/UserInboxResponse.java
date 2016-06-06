@@ -5,7 +5,7 @@ import java.util.List;
 import com.agreeya.chhs.response.inbox.UserEmail;
 
 /**
- * @author amit.sharma
+ * @author AgreeYa Solutions
  *
  */
 public class UserInboxResponse extends WSResponse {

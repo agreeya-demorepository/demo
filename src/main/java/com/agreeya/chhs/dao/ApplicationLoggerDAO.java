@@ -3,7 +3,8 @@ package com.agreeya.chhs.dao;
 import com.agreeya.chhs.model.ApplicationLog;
 
 /**
- * @author amit.sharma
+ * Interface for Application Logging methods
+ * @author AgreeYa Solutions
  *
  */
 public interface ApplicationLoggerDAO extends BaseDAO {

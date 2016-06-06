@@ -4,7 +4,7 @@ import com.agreeya.chhs.exception.WSException;
 
 /**
  * Interface for AES Security methods
- * @author amit.sharma
+ * @author AgreeYa Solutions
  * 
  */
 public interface AESSecurityBD {

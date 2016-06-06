@@ -9,7 +9,7 @@ import com.agreeya.chhs.jms.producer.CHHSLoggerProducer;
 import com.agreeya.chhs.model.ApplicationLog;
 
 /**
- * @author amit.sharma
+ * @author AgreeYa Solutions
  *
  */
 public class CHHSLoggerProducerImpl implements CHHSLoggerProducer {

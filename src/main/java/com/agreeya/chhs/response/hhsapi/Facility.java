@@ -4,7 +4,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * @author amit.sharma
+ * Transfer Object for Facility
+ * 
+ * @author AgreeYa Solutions
  *
  */
 public class Facility {

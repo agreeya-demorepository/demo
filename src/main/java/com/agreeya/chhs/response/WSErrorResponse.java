@@ -15,7 +15,7 @@ import com.agreeya.chhs.util.WSConstants;
 /**
  * Response TO for the representing an error in the REST call. The error could either be because of an input data validation failure, or an
  * internal server error.
- * 
+ * @author AgreeYa Solutions
  */
 @XmlRootElement(name = "ErrorResponse")
 @XmlAccessorType(XmlAccessType.FIELD)

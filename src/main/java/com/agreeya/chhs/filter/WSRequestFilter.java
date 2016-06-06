@@ -56,7 +56,7 @@ import com.agreeya.chhs.util.XMLBinder;
  * Tasks Done: intercept of request Api request object creation Application
  * logging Role identification and permission check
  * 
- * 
+ * @author AgreeYa Solutions
  */
 public class WSRequestFilter implements Filter {
 
@@ -65,12 +65,7 @@ public class WSRequestFilter implements Filter {
 	private MemberServiceBD memberServiceBD;
 
 	private Map<String, String> requestClassMap;
-	// TODO populate it from DB \ cache
-	private Map<String, String> serviceRoleMap = new HashMap<String, String>() {
-		{
-			put("/rest/user/getalluser", "Admin");
-		}
-	};
+
 
 	String requestMethod = "";
 
@@ -518,15 +513,6 @@ public class WSRequestFilter implements Filter {
 
 	public void setValidator(Validator validator) {
 		this.validator = validator;
-	}
-
-	public Map<String, String> getServiceRoleMap() {
-
-		return serviceRoleMap;
-	}
-
-	public void setServiceRoleMap(Map<String, String> serviceRoleMap) {
-		this.serviceRoleMap = serviceRoleMap;
 	}
 
 	public ApplicationLoggerService getApplicationLoggerService() {

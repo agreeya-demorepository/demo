@@ -7,7 +7,8 @@ import java.util.Date;
 import org.apache.log4j.Logger;
 
 /**
- * @author amit.sharma
+ * Date Formatting utility class
+ * @author AgreeYa Solutions
  *
  */
 public class DateUtil {

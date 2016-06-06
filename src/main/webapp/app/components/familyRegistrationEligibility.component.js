@@ -1,4 +1,4 @@
-(function() {
+(function(angular) {
   'use strict';
   var module = angular.module("chhsDemo");
 
@@ -30,4 +30,4 @@
     }
   })
 
-}());
+}(window.angular));

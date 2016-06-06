@@ -11,6 +11,7 @@ import com.agreeya.chhs.util.WSConstants;
  * Superclass for all the REST Response classes.
  * 
  * Contains the common status methods for setting the the status of the REST call. A value of '0' designates success.
+ *@author AgreeYa Solutions
  */
 
 @XmlRootElement

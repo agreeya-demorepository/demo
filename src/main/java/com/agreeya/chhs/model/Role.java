@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 /**
  * The persistent class for the role database table.
- * 
+ * @author AgreeYa Solutions
  */
 @Entity
 @Table(name = "role")

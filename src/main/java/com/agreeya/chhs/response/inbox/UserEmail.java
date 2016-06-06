@@ -3,7 +3,8 @@ package com.agreeya.chhs.response.inbox;
 import java.util.Date;
 
 /**
- * @author amit.sharma
+ * Transfer Object for Communication
+ * @author AgreeYa Solutions
  *
  */
 public class UserEmail {

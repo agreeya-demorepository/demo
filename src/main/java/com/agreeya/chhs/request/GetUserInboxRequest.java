@@ -5,7 +5,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * @author amit.sharma
+ * POJO For email Request 
+ * @author AgreeYa Solutions
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.agreeya.chhs.to.UserContextTO;
 
 /**
- * 
+ * @author AgreeYa Solutions
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)

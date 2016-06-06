@@ -5,10 +5,11 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @author amit.sharma
- *
  * Superclass of all DAOs. Contains common convenience methods and Spring DI
  * hooks.
+ * @author AgreeYa Solutions
+ *
+ * 
  */
 public interface BaseDAO {
 

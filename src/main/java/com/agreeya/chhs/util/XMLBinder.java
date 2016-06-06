@@ -8,7 +8,7 @@ import java.io.Writer;
 
 /**
  * Utility class for converting Java objects to/from XML.
- * 
+ * @author AgreeYa Solutions
  */
 public class XMLBinder {
 

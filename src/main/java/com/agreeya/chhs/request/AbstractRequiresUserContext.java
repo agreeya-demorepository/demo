@@ -6,7 +6,8 @@ import com.agreeya.chhs.to.UserContextTO;
 
 
 /**
- * @author amit.sharma
+ * Request Abstraction to implement Usercontext in API calls
+ * @author AgreeYa Solutions
  *
  */
 public abstract class AbstractRequiresUserContext {

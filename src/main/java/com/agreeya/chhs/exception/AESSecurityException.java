@@ -1,7 +1,7 @@
 package com.agreeya.chhs.exception;
 
 /**
- * @author jitendra.kumar
+ * @author Agreeya Solutions
  * @Top-level exception for AES security(enc/dec) services.
  */
 public class AESSecurityException extends CHHSException {
