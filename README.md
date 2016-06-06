@@ -68,10 +68,11 @@ An existing user can search through the Foster Care Agencies in their nearby nei
 An existing user can view a Private mailbox.
 
 
-The Prototype testing involved execution of automated Unit test cases using JUnits. Additionally, automation system test case suite is build to test the entire application. During sprint reviews the usergroup are involved to gather feedback around usability and accepted refinements are added as new backlog work items. User feedbacks are ultimate to successful release of the application.
-Automated unit test cases and system test cases are integrated with the build and deployment process executed using the Jenkins Continuous integration tool. Successful builds(.war files) are deployed automatically to a target server. An automated smoke test case is executed to confirm the successful working of the application.
+The Prototype testing involved execution of automated Unit test cases using JUnits. Additionally, automation system test case suite is build to test the entire application. During sprint reviews the usergroup are involved to gather feedback around usability and system functionality, accepted refinements are added as new backlog work items. User feedbacks are ultimate to successful release of the application.
 
-********************************************************************************************************************************************************************
+The build and deployment process executed using the Jenkins Continuous integration tool. Successful builds(.war files) are deployed automatically to a target server. An automated smoke test case is executed to confirm the successful working of the application.
+
+*****************************************************************************************************************************************************************
 ### Branches
 
 #####  Master Branch : 
