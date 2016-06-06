@@ -65,12 +65,7 @@ public class WSRequestFilter implements Filter {
 	private MemberServiceBD memberServiceBD;
 
 	private Map<String, String> requestClassMap;
-	// TODO populate it from DB \ cache
-	private Map<String, String> serviceRoleMap = new HashMap<String, String>() {
-		{
-			put("/rest/user/getalluser", "Admin");
-		}
-	};
+
 
 	String requestMethod = "";
 
@@ -225,9 +220,9 @@ public class WSRequestFilter implements Filter {
 
 		log.info("Inside preProcess method");
 		populateContextFromHeader(request);
-		String supportedContentType = httpRequest.getContentType();
+		//String supportedContentType = httpRequest.getContentType();
 		
-		
+		String supportedContentType = "application/json";
 		
 		String requestUri = httpRequest.getRequestURI();
 		Object reqObj = null;
@@ -252,8 +247,7 @@ public class WSRequestFilter implements Filter {
 			// Content-Type check
 			if (!((supportedContentType != null) && supportedContentType.equals(WSConstants.REQ_CONTENT_TYPE_JSON)
 					|| supportedContentType.equals(WSConstants.REQ_CONTENT_TYPE_XML)
-					|| supportedContentType.equals(WSConstants.REQ_CONTENT_TYPE_JSON_UTF) 
-					|| supportedContentType.equals(WSConstants.REQ_CONTENT_TYPE_XWWW))) {
+					|| supportedContentType.equals(WSConstants.REQ_CONTENT_TYPE_JSON_UTF))) {
 				log.error(CHHSErrorCodes.UNSUPPORTED_REQUEST_CONTENT_TYPE_MESSAGE);
 				throw new WSException(CHHSErrorCodes.INVALID_SERVICE_REQUEST, 
 						CHHSErrorCodes.UNSUPPORTED_REQUEST_CONTENT_TYPE_MESSAGE);
@@ -519,15 +513,6 @@ public class WSRequestFilter implements Filter {
 
 	public void setValidator(Validator validator) {
 		this.validator = validator;
-	}
-
-	public Map<String, String> getServiceRoleMap() {
-
-		return serviceRoleMap;
-	}
-
-	public void setServiceRoleMap(Map<String, String> serviceRoleMap) {
-		this.serviceRoleMap = serviceRoleMap;
 	}
 
 	public ApplicationLoggerService getApplicationLoggerService() {
