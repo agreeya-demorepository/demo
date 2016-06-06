@@ -18,25 +18,25 @@ During the prototype development Joint Application Development Sessions (JAD) we
 
 #####Technical Approach and General Architectural considerations
 
-#####Service Oriented Architecture 
+######Service Oriented Architecture 
 The prototype is based on the Service oriented architecture (SOA) with the client-tier, business-tier and data-tier layers. The solution is built using AngularJS client-tier and Java backend with Jersey RESTful Web Services framework which is an open source, production quality, framework for developing RESTful Web Services in Java. 
 
-#####Loose Coupling 
+######Loose Coupling 
 All services are loosely coupled and autonomous to provide maximum flexibility in development, deployment and usage. Each service communicates with another through a service invocation and allow ease of communication without much concerns of service's internal implementation. Also loose coupling are implemented by layering the architecture in multiple tiers and segregating presentation, application and database layer.
 
-#####Lightweight Data Exchange Format  
+######Lightweight Data Exchange Format  
 Data exchange between client-tier and business-tier (services) is through JSON objects. We believe JSON is a lightweight data interchange format and its use moves the processing of data (returned) on to the browser and hence reduces load on the server. Even though usage of JSON is recommended, we can alternatively just exchange plain XML data also.
 
-#####Audit Trail 
+######Audit Trail 
 At the backend layer the logging and tracing is handled at the controller level to capture the details of the entire API calls. The application log table will store these details.
 
-##### Usability 
+######Usability 
 The user interfaces have dynamic structure that do not require complete page refreshes to complete tasks The CHHS application has ability to efficiently support data – minimizing i.e. user will have to follow minimum number of keystrokes to enter all required information. An AngularJs library is used for Ajax interactions at client layer and to build highly interactive rich UI web application.
 
-#####Maintenance and Portability 
+######Maintenance and Portability 
 The whole application’s business logic and data can be packaged and transferred from one platform to other like local deployment to hosted solution, hosted solution to localized deployment, from one hosted solution to the other with minimum interruption. The application is developed using standard web technologies to provide full accessibility from desktop/laptop and tablet browsers.
 
-#####Security  
+######Security  
 As soon the user logs into the application a user specific session-Id is created which does not get time out until the subscriber gets inactive during configured duration. The handshake between client & API calls is enabled by sharing this session-Id in every subsequent API calls by that client. This secures client access in the application. Additionally, the application can be accessed over the http secure using ssl certificate for secure communication.
 
 #####Sample Request Flow
@@ -56,11 +56,16 @@ Family profile registration is a step by step process involves criteria’s to gau
 
 To facilitate user during registration process we have allowed user to partially fill the form, save and exit from the unfinished application and return anytime to continue filling the form with valid logins.
 
-######Login - An existing user ( with login credentials)  can login and logout to the application by clicking the logion/LogOut  link on the Home page 
-######Manage Profile - An existing user can click on the Manage profiles link to update their approved profiles details anytime at later stages.
-######Search & API Integration - An existing user can search through the Children Residential Facilities within a given zip code area. Upon entering a zip code the application communicates with the HHS API to fetch data for all the facilities (Adoption Agency, Foster Family Agency and Foster Family Sub-Agency) within the entered zipcode and displays it in a grid on the screen.
-######Locate Agency - An existing user can search through the Foster Care Agencies in their nearby neighborhood. Upon entering a radius limit of users current geo location, the application communicates with the HHS API to fetch data for the facilities with selected Facility type of Foster Family Agency within the given coordinates range. The details of same are displayed in a grid on the screen.
-######Private MailBox- An existing user can view a Private mailbox.
+######Login
+An existing user ( with login credentials)  can login and logout to the application by clicking the logion/LogOut  link on the Home page 
+######Manage Profile
+An existing user can click on the Manage profiles link to update their approved profiles details anytime at later stages.
+######Search & API Integration
+An existing user can search through the Children Residential Facilities within a given zip code area. Upon entering a zip code the application communicates with the HHS API to fetch data for all the facilities (Adoption Agency, Foster Family Agency and Foster Family Sub-Agency) within the entered zipcode and displays it in a grid on the screen.
+######Locate Agency
+An existing user can search through the Foster Care Agencies in their nearby neighborhood. Upon entering a radius limit of users current geo location, the application communicates with the HHS API to fetch data for the facilities with selected Facility type of Foster Family Agency within the given coordinates range. The details of same are displayed in a grid on the screen.
+######Private MailBox
+An existing user can view a Private mailbox.
 
 
 The Prototype testing involved execution of automated Unit test cases using JUnits. Additionally, automation system test case suite is build to test the entire application. During sprint reviews the usergroup are involved to gather feedback around usability and accepted refinements are added as new backlog work items. User feedbacks are ultimate to successful release of the application.
