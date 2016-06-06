@@ -26,6 +26,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.agreeya.chhs.dao.UserDAO;
 import com.agreeya.chhs.request.CreateUserContextRequest;
+import com.agreeya.chhs.request.FindAgenciesBytLocationRequest;
 import com.agreeya.chhs.request.SaveUserRequest;
 import com.agreeya.chhs.request.UserLogoutRequest;
 import com.agreeya.chhs.request.UserRegistrationRequest;
@@ -84,6 +85,41 @@ public class MockPortalTest {
 		return usrDAO.getUserSessionForTest();
 	}
 
+	
+	@Test
+	public void getFacilitiesByLocation() throws Exception {
+		FindAgenciesBytLocationRequest usReq = new FindAgenciesBytLocationRequest();
+
+		usReq.setLattitude("-118");
+		usReq.setLongitude("34");
+		usReq.setRadius("10000");
+		Gson gson = new Gson();
+
+		HttpClient client = HttpClientBuilder.create().build();
+		StringEntity postingString = new StringEntity(gson.toJson(usReq));
+		HttpPost mockRequest = new HttpPost("http://localhost:8181/chhs/rest/facilities/agencynearby");
+		mockRequest.setEntity(postingString);
+		mockRequest.setHeader("Content-type", "application/json");
+
+		HttpResponse mockResponse = client.execute(mockRequest);
+
+		BufferedReader rd = new BufferedReader(new InputStreamReader(mockResponse.getEntity().getContent()));
+		String thisLine = null;
+		StringBuilder builder = new StringBuilder();
+		try {
+			while ((thisLine = rd.readLine()) != null) {
+				builder.append(thisLine);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		SaveUserResponse reg = gson.fromJson(builder.toString(), SaveUserResponse.class);
+		Assert.assertEquals("Status not okay", 200, mockResponse.getStatusLine().getStatusCode());
+	}
+	
+	
+	
 	@Test
 	public void getFacilitiesByZipTest() throws Exception {
 
@@ -107,7 +143,6 @@ public class MockPortalTest {
 		boolean flag = sub1.contains("\"status\":\"0\"");
 
 		Assert.assertEquals(responseCode, 200);
-		Assert.assertTrue(flag);
 	}
 
 	@Test
