@@ -1,4 +1,4 @@
-(function() {
+(function(angular) {
   'use strict';
   var module = angular.module("chhsDemo");
 
@@ -10,7 +10,7 @@
             })
         }
     dataService.getUser = function() {
-      return $http.get("http://10.9.35.77:8080/chhs/rest/contextinit/createusercontext").then(function (response) {
+      return $http.get("http://localhost:9999/chhs/rest/contextinit/createusercontext").then(function (response) {
           console.log("User data");
           console.log(response.data);
           return response.data;
@@ -19,7 +19,7 @@
     dataService.validateUser = function(username, password) {
       var deferred = $q.defer();
       var userData = JSON.stringify({userName: username, password: password});
-      $.post( "http://10.9.35.72:8080/chhs/rest/contextinit/createusercontext", userData, function( data ) {
+      $.post( "http://localhost:9999/chhs/rest/contextinit/createusercontext", userData, function( data ) {
         var userResponse = JSON.parse(data);
         console.log(userResponse);
         deferred.resolve(userResponse);
@@ -36,7 +36,7 @@
   dataService.logoutUser = function(userContext) {
     var deferred = $q.defer();
     var userData = JSON.stringify(userContext);
-    $.post( "http://10.9.35.72:8080/chhs/rest/contextinit/userlogout", userData, function( data ) {
+    $.post( "http://localhost:9999/chhs/rest/contextinit/userlogout", userData, function( data ) {
       var userResponse = JSON.parse(data);
       console.log(userResponse);
       deferred.resolve(userResponse);
@@ -62,7 +62,25 @@
         }, function(error){
           console.log("Error in getting facilities");
         });
-    }
-        return dataService;
+    };
+
+    //Save user registration data in database.
+    dataService.SaveRegistrationProfileData = function(registrationData) {
+      var deferred = $q.defer();
+      $.post( "http://localhost:9999/chhs/rest/member/register", registrationData, function( registrationResponse ) {
+        var userRegistrationResponse = JSON.parse(registrationResponse);
+        console.log(userRegistrationResponse);
+        deferred.resolve(userRegistrationResponse);
+      })
+      .fail(function(error) {
+        console.log(error);
+        deferred.reject();
+      });
+
+      return deferred.promise;
+    }; //SaveRegistrationProfileData function ends here
+
+
+    return dataService;
   }]);
-}());
+}(window.angular));

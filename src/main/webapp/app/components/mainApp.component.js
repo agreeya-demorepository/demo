@@ -1,20 +1,22 @@
-(function() {
-   "use strict";
+(function(angular) {
+   'use strict';
 
    var module = angular.module("chhsDemo");
-   function mainController(dataService, userService, toaster) {
+   function mainController(dataService, userService, toaster, ngModel) {
      var model = this;
 
-     dataService.getResponse().then(function(data){
+     /*dataService.getResponse().then(function(data){
        console.log(data);
-     });
+     });*/
+     
+
    }
 
 
 
 
 
-   module.component("movieApp", {
+   module.component("mainApp", {
       templateUrl: "./app/templates/main.html",
       $routeConfig: [
           {path: "/", component: "homePage", name: "Home", useAsDefault: true},
@@ -23,11 +25,11 @@
           {path: "/list", component: "movieList", name: "List"},
           {path: "/about", component: "appAbout", name: "About"},
           {path: "/detail/:id", component: "movieDetails", name: "Details"},
-          {path: "/userHome", component: "userHome", name: "UserHomePage"},
-          {path: "/**", redirectTo: ["List"]}
+          {path: "/userHome", component: "userHomeComponent", name: "UserHomePage"},
+          {path: "/**", redirectTo: ["Home"]}
       ],
       controllerAs: "model",
       controller: ["dataService", "userService", "toaster", mainController]
    });
 
-}());
+}(window.angular));
