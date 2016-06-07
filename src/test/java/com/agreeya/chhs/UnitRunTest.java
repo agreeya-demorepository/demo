@@ -32,18 +32,6 @@ public class UnitRunTest {
 	
 	
 	@Test
-	public void testCheckDetails() throws WSException {
-		User usr = new User();
-		usr.setUserID(1);
-		usr.setUserName("TEST");
-		usr.setStage(1);
-		usr.setStatus("ACTIVE");
-	 Mockito.when(memberService.checkUserDetailExist(Mockito.anyString())).thenReturn(usr);
- 	UserTO user = memberServiceBD.checkUserDetailExist("agreeya");
-     Assert.assertNotNull(user);;
-	}
-
-	@Test
 	public void testAuthenticate() throws WSException {
 		// GIVEN
 		User usr = new User();
