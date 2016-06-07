@@ -582,7 +582,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 	@Override
 	@Transactional
 	public String getUserSessionForTest() {
-		Query query = sessionFactory.getCurrentSession().createSQLQuery("SELECT * FROM usersession ss WHERE ss.UserId = 1")
+		Query query = sessionFactory.getCurrentSession().createSQLQuery("SELECT * FROM usersession ss WHERE ss.userId = 1")
 				.addEntity(UserSession.class);
 
 		List<UserSession> list = query.list();
