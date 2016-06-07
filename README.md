@@ -160,15 +160,15 @@ This demonstrates the adherence to the US Digital Services playbook play AUTOMAT
 
 ### Continous Integration & Deployment
 During the course of development of this prototype , we have followed automated build and deployment process using the Jenkins Continous Integration tool.
-Developers work in their local branch(local-branch) on GITHUB and whenever they are done with their workitems, they can commit their changes to Dev branch ( Dev-branch). Jenkins CI tool monitors the changes done on the GITHUB repository and perfoms following steps in a sequence 			
+Developers work in their local branch(local-branch) on GITHUB and whenever they are done with their workitems, they can commit their changes to Dev branch ( Dev-branch). Jenkins CI tool monitors the changes done on the GITHUB repository and perfoms following steps in a sequence			
 1.	Validates the Checkstyle per checkstyle guide. Checktyle.xml contains some of the 
-checkstyles we used during development of backend java code
-		2.    Builds and runs the Junit based Unit and Integrations test Cases
-		3.   On successfull build, assigns a build ID to the version of the code that is compiled
-		4.   A notification for successful build is sent to the team.
-5.  Automatically deploys the application ( .war file) in a different server using the Deploy to Container plugin of the Jenkins tool
-6. If the Build fails due to violation of checkstyle, Unit Test failure , compilation error due    to some dependencies a notification of build failure is sent to the team , team needs to fix the the issue and initiate rebuild.
-Pl refer GITHUB folder for Builds and their results published.
+checkstyles we used during development of backend java code  
+2.    Builds and runs the Junit based Unit and Integrations test Cases  
+3.   On successfull build, assigns a build ID to the version of the code that is compiled  
+4.   A notification for successful build is sent to the team.  
+5.  Automatically deploys the application ( .war file) in a different server using the Deploy to Container plugin of the Jenkins tool  
+6. If the Build fails due to violation of checkstyle, Unit Test failure , compilation error due    to some dependencies a notification of build failure is sent to the team , team needs to fix the the issue and initiate rebuild.  
+
 This demonstrates during the prototype development process the use of a setup that provides continuous integration framew
   
 ### User Acceptance Testing (UAT)
@@ -182,7 +182,14 @@ Post the system test , a User Acceptance Test with usergroup is conducted to val
 ### INSTALL and DEPLOYMENT INSTRUCTIONS
 
   
+APPENDIX
 
- 
-
-
+| Folder Name                    | Description                                                              |
+| -------------------------------| -------------------------------------------------------------------------|
+| Demo Repository                | GITHUB Demo Repository used for the Prototype Development                |
+| demo/html/                     | Contains the final set of HTML files with relevant images, JS , CSS files|
+|                                | Also contains zip files of earlier versions of HTML                      |
+| demo/project-mgmt/docs/        | Contains the Requirements Elicitation docs like JAD sessions images,     |
+|                                | MoM's, Task Boarding, Project Plan, Project Init. Checklist              |
+| demo/project-mgmt/docs/Backlog | Contains the Product Backlog User Stories , Tasks snapshots and pdf      |                                
+|                                | files of the Redmine Tool used for the Project Mangement                 |
