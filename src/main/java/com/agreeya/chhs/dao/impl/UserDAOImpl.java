@@ -36,7 +36,7 @@ import com.agreeya.chhs.util.DateUtil;
 
 /**
  * 
- * implementation class for UserDAO
+ * implementation class for UserDAO.
  * 
  * @author AgreeYa Solutions
  *
