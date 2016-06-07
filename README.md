@@ -69,16 +69,13 @@ The build and deployment process executed using the Jenkins Continuous integrati
 
 ### Branches
 
-#####  Master Branch : 
-      This branch contains the Final version of the source code , UI designs/HTML, Style Checker guide , Code Conventions reference , 
-      project management artifacts. Using the instructions in the INSTALL and DEPLOYMENT SECTION this version of code base can be re-deployed to another machine
+##### Master Branch 
+ This branch contains the Final version of the source code, UI designs-HTML, Style Checker guide, Code Conventions reference, project management artifacts. Using the instructions in the INSTALL and DEPLOYMENT SECTION this version of code base can be re-deployed to another machine.
+##### Dev Branch (dev-branch) 
+ This is the main development branch which includes codebase used to build and deploy to QA server or any other server for testing or demo purposes. Commits to this branch will result in execution of automated build and deployment process. This branch should be reviewed to establish time to time code merges made by the front end and back end developers.
+##### Local Branch (local-branch)
+This is private repository of the developers to checkin code on a day to day basis and is used to build for the development servers.
 
-#####  Dev Branch (dev-branch): 
-      This is the main development branch which includes codebase used to build and deploy to QA server or any other server for testing or demo purposes. 
-      Commits to this branch will result in execution of automated build and deployment process. This branch should be reviewed to establish time to time code merges         made by the front end and back end developers.
-
-#####  Local Branch (local-branch): 
-	This is private repository of the developers to checkin code on a day to day basis and is used to build for the development servers.
 
 ### Development Methodology 
 
@@ -112,7 +109,7 @@ f.	Setup a multidisciplinary team with a identified leader as PRODUCT OWNER and 
 ### Development Technology Stack 
 
 #####  Front End Technologies
-				a. Responsive UI Designs - Bootstrap/HTML5 Ver 3.3.6  OPEN SOURCE 
+				a. Responsive UI Designs - Bootstrap-HTML5 Ver 3.3.6  OPEN SOURCE 
 				b. UI Development - AngularJS Ver 1.5	OPEN SOURCE
 #####  BackEnd Technologies & Tools
 				a. Java JDK ver 1.8 OPEN SOURCE
@@ -136,48 +133,43 @@ f.	Setup a multidisciplinary team with a identified leader as PRODUCT OWNER and 
 
 
 ### Responsive Design 
- UI is designed using the Bootstrap front end framework. UI designs are responsive in nature and hence compatible with multiple mobile devices and platforms like 
- smartphones, tablets on  Android, iOS
+ UI is designed using the Bootstrap front end framework. UI designs are responsive in nature and hence compatible with multiple mobile devices and platforms like smartphones, tablets on  Android, iOS
 This demonstrates the screens to be accessible from multiple devices.
 
 
 ### Style Guide & Coding Conventions
-As part of coding conventions and stylechecks we have used a set of standard guidelines so as to have consistency in coding approach during 
-the course of development of this prototype.File stylecheck.xml provides the list of stylechecks used and PDM is used for following coding conventions and standards for development of Java backend.
+As part of coding conventions and stylechecks we have used a set of standard guidelines so as to have consistency in coding approach during the course of development of this prototype.
+File stylecheck.xml provides the list of stylechecks used and PMD is used for following coding conventions and standards for development of Java backend.
 This demonstrates adherence to the use of a Style Guide during the prototype development process.
 
 
-### Unit & Automation Testing
-Junit based units test cases are developed as part of the code . These are executed by the developer as part of the development activity . JUnits are exeucted automatically during the Build process.
-There are two ways in which System Testing for the application is done. Manual test case execution and automation test case suite is created 
-to run the test case automatically using a script. The results of the automation test cases are published in a file .
-Pl refer the GITHUB folder 
 
+### Unit & Automation Testing
+JUnit based units test cases are developed as part of the code . These are executed by the developer as part of the development activity . JUnits are exeucted automatically during the Build process.
+There are two ways in which System Testing for the application is done. Manual test case execution and automation test case suite is created to run the test case automatically using a script. The results of the automation test cases are published in a file.
+Pl refer the GITHUB folder 
 Pl refer GITHUB folder for Automation test cases scripts 
 This demonstrates the adherence to the US Digital Services playbook play AUTOMATION TESTING AND DEPLOYMENTS
+
 
 ### Configuration Management
  
 
 ### Continous Integration & Deployment
 During the course of development of this prototype , we have followed automated build and deployment process using the Jenkins Continous Integration tool.
-Developers work in their local branch(local-branch) on GITHUB and whenever they are done with their workitems, they can commit their changes to Dev branch
-( Dev-branch). Jenkins CI tool monitors the changes done on the GITHUB repository and perfoms following steps in a sequence
-				
-		1. Validates the Checkstyle per checkstyle guide . Checktyle.xml contains some of the checkstyles we used during development of backend java code
-		2. Builds and runs the Junit based Unit and Integrations test Cases
-		3. On successfull build, assigns a build ID to the version of the code that is compiled
-		4. A notification for successful build is sent to the team .
-		5. Automatically deploys the application ( .war file) in a different server using the Deploy to Container plugin of the Jenkins tool
-		6. If the Build fails due to violation of checkstyle, Unit Test failure , compilation error due to some dependencies a notification of build failure is 		   sent to the team , team needs to fix the the issue and initiate rebuild.
-
+Developers work in their local branch(local-branch) on GITHUB and whenever they are done with their workitems, they can commit their changes to Dev branch ( Dev-branch). Jenkins CI tool monitors the changes done on the GITHUB repository and perfoms following steps in a sequence 			
+1.	Validates the Checkstyle per checkstyle guide. Checktyle.xml contains some of the 
+checkstyles we used during development of backend java code
+		2.    Builds and runs the Junit based Unit and Integrations test Cases
+		3.   On successfull build, assigns a build ID to the version of the code that is compiled
+		4.   A notification for successful build is sent to the team.
+5.  Automatically deploys the application ( .war file) in a different server using the Deploy to Container plugin of the Jenkins tool
+6. If the Build fails due to violation of checkstyle, Unit Test failure , compilation error due    to some dependencies a notification of build failure is sent to the team , team needs to fix the the issue and initiate rebuild.
 Pl refer GITHUB folder for Builds and their results published.
-This demonstrates during the prototype development process the use of a setup  that provides continous integration framework.
-
-
+This demonstrates during the prototype development process the use of a setup that provides continuous integration framew
   
 ### User Acceptance Testing (UAT)
-Post the system test , a User Acceptance Test with usergroup is conducted to validate usability and system functionality. Users 
+Post the system test , a User Acceptance Test with usergroup is conducted to validate usability and system functionality. 
   
 
 ### Continous Monitoring
