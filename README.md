@@ -184,12 +184,20 @@ Post the system test , a User Acceptance Test with usergroup is conducted to val
   
 APPENDIX
 
-| Folder Name                    | Description                                                              |
-| -------------------------------| -------------------------------------------------------------------------|
-| Demo Repository                | GITHUB Demo Repository used for the Prototype Development                |
-| demo/html/                     | Contains the final set of HTML files with relevant images, JS , CSS files|
-|                                | Also contains zip files of earlier versions of HTML                      |
-| demo/project-mgmt/docs/        | Contains the Requirements Elicitation docs like JAD sessions images,     |
-|                                | MoM's, Task Boarding, Project Plan, Project Init. Checklist              |
-| demo/project-mgmt/docs/Backlog | Contains the Product Backlog User Stories , Tasks snapshots and pdf      |                                
-|                                | files of the Redmine Tool used for the Project Mangement                 |
+| Folder Name                              | Description                                                              |
+| -----------------------------------------| -------------------------------------------------------------------------|
+| Demo Repository                          | GITHUB Demo Repository used for the Prototype Development                |
+| demo/html/                               | Contains the final set of HTML files with relevant images, JS , CSS files|
+|                                          | Also contains zip files of earlier versions of HTML                      |
+| demo/project-mgmt/docs/                  | Contains the Requirements Elicitation docs like JAD sessions images,     |
+|                                          | MoM's, Task Boarding, Project Plan, Project Init. Checklist              |
+| demo/project-mgmt/docs/Backlog           | Contains the Product Backlog User Stories , Tasks snapshots and pdf      |                                
+|                                          | files of the Redmine Tool used for the Project Mangement                 |
+| demo/project-mgmt/docs/Daily-Scrum       | Contains Daily Team Standup Meeting Minutes                              |                                
+| demo/project-mgmt/docs/Sprint Reviews/   | Contains Sprint Reviews conducted with usergroups                        |
+| demo/project-mgmt/design/ui/             | Contains mockups, screen designs used during Requirement elicitation     |
+| demo/project-mgmt/design/database/       | Contains DB Scripts, ER Dig                                              |
+| demo/project-mgmt/design/Testing/        | Contains Manual Test Cases,Automation Test scripts,Test results,Test Plan|
+| demo/builds/                             | Contains Build scripts, .war file, Builds logs                           |
+| demo/logs/                               | Contains Application logs etc.                                           |
+| demo/src/main/webapp/                    | Contains Application Source code for Java,UI, web.xml etc.               |
