@@ -2,12 +2,10 @@
 ##### https://fostercaredemo-agreeya.com
 
 ### Synopsis
- This project is about building a working prototype that would enable Families to Register and Manage their profiles so that they can receive foster  
- placements.Apart from Registering their Profiles, prototype functionality would allow registered users to Manage Profiles , Search through Children  
- Residential Facilities within their zipcode and locate Foster care agencies in their nearby neighbourhood.Registered users can view their private  
- mailbox for communication emails sent or received.The prototype utilizes the publicly exposed HHS API to retrieve information related to the Foster  
- Care Agencies in nearby neighbourhood of the user.  
-***********************************************************************************************************************************************************
+This project is about building a working prototype that would enable Families to Register and Manage their profiles so that they can receive foster placements. Apart from Registering their Profiles, prototype functionality would allow registered users to Manage Profiles, Search through Children Residential Facilities within their zipcode and locate Foster care agencies in their nearby neighbourhood. Registered users can view their private mailbox for communication emails sent or received. The prototype utilizes the publicly exposed HHS API to retrieve information related to the Foster  
+ Care Agencies in nearby neighborhood of the user.
+***********************************************************************************************************************************************************************
+
 ### CHHS Prototype Development Approach
 AgreeYa as a CMMI certified organization brings over 17 years of experience of delivering complex and large projects leveraging Agile development  
 methodology,templates and guidelines. We recognize each of the projects have a set of unique strategic objectives, business needs, operational  
