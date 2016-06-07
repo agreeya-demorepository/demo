@@ -31,7 +31,7 @@ public interface MemberService {
 
 	void logoutUser(int userId);
 
-	String checkUserDetailExist(String userName, String email);
+	User checkUserDetailExist(String userName);
 
 	String getEncryptPassword(String userName, String userStatus);
 	

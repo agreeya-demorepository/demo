@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -166,7 +167,7 @@ public class User implements Serializable {
 	}
 
 	// bi-directional many-to-one association to Role
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "RoleID")
 	public Role getRole() {
 		return this.role;
@@ -177,7 +178,7 @@ public class User implements Serializable {
 	}
 
 	// bi-directional many-to-one association to Userdetail
-	@OneToMany(mappedBy = "user")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	public List<Userdetail> getUserdetails() {
 		return this.userdetails;
 	}
@@ -201,7 +202,7 @@ public class User implements Serializable {
 	}
 
 	// bi-directional many-to-one association to Userfamily
-	@OneToMany(mappedBy = "user")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	public List<Userfamily> getUserfamilies() {
 		return this.userfamilies;
 	}
@@ -225,7 +226,7 @@ public class User implements Serializable {
 	}
 
 	// bi-directional many-to-one association to Userinbox
-	@OneToMany(mappedBy = "user")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	public List<Userinbox> getUserinboxs() {
 		return this.userinboxs;
 	}
@@ -249,7 +250,7 @@ public class User implements Serializable {
 	}
 
 	// bi-directional many-to-one association to Userlicence
-	@OneToMany(mappedBy = "user")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	public List<Userlicence> getUserlicences() {
 		return this.userlicences;
 	}
@@ -273,7 +274,7 @@ public class User implements Serializable {
 	}
 
 	// bi-directional many-to-one association to Usersession
-	@OneToMany(mappedBy = "user")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	public List<UserSession> getUsersessions() {
 		return this.usersessions;
 	}
@@ -297,7 +298,7 @@ public class User implements Serializable {
 	}
 
 	// bi-directional many-to-one association to Userspouse
-	@OneToMany(mappedBy = "user")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	public List<Userspouse> getUserspouses() {
 		return this.userspouses;
 	}

@@ -90,14 +90,12 @@ public class MemberServiceImpl implements MemberService {
 	 * 
 	 * @param : userName
 	 * 
-	 * @param : email
 	 * 
-	 * @return msg
 	 */
 	@Override
-	public String checkUserDetailExist(String userName, String email) {
+	public User checkUserDetailExist(String userName) {
 		log.info("enter into MemberServiceImpl checkUserDetailExist() method....................");
-		return userDAO.checkUserDetailExist(userName, email);
+		return userDAO.checkUserDetailExist(userName);
 	}
 
 	@Override

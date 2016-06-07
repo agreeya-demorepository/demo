@@ -19,24 +19,12 @@ public class ForgotPasswordRequest extends AbstractDoesNotRequireAnyContext impl
 	// @Pattern(regexp = "^[a-zA-Z]+$", message = "Please provide a valid user name")
 	private String userName;
 
-	@NotNull
-	// @Email(message = "Please provide a valid email address")
-	private String email;
-
 	public String getUserName() {
 		return userName;
 	}
 
 	public void setUserName(String userName) {
 		this.userName = userName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	@Override
@@ -50,11 +38,6 @@ public class ForgotPasswordRequest extends AbstractDoesNotRequireAnyContext impl
 		if (userName == null || userName.isEmpty()) {
 			vr.addMessage("username is not provided!.");
 		}
-
-		if (email == null || email.isEmpty()) {
-			vr.addMessage("email is not provided!.");
-		}
-
 		return vr;
 	}
 

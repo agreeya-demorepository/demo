@@ -1,10 +1,11 @@
 package com.agreeya.chhs.util;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 
 /**
  * Utility class for converting Java objects to/from XML.

@@ -41,6 +41,7 @@ import com.agreeya.chhs.util.DateUtil;
  * @author AgreeYa Solutions
  *
  */
+@Transactional
 public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 
 	private AESSecurityBD aESSecurityBD;
@@ -53,18 +54,29 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public String checkUserDetailExist(String userName, String email) {
-		String status = "";
+	public User checkUserDetailExist(String userName) {
+		Integer userDetailID = null;
 		Query query = sessionFactory.getCurrentSession()
-				.createSQLQuery("SELECT u.id FROM user u INNER JOIN userauth uth ON  u.id=uth.userId "
-						+ "AND u.status='ACTIVE' AND uth.userStatus='ACTIVE' " + 
-						"AND uth.userStatus='active' AND u.userName='" + userName
-						+ "' AND u.userEmailId='" + email + "' AND uth.userName='" + userName + "'");
-		List<Long> listId = query.list();
-		if (null != listId && !listId.isEmpty()) {
-			status = Constants.EXIST;
+				.createSQLQuery("SELECT userID FROM user u where "
+						+ " u.status IN ('ACTIVE', 'INCOMPLETE') AND u.userName = '"
+						+ userName
+						+ "'");
+		List<Integer> idList = query.list();
+		if (idList.size() > 0) {
+			userDetailID = idList.get(0);
 		}
-		return status;
+
+		User user = getById(User.class, userDetailID);
+
+		if (null != user) {
+			Query kidsQuery = sessionFactory.getCurrentSession().createSQLQuery("SELECT * FROM userkids uk " + "WHERE uk.familyID = " 
+					+ user.getUserfamilies().get(0).getId()).addEntity(Userkid.class);
+
+			user.getUserfamilies().get(0).setKids(kidsQuery.list());
+			
+			return user;
+		}
+		return null;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -306,7 +318,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 
 		Session sess = sessionFactory.openSession();
 		userList = (List<User>) sessionFactory.getCurrentSession().createQuery("from User as u WHERE u.userName = '" + userName + "' "
-				+ "	AND u.useremail = '" + emailId + "' and status ='ACTIVE' or  status ='INCOMPLETE'").list();
+				+ "	AND u.useremail = '" + emailId + "' and status IN ('ACTIVE','INCOMPLETE') ").list();
 
 		if (userList != null) {
 			if (!userList.isEmpty()) {
@@ -316,8 +328,6 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 				user.setPassword(aESSecurityBD.encryptAES(request.getPersonalProfile().getPassword()));
 
 				user.setUseremail(request.getPersonalProfile().getUseremail());
-				user.setHomestudy(request.getPersonalProfile().getHomestudy());
-				user.setTraining(request.getPersonalProfile().getTraining());
 				Role role = getById(Role.class, 1);
 				user.setRole(role);
 				if (request.getRegistrationStage() < 4) {

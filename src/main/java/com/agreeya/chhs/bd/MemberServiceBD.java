@@ -15,6 +15,7 @@ import com.agreeya.chhs.response.UserInboxResponse;
 import com.agreeya.chhs.response.UserLogoutResponse;
 import com.agreeya.chhs.response.UserRegistrationResponse;
 import com.agreeya.chhs.to.UserContextTO;
+import com.agreeya.chhs.to.UserTO;
 
 /**
  * Business delegate interface for membership-related services.
@@ -25,7 +26,7 @@ public interface MemberServiceBD {
 
 	boolean isUserSessionValid(String sessionId, int userId);
 
-	String checkUserDetailExist(String userName, String email);
+	UserTO checkUserDetailExist(String userName);
 
 	void logoutUser(UserLogoutRequest userLogoutRequest, UserLogoutResponse userLogoutResponse);
 
