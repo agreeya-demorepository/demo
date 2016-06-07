@@ -8,8 +8,10 @@ import java.util.List;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -23,6 +25,9 @@ import org.mortbay.jetty.webapp.WebAppContext;
 import org.springframework.context.ApplicationContext;
 
 import com.agreeya.chhs.dao.UserDAO;
+import com.agreeya.chhs.request.CreateUserContextRequest;
+import com.agreeya.chhs.request.FindAgenciesBytLocationRequest;
+import com.agreeya.chhs.request.SaveUserRequest;
 import com.agreeya.chhs.request.UserRegistrationRequest;
 import com.agreeya.chhs.request.user.UserFamilyDetails;
 import com.agreeya.chhs.request.user.UserKidsDetails;
@@ -30,6 +35,8 @@ import com.agreeya.chhs.request.user.UserLicenceDetails;
 import com.agreeya.chhs.request.user.UserPersonal;
 import com.agreeya.chhs.request.user.UserProfile;
 import com.agreeya.chhs.request.user.UserSpouseDetails;
+import com.agreeya.chhs.response.CreateUserContextResponse;
+import com.agreeya.chhs.response.SaveUserResponse;
 import com.agreeya.chhs.response.UserRegistrationResponse;
 import com.agreeya.chhs.to.UserContextTO;
 import com.agreeya.chhs.util.ContextProvider;
@@ -77,13 +84,11 @@ public class MockPortalTest {
 	}
 
 	
-	/*@Test
+	@Test
 	public void getFacilitiesByLocation() throws Exception {
 		FindAgenciesBytLocationRequest usReq = new FindAgenciesBytLocationRequest();
 
-		usReq.setLattitude("-118");
-		usReq.setLongitude("34");
-		usReq.setRadius("10000");
+		
 		Gson gson = new Gson();
 
 		HttpClient client = HttpClientBuilder.create().build();
@@ -106,7 +111,9 @@ public class MockPortalTest {
 		}
 
 		SaveUserResponse reg = gson.fromJson(builder.toString(), SaveUserResponse.class);
+		String responseStatus = reg.getStatus();
 		Assert.assertEquals("Status not okay", 200, mockResponse.getStatusLine().getStatusCode());
+		Assert.assertEquals("Status not okay", "1", responseStatus);
 	}
 	
 	
@@ -161,7 +168,7 @@ public class MockPortalTest {
 		Assert.assertEquals(responseCode, 200);
 		Assert.assertTrue(!flag);
 
-	}*/
+	}
 
 	/**
 	 * LogOut API test
@@ -209,7 +216,7 @@ public class MockPortalTest {
 	 * @throws Exception
 	 */
 
-	/*@Test
+	@Test
 	public void loginNegativeTest() throws Exception {
 
 		CreateUserContextRequest usReq = new CreateUserContextRequest();
@@ -243,7 +250,7 @@ public class MockPortalTest {
 		Assert.assertEquals("Status not okay", 200, mockResponse.getStatusLine().getStatusCode());
 		Assert.assertEquals("Status not okay", "1", responseStatus);
 
-	}*/
+	}
 
 	/**
 	 * Login API test
@@ -294,7 +301,7 @@ public class MockPortalTest {
 	 * @throws Exception
 	 */
 
-	/*@Test
+	@Test
 	public void saveUserNegativeTest() throws Exception {
 
 		SaveUserRequest usReq = new SaveUserRequest();
@@ -342,7 +349,7 @@ public class MockPortalTest {
 		Assert.assertEquals("Status not okay", 200, mockResponse.getStatusLine().getStatusCode());
 		Assert.assertEquals("Status not okay", "1", responseStatus);
 
-	}*/
+	}
 /*
 	@Test
 	public void saveUserTest() throws Exception {
@@ -405,7 +412,7 @@ public class MockPortalTest {
 	 * 
 	 * @throws Exception
 	 */
-	/*@Test
+	@Test
 	public void registerUserNegativeTest() throws Exception {
 
 		UserRegistrationRequest urr = new UserRegistrationRequest();
@@ -449,7 +456,7 @@ public class MockPortalTest {
 		String responseStatus = reg.getStatus();
 		Assert.assertEquals("Status not okay", 200, mockResponse.getStatusLine().getStatusCode());
 		Assert.assertEquals("Status not okay", "1", responseStatus);
-	}*/
+	}
 
 	@Test
 	public void registerUserTest() throws Exception {

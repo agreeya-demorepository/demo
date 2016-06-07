@@ -520,7 +520,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 	@Transactional
 	public UserInboxResponse getUserInbox(GetUserInboxRequest request, UserInboxResponse response) {
 		Query query = sessionFactory.getCurrentSession()
-				.createSQLQuery("SELECT * FROM userinbox ib WHERE ib.UserID = " + request.getUserContext().getUserId())
+				.createSQLQuery("SELECT * FROM userinbox ib WHERE ib.UserID = 1")
 				.addEntity(Userinbox.class);
 
 		List<Userinbox> inboxes = query.list();
@@ -582,7 +582,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 	@Override
 	@Transactional
 	public String getUserSessionForTest() {
-		Query query = sessionFactory.getCurrentSession().createSQLQuery("SELECT * FROM usersession ss WHERE ss.UserId = 397")
+		Query query = sessionFactory.getCurrentSession().createSQLQuery("SELECT * FROM usersession ss WHERE ss.userId = 1")
 				.addEntity(UserSession.class);
 
 		List<UserSession> list = query.list();
