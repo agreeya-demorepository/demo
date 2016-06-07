@@ -115,21 +115,21 @@ f.	Setup a multidisciplinary team with a identified leader as PRODUCT OWNER and 
 				a. Java JDK ver 1.8 OPEN SOURCE
 				b. Application Server - Tomacat Ver 7.0.69 OPEN SOURCE
 				c. Spring Framework Release 4.2.6  OPEN SOURCE
-				d. Web Services - Jersey RESTful Web Services framework REST JAX-RS(Jersey) Ver 1.19 OPEN SOURCE
+				d. Web Services - Jersey RESTful Web Services framework REST JAX-RS Jersey Ver 1.19 OPEN SOURCE
 				e. ORM Tool - Hibernate Ver 5.0.3 FINAL OPEN SOURCE
 				f. Build Tool - Maven Ver.3 OPEN SOURCE
 				g. JUnits Ver. 4.12 OPEN SOURCE
 				h. Continous Integration - Build Automation & Deployment - Jenkins Ver 1.65 OPEN SOURCE
 				i. IDE - Eclipse MARS OPEN SOURCE
 #####  Platform
-				a. OS - Ubuntu Ver.  OPEN SOURCE
+				a. OS - Ubuntu Ver. OPEN SOURCE
 #####  Database
-				a. MYSQL Ver.  OPEN SOURCE
+				a. MYSQL Ver. OPEN SOURCE
 #####  Source Control
 				a. GITHUB  https://github.com/agreeya-demorepository/demo.git
 
 #####  BACKLOG & Defect Management Tool
-				a. REDMINE Ver 3.2.2	OPEN SOURCE
+				a. REDMINE Ver 3.2.2  OPEN SOURCE
 
 
 ### Responsive Design 
