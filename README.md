@@ -2,12 +2,11 @@
 ##### https://fostercaredemo-agreeya.com
 
 ### Synopsis
-  This project is about building a working prototype that would enable Families to Register and Manage their profiles so that they can receive foster  
-  placements.Apart from Registering their Profiles, prototype functionality would allow registered users to Manage Profiles , Search through Children  
-  Residential Facilities within their zipcode and locate Foster care agencies in their nearby neighbourhood.Registered users can view their private  
-  mailbox for communication emails sent or received.The prototype utilizes the publicly exposed HHS API to retrieve information related to the Foster  
-  Care Agencies in nearby neighbourhood of the user.  
-
+ This project is about building a working prototype that would enable Families to Register and Manage their profiles so that they can receive foster  
+ placements.Apart from Registering their Profiles, prototype functionality would allow registered users to Manage Profiles , Search through Children  
+ Residential Facilities within their zipcode and locate Foster care agencies in their nearby neighbourhood.Registered users can view their private  
+ mailbox for communication emails sent or received.The prototype utilizes the publicly exposed HHS API to retrieve information related to the Foster  
+ Care Agencies in nearby neighbourhood of the user.  
 ***********************************************************************************************************************************************************
 ### CHHS Prototype Development Approach
 AgreeYa as a CMMI certified organization brings over 17 years of experience of delivering complex and large projects leveraging Agile development  
@@ -42,7 +41,7 @@ use moves the processing of data (returned) on to the browser and hence reduces 
 alternatively just exchange plain XML data also.
 
 ######Audit Trail 
-At the backend layer the logging and tracing is handled at the controller level to capture the details of the entire API calls. The application log table  
+At the backend layer the logging and tracing is handled at the controller level to capture the details of the entire API calls.The application log table  
 will store these details.
 
 ######Usability 
