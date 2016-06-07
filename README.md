@@ -86,14 +86,16 @@ During this phase, Joint Application Development(JAD) sessions are executed with
 Review sessions are conducted with usergroup to review the accuracy of BRD and freeze the requirements with usergroup and Product Owner approvals.As part of these sessions UI designs are reviewed and confirmed for implementation. Daily Standup meetings with entire team to check progress and bottlenecks is conducted , MoM's for each of these standups is captured and shared with all attendees.
 To Demonstrate that usergroups are involved in the design and development process , please check following references from the GITHUB REPOSITORY 
 
-a.	JAD sessions conducted with usergroup to know what is needed , goals of project and create prioritized list of requirements ( Field Backlog Priority) in the Redmine tool.  
+a.	**JAD sessions** conducted with usergroup to know what is needed , goals of project and create prioritized list of requirements ( Field Backlog Priority) in the Redmine tool.  
 **Pl refer** files **JAD-Session0526 Usergroup.jpg** and **JAD-Session0526.jpg** in **GITHUB > demo > project-mgmt > docs.**  
 Refer **CHHS Prototype Development - Story PBI with Priority.pdf** for Prioritization of user stories based in the **GITHUB > demo > project-mgmt > docs >Backlog.**  
 The above information is demonstration of adherence to US Digital Services Play book play WHAT PEOPLE NEED.
 					
-b.	BRD Review - Usergroup suggested to mandatorily add Requirement for Partialling Filling the Family Registration Form with SAVE AND EXIT functionality is added to the BRD.  
+b.	**BRD Review** - Usergroup suggested to mandatorily add Requirement for Partialling Filling the Family Registration Form with SAVE AND EXIT functionality is added to the BRD.  
+
 Refer Sec 3.1 for addition of this requirement in **GITHUB > demo > project-mgmt > docs > BRD BRD_CHHS-Prototype V1.0.doc** .
 This also demonstrates adherence to US Digital Services Play book play SIMPLE & INTUITIVE where user can save details during Family Registration partially and exit to return later to complete the registration process. Also the UI design shows screen navigation using breadcrumbs on every screen informing users of where they are in the website . Registration Process shows to the user how many steps of total steps are done thus making UI design simple and intuitive for the users.
+
 c.	Sprint 1 Review - UI Refinements suggested by usegroup.A new Story created and added to 
 Backlog in the RedMine tool.  
 Refer Sprint Review document  at **GITHUB > demo > project-mgmt > docs > SprintReviews** mentioning usergroup feedback for UI Design refinements.  
