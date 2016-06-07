@@ -13,7 +13,8 @@
 	<import resource="classpath*:/chhs-service.xml"/>
 	<import resource="classpath*:/chhs-bd.xml"/>
 	<!-- <import resource="classpath*:/chhs-jms.xml"/>  -->
-ss                              ignore-unresolvable="false" ignore-resource-not-found="true"/>
+<context:property-placeholder location="classpath:/chhs_config.properties,file:/opt/chhs_config.properties"
+                              ignore-unresolvable="false" ignore-resource-not-found="true"/>
 
 
     <bean class="com.agreeya.chhs.util.ResourceBundleUtil">
