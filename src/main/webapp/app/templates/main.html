@@ -4,22 +4,7 @@
         <div class="col-xs-12 col-sm-3 col-md-2"><a href="#/"><img src="./contents/images/logo.png" class="img-responsive logo" alt=""/></a></div>
         <div class="col-xs-12 col-sm-9 col-md-10"><!--Navigation-->
           <div class="text-right" id="loginNavContainer">
-            <ul class="loginNav" id="loginNav">
-              <li class="dropdown login" role="presentation"> <a aria-expanded="false" aria-haspopup="true" role="button" href="#" data-toggle="dropdown" class="dropdown-toggle login">Login</a>
-                <ul class="dropdown-menu">
-                  <li>
-                  	<span class="glyphicon glyphicon-user loginboxUsericon"></span>
-                    <div class="userLoginBox form-group">
-                            <input type="text" class="form-control txtBoxLoginBox" placeholder="Username" value="Username" onFocus="if(this.value=='Username')this.value=''" onBlur="if(this.value=='')this.value='Username'">
-                            <input type="password" class="form-control txtBoxLoginBox marginTop10" placeholder="Password" value="Password" onFocus="if(this.value=='Password')this.value=''" onBlur="if(this.value=='')this.value='Password'">
-                            <button type="submit" class="btn btn-primary btn-search  marginTop10" onclick="location.href='MyApplication.html'">LOGIN</button> <a href="javascript:void(0)" class="forgotPwd">Forgot Password?</a>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="javascript:void(0)">Help</a></li>
-              <li><a href="javascript:void(0)">About Us</a></li>
-            </ul>
+            <login-control></login-control>
           </div>
           <div class="topNavigation">
             <nav class="navbar navbar-default navbar-right">

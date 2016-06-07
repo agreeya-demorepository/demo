@@ -11,7 +11,9 @@
             useremail: "",
             userName: "",
             password: ""
-        }
+        };
+
+
 
         //function call on click of "Save" button. It will execute service function to save data in database
         model.SaveRegistrationProfileData = function () {
@@ -61,6 +63,62 @@
                 Name: 'Divorced'
           }
         ];
+        model.racesData = [
+            {
+                Id: 1,
+                Name: 'American Indian'
+            },
+            {
+                Id: 2,
+                Name: 'Asian'
+            },
+            {
+                Id: 3,
+                Name: 'White European/ North American'
+            },
+            {
+                Id: 4,
+                Name: 'Pacific  Native/Hawaiian'
+            }
+          ];
+
+          model.religionData = [
+              {
+                  Id: 1,
+                  Name: 'Buddhist'
+              },
+              {
+                  Id: 2,
+                  Name: 'Catholic'
+              },
+              {
+                  Id: 3,
+                  Name: 'Christian'
+              },
+              {
+                  Id: 4,
+                  Name: 'Jewish'
+              }
+            ];
+
+            model.preferencesData = [
+                {
+                    Id: 1,
+                    Name: 'Autism Spectrum Disorder'
+                },
+                {
+                    Id: 2,
+                    Name: 'Down syndrome'
+                },
+                {
+                    Id: 3,
+                    Name: 'Physical Impairment'
+                },
+                {
+                    Id: 4,
+                    Name: 'Fetal Alcohol syndrome'
+                }
+              ];
         model.ddlSpouseGender = "";
         model.ddlGenderValue = "";
         model.ddlMaritalStatusValue = "";
@@ -326,7 +384,7 @@
     function familyRegistrationProfileStep4Controller($cookieStore, userService, toaster) {
         var model = this;
         model.haveFosterLicense = "no";
-        
+
         model.licenceDetails = {
             agencyContact: "",
             agencyWorker: 0,
@@ -354,7 +412,7 @@
                     if (userRegistrationResponse.status == "0") {
                         console.log("User registration response: ", userRegistrationResponse);
                         toaster.pop("success", "Register Profile", userRegistrationResponse.message);
-                        
+
                         $cookieStore.remove("personalProfile");
                         $cookieStore.remove("personalDetails");
                         $cookieStore.remove("familyDetails");
@@ -378,19 +436,19 @@
 
         };//SaveRegistrationProfileData function ends here
     };
-    
-    
+
+
     //Thank you page controller
     function familyRegistrationProfileThankYouController($cookieStore) {
         var model = this;
-        
+
         model.GotoMyPage = function() {
             if($cookieStore.get("userContext")){
                 model.$router.navigate(["UserHomePage"]);
             } else {
                 model.$router.navigate(["Home"]);
             }
-            
+
         }
     }
 
@@ -432,7 +490,7 @@
             $router: '<'
         }
     });
-    
+
     module.component("familyRegistrationProfileThankYou", {
        templateUrl: "./app/templates/familyRegistrationProfileThankYou.html",
         controllerAs: "model",

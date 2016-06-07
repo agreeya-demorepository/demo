@@ -20,14 +20,14 @@
         <ul class="nav nav-pills nav-justified tabPills">
             <li><a href="javascript:void(0);">Account Detail</a></li>
             <li  class="active"><a href="javascript:void(0);">Personal Information</a></li>
-            <li ><a ng-link="['FamilyRegistrationProfileStep3']">Family Narrative &amp; Preferences</a></li>
-            <li ><a ng-link="['FamilyRegistrationProfileStep4']">License &amp; Agency Detail</a></li>
+            <li ><a href="javascript:void(0)">Family Narrative &amp; Preferences</a></li>
+            <li ><a href="javascript:void(0)">License &amp; Agency Detail</a></li>
           </ul>
       </div>
     </div>
 
     <div class="form-horizontal marginTop20">
-        <form name="registrationForm2" novalidate>
+        <form name="registrationForm2"role="form" novalidate>
       <div class="form-group required" ng-class="{ 'has-error' : registrationForm2.firstName.$invalid && !registrationForm2.firstName.$pristine }">
         <label for="inputPassword" class="control-label col-sm-2 paddingTop7">First Name</label>
         <div class="col-sm-3">
@@ -42,10 +42,12 @@
             </div>
         </div>
         <div class="form-group required" ng-class="{ 'has-error' : registrationForm2.contactNumber.$invalid && !registrationForm1.contactNumber.$pristine }">
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Contact Number</label>
+            <label for="contactNumber" class="control-label col-sm-2 paddingTop7">Contact Number</label>
             <div class="col-sm-3">
-                <input class="form-control" min="1" max="999999999999" type="number" name="contactNumber" ng-model="model.personalDetails.contactNo" required>
-                <span ng-show="registrationForm2.contactNumber.$invalid && !registrationForm2.contactNumber.$pristine" class="help-block"> Contact number required.</span>
+              <input type="number" class="form-control" ng-minlength="10" ng-maxlength="10"  id="inputContactNumber" name="contactNumber" ng-model="model.personalDetails.contactNo" ng-required="true">
+               <span ng-show="((registrationForm2.contactNumber.$error.required || registrationForm2.contactNumber.$error.number) && !registrationForm2.contactNumber.$pristine)" class="help-block"> Contact number required and it should be numeric only.</span>
+               <span class="help-block" ng-show="((registrationForm2.contactNumber.$error.minlength || registrationForm2.contactNumber.$error.maxlength) && registrationForm2.contactNumber.$dirty) "> Contact number should be 10 digits only</span>
+
             </div>
 
             <label class="col-sm-2 control-label">Date of Birth</label>
@@ -87,9 +89,12 @@
                         <input class="form-control" type="text" name="spouseName" ng-model="model.personalDetails.spouseDetails.firstName">
                     </div>
 
-                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Spouse Contact Number</label>
-                    <div class="col-sm-3">
-                        <input class="form-control" min="1" max="999999999999" type="number" name="spouseContactNumber" ng-model="model.personalDetails.spouseDetails.contactNo">
+                    <label for="spouseContactNumber" class="control-label col-sm-2 paddingTop7">Spouse Contact Number</label>
+                    <div class="col-sm-3"ng-class="{ 'has-error' : registrationForm2.spouseContactNumber.$error.number || registrationForm2.spouseContactNumber.$error.minlength || registrationForm2.spouseContactNumber.$error.maxlength}">
+                        <input type="number" class="form-control" ng-minlength="10" ng-maxlength="10"  id="spouseContactNumber" name="spouseContactNumber" ng-model="model.personalDetails.spouseDetails.contactNo">
+                         <span ng-show="registrationForm2.spouseContactNumber.$error.number" class="help-block"> Contact number should be number.</span>
+                         <span class="help-block" ng-show="((registrationForm2.spouseContactNumber.$error.minlength || registrationForm2.spouseContactNumber.$error.maxlength) && registrationForm2.spouseContactNumber.$dirty) "> Contact number should be 10 digits only</span>
+
                     </div>
                 </div>
                 <div class="form-group ">
@@ -103,24 +108,24 @@
 
                     <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Race</label>
                     <div class="col-sm-3">
-                        <select class="form-control">
-                            <option>Select</option>
-                        </select>
+                      <select name="ddl_races" class="form-control" ng-model="model.personalDetails.spouseDetails.race" ng-options="race.Name as race.Name for race in model.racesData">
+                          <option value="">Select</option>
+                      </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Religion</label>
                     <div class="col-sm-3">
-                        <select class="form-control">
-                            <option>Select</option>
-                        </select>
+                      <select name="ddl_religion" class="form-control" ng-model="model.personalDetails.spouseDetails.religion" ng-options="religion.Name as religion.Name for religion in model.religionData">
+                          <option value="">Select</option>
+                      </select>
                     </div>
 
                     <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Choose your Preferences</label>
                     <div class="col-sm-3">
-                        <select class="form-control">
-                            <option>Select</option>
-                        </select>
+                      <select name="ddl_preferences" class="form-control" ng-model="model.personalDetails.spouseDetails.preference" ng-options="preference.Name as preference.Name for preference in model.preferencesData">
+                          <option value="">Select</option>
+                      </select>
                     </div>
                 </div>
                 <div class="form-group">
@@ -164,24 +169,24 @@
         <div class="form-group">
             <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Race</label>
             <div class="col-sm-3">
-                <select class="form-control">
-                    <option>Select</option>
-                </select>
+              <select name="ddl_races1" class="form-control" ng-model="model.personalDetails.race" ng-options="race.Name as race.Name for race in model.racesData">
+                  <option value="">Select</option>
+              </select>
             </div>
 
             <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Religion</label>
             <div class="col-sm-3">
-                <select class="form-control">
-                    <option>Select</option>
-                </select>
+              <select name="ddl_religion1" class="form-control" ng-model="model.personalDetails.religion" ng-options="religion.Name as religion.Name for religion in model.religionData">
+                  <option value="">Select</option>
+              </select>
             </div>
         </div>
         <div class="form-group">
             <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Choose your Preferences</label>
             <div class="col-sm-3">
-                <select class="form-control">
-                    <option>Select</option>
-                </select>
+              <select name="ddl_preferences1" class="form-control" ng-model="model.personalDetails.preference" ng-options="preference.Name as preference.Name for preference in model.preferencesData">
+                  <option value="">Select</option>
+              </select>
             </div>
 
             <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Occupation</label>
