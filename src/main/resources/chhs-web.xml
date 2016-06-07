@@ -13,7 +13,9 @@
 	<import resource="classpath*:/chhs-service.xml"/>
 	<import resource="classpath*:/chhs-bd.xml"/>
 	<!-- <import resource="classpath*:/chhs-jms.xml"/>  -->
-<context:property-placeholder location="classpath:/chhs_config.properties,file:///etc/chhs/chhs_config.properties"
+
+
+<context:property-placeholder location="classpath:/chhs_config.properties,file:/opt/chhs_config.properties"
                               ignore-unresolvable="false" ignore-resource-not-found="true"/>
 
 
