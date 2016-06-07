@@ -151,12 +151,14 @@ This demonstrates adherence to the use of a Style Guide during the prototype dev
 JUnit based units test cases are developed as part of the code . These are executed by the developer as part of the development activity . JUnits are exeucted automatically during the Build process.
 There are two ways in which System Testing for the application is done. Manual test case execution and automation test case suite is created to run the test case automatically using a script. The results of the automation test cases are published in a file.
 Pl refer the GITHUB folder 
-Pl refer GITHUB folder for Automation test cases scripts 
+Pl refer GITHUB folder for Automation test cases scripts at **GITHUB > demo > project-mgmt > design > Testing> Automation Test**
 This demonstrates the adherence to the US Digital Services playbook play AUTOMATION TESTING AND DEPLOYMENTS
 
 
 ### Configuration Management
- 
+GITHUB is the source code and documents repository used during the development of the CHHS prototype. It automatically maintains version history of each and every document or file that is checked in by the collaborators. The source code is structured in 3 different branches local-branch, dev-branch, master.
+Team members identified as collaborators can only check in code or a document to this repository.
+Versions of deployable .war files are kept at GITHUB repository **GITHUB > demo > Builds**
 
 ### Continous Integration & Deployment
 During the course of development of this prototype , we have followed automated build and deployment process using the Jenkins Continous Integration tool.
@@ -167,12 +169,13 @@ checkstyles we used during development of backend java code
 3.   On successfull build, assigns a build ID to the version of the code that is compiled  
 4.   A notification for successful build is sent to the team.  
 5.  Automatically deploys the application ( .war file) in a different server using the Deploy to Container plugin of the Jenkins tool  
-6. If the Build fails due to violation of checkstyle, Unit Test failure , compilation error due    to some dependencies a notification of build failure is sent to the team , team needs to fix the the issue and initiate rebuild.  
-
-This demonstrates during the prototype development process the use of a setup that provides continuous integration framew
+6. If the Build fails due to violation of checkstyle, Unit Test failure , compilation error due to some dependencies a notification of build failure is sent to the team , team needs to fix the the issue and initiate rebuild.  
+The build process is internally managed by MAVEN with its entire configuration done in the POM.XML file.
+This demonstrates during the prototype development process the use of a setup that provides continuous integration framework
   
 ### User Acceptance Testing (UAT)
-Post the system test , a User Acceptance Test with usergroup is conducted to validate usability and system functionality. 
+Post the system test , a User Acceptance Test with usergroup was conducted to validate usability and system functionality. 
+UAT defects reported were logged in the REDMINE tool. Upon successful fix and re-test the bugs were marked as closed.
   
 
 ### Continous Monitoring
@@ -182,7 +185,7 @@ Post the system test , a User Acceptance Test with usergroup is conducted to val
 ### INSTALL and DEPLOYMENT INSTRUCTIONS
 
   
-APPENDIX
+###APPENDIX
 
 | Folder Name                              | Description                                                              |
 | -----------------------------------------| -------------------------------------------------------------------------|
@@ -190,12 +193,13 @@ APPENDIX
 | demo/html/                               | Contains the final set of HTML files with relevant images, JS , CSS files|
 |                                          | Also contains zip files of earlier versions of HTML                      |
 | demo/project-mgmt/docs/                  | Contains the Requirements Elicitation docs like JAD sessions images,     |
-|                                          | MoM's, Task Boarding, Project Plan, Project Init. Checklist              |
+|                                          | MoM's, Task Boarding, Project Plan, TDS, Project Init. Checklist         |
 | demo/project-mgmt/docs/Backlog           | Contains the Product Backlog User Stories , Tasks snapshots and pdf      |                                
-|                                          | files of the Redmine Tool used for the Project Mangement                 |
+|                                          | files of the Redmine Tool used for the Backlog Mangement                 |
 | demo/project-mgmt/docs/Daily-Scrum       | Contains Daily Team Standup Meeting Minutes                              |                                
 | demo/project-mgmt/docs/Sprint Reviews/   | Contains Sprint Reviews conducted with usergroups                        |
-| demo/project-mgmt/design/ui/             | Contains mockups, screen designs used during Requirement elicitation     |
+| demo/project-mgmt/design/ui/             | Contains mockups, screen designs,Click-Throughused during                |
+|                                          | Requirement elicitation                                                  |
 | demo/project-mgmt/design/database/       | Contains DB Scripts, ER Dig                                              |
 | demo/project-mgmt/design/Testing/        | Contains Manual Test Cases,Automation Test scripts,Test results,Test Plan|
 | demo/builds/                             | Contains Build scripts, .war file, Builds logs                           |
