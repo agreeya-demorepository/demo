@@ -20,7 +20,7 @@ import com.agreeya.chhs.to.UserTO;
 public class UserResponse extends WSResponse {
 
 	private Long id;
-	private UserTO userTO;
+	private UserTO user;
 
 	public Long getId() {
 		return id;
@@ -30,12 +30,12 @@ public class UserResponse extends WSResponse {
 		this.id = id;
 	}
 
-	public UserTO getUserTO() {
-		return userTO;
+	public UserTO getUser() {
+		return user;
 	}
 
-	public void setUserTO(UserTO userTO) {
-		this.userTO = userTO;
+	public void setUser(UserTO user) {
+		this.user = user;
 	}
 
 }

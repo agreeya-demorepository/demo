@@ -1,8 +1,10 @@
 package com.agreeya.chhs.bd.impl;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.time.DateFormatUtils;
@@ -18,16 +20,28 @@ import com.agreeya.chhs.exception.UserException;
 import com.agreeya.chhs.exception.WSException;
 import com.agreeya.chhs.model.User;
 import com.agreeya.chhs.model.UserSession;
+import com.agreeya.chhs.model.Userdetail;
+import com.agreeya.chhs.model.Userfamily;
+import com.agreeya.chhs.model.Userkid;
+import com.agreeya.chhs.model.Userlicence;
+import com.agreeya.chhs.model.Userspouse;
 import com.agreeya.chhs.request.GetUserInboxRequest;
 import com.agreeya.chhs.request.SaveUserRequest;
 import com.agreeya.chhs.request.UserLogoutRequest;
 import com.agreeya.chhs.request.UserRegistrationRequest;
+import com.agreeya.chhs.request.user.UserFamilyDetails;
+import com.agreeya.chhs.request.user.UserKidsDetails;
+import com.agreeya.chhs.request.user.UserLicenceDetails;
+import com.agreeya.chhs.request.user.UserPersonal;
+import com.agreeya.chhs.request.user.UserProfile;
+import com.agreeya.chhs.request.user.UserSpouseDetails;
 import com.agreeya.chhs.response.SaveUserResponse;
 import com.agreeya.chhs.response.UserInboxResponse;
 import com.agreeya.chhs.response.UserLogoutResponse;
 import com.agreeya.chhs.response.UserRegistrationResponse;
 import com.agreeya.chhs.service.MemberService;
 import com.agreeya.chhs.to.UserContextTO;
+import com.agreeya.chhs.to.UserTO;
 import com.agreeya.chhs.util.CHHSErrorCodes;
 import com.agreeya.chhs.util.Constants;
 
@@ -191,7 +205,7 @@ public class MemberServiceBDImpl implements MemberServiceBD {
 	 * @return msg
 	 */
 	@Override
-	public String checkUserDetailExist(String userName, String email) {
+	public UserTO checkUserDetailExist(String userName) {
 		log.info("enter into MemberServiceBDImpl checkUserDetailExist() method....................");
 		if (userName == null || userName.isEmpty()) {
 			if (log.isDebugEnabled()) {
@@ -199,16 +213,58 @@ public class MemberServiceBDImpl implements MemberServiceBD {
 			}
 			throw new MembershipException("User name is not provided!");
 		}
-		if (email == null || email.isEmpty()) {
-			if (log.isDebugEnabled()) {
-				log.debug("email is invalid");
-			}
-			throw new MembershipException("Email id is not provided!");
-		}
 
-		String msg = memberService.checkUserDetailExist(userName, email);
-		log.info("enter into MemberServiceBDImpl checkUserDetailExist() method...................." + msg);
-		return msg;
+		User usr = memberService.checkUserDetailExist(userName);
+		UserTO usrTO = new UserTO();
+		UserProfile personalProfile = new UserProfile(usr.getHomestudy(), usr.getTraining(), 
+				usr.getUseremail(), usr.getUserName(), usr.getPassword());		
+		usrTO.setPersonalProfile(personalProfile);
+		
+		Userspouse spouse = usr.getUserspouses().get(0);
+		
+		Userdetail detail = usr.getUserdetails().get(0);
+		
+		
+		UserSpouseDetails spouseDtl = new UserSpouseDetails(spouse.getContactNo(), 
+				spouse.getDob().toString(), spouse.getFirstName(), spouse.getFirstName(), 
+				spouse.getHobbies(), spouse.getIncome(), spouse.getOccupation(),
+				spouse.getPreference(), spouse.getRace(), spouse.getReligion());
+		
+		UserPersonal personalDetails = new UserPersonal(detail.getContactNo(),
+				detail.getDob().toString(), 
+				detail.getFirstName(), detail.getGender(),
+				detail.getHobbies(), detail.getIncome(), detail.getLastName(), detail.getMaritalStatus(), detail.getOccupation(),
+				detail.getPreference(), detail.getRace(), detail.getReligion(), spouseDtl);
+		
+		
+		Userfamily fam = usr.getUserfamilies().get(0);
+		
+		List<UserKidsDetails> kidList = new ArrayList<UserKidsDetails>();
+		
+		for (Userkid kid : fam.getKids()) {
+			UserKidsDetails kidDtl = new UserKidsDetails(kid.getName(), kid.getAgeGroup(), kid.getHobbies());
+			kidList.add(kidDtl);
+		}
+		
+		UserFamilyDetails famDtls = new UserFamilyDetails(fam.getDescription(),
+				fam.getHaveKids(), fam.getKid(), fam.getKidsInfo(), kidList);
+		
+		
+		Userlicence ulic = usr.getUserlicences().get(0);
+		UserLicenceDetails lic = new UserLicenceDetails(ulic.getAgencyContact(), ulic.getAgencyWorker(),
+				ulic.getDateOfIssue().toString(), ulic.getLicenceNo());
+		
+		
+		
+		usrTO.setPersonalDetails(personalDetails);
+		usrTO.setFamilyDetails(famDtls);
+		usrTO.setLicenceDetails(lic);
+		usrTO.setPersonalProfile(personalProfile);
+		
+		
+		
+		log.info("enter into MemberServiceBDImpl checkUserDetailExist() method....................");
+		return usrTO;
 	}
 
 	// get encrypted password from user table and decrypted by AES encryption.
@@ -242,7 +298,7 @@ public class MemberServiceBDImpl implements MemberServiceBD {
 	@Override
 	public UserRegistrationResponse registerUser(UserRegistrationRequest request, UserRegistrationResponse response)
 			throws HibernateException, SQLException, UserException, WSException {
-		 String message = memberService.registerUser(request);
+	     String message = memberService.registerUser(request);
 		 response.setMessage(message);
 		 
 		 return response;
@@ -251,7 +307,13 @@ public class MemberServiceBDImpl implements MemberServiceBD {
 	@Override
 	public SaveUserResponse saveUser(SaveUserRequest request, SaveUserResponse response)
 			throws HibernateException, SQLException, UserException, WSException {
-		 String message = memberService.saveUser(request);
+		 String message = null;
+		try {
+			message = memberService.saveUser(request);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		 response.setMessage(message);
 		 
 		 return response;

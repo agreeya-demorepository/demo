@@ -15,6 +15,7 @@ import com.agreeya.chhs.util.Constants;
  * @author amit.sharma
  *
  */
+@Transactional
 public class MemberServiceDAOImpl extends BaseDAOImpl implements MemberServiceDAO {
 
 	private static Logger log = Logger.getLogger(MemberServiceDAOImpl.class);
