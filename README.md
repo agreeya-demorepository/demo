@@ -122,7 +122,7 @@ Refer the team members and roles of the scrum team at **GITHUB > demo > project-
 #####  BackEnd Technologies & Tools
 				a. Java JDK ver 1.8 OPEN SOURCE
 				b. Application Server - Tomacat Ver 7.0.69 OPEN SOURCE
-				c. Spring Framework Release 4.2.6  OPEN SOURCE
+				c. Spring Framework IOC Release 4.2.6  OPEN SOURCE
 				d. Web Services - Jersey RESTful Web Services framework REST JAX-RS Jersey Ver 1.19 OPEN SOURCE
 				e. ORM Tool - Hibernate Ver 5.0.3 FINAL OPEN SOURCE
 				f. Build Tool - Maven Ver.3 OPEN SOURCE
@@ -141,19 +141,17 @@ Refer the team members and roles of the scrum team at **GITHUB > demo > project-
 
 
 ### Responsive Design 
- UI is designed using the Bootstrap front end framework. UI designs are responsive in nature and hence compatible with multiple mobile devices and platforms like smartphones, tablets on  Android, iOS
+ UI is designed using the Bootstrap front end framework. UI designs are responsive in nature and hence compatible with multiple mobile devices and platforms like smartphones, tablets on  Android, iOS. The UI designs are created in a consultative and interactive approach with usergroup with due consideration to aspects like ease of use,intuitiveness,application workflow etc.  
 This demonstrates the screens to be accessible from multiple devices.
 
 
 ### Style Guide & Coding Conventions
 As part of coding conventions and stylechecks we have used a set of standard guidelines so as to have consistency in coding approach during the course of development of this prototype.
-File stylecheck.xml provides the list of stylechecks used and PMD integrated with IDE Eclipse is used for following coding conventions and standards for development of Java backend.
+File stylecheck.xml provides the list of stylechecks used and PMD integrated with IDE Eclipse is used for following coding conventions and standards for development of Java backend.This approach reduces redundancy and extends code reviews beyond semantics validations . 
 This demonstrates adherence to the use of a Style Guide during the prototype development process.
 
-
-
 ### Unit & Automation Testing
-JUnit based units test cases are developed as part of the code . These are executed by the developer as part of the development activity . JUnits are exeucted automatically during the Build process also.
+JUnit based units test cases are developed as part of the code .These are executed by the developer as part of the development activity . JUnits are exeucted automatically during the Build process also.
 There are two ways in which System Testing for the application is done. Manual test case execution and automation test case suite is created to run the test case automatically using a script. The results of the automation test cases are published in a file.
 
 Pl refer the GITHUB folder **GITHUB > demo > project-mgmt > design > Testing> Automation Test**
@@ -190,7 +188,29 @@ UAT defects reported were logged in the REDMINE tool. Upon successful fix and re
 
 ### INSTALL and DEPLOYMENT INSTRUCTIONS
 
-  
+######Prerequisite  
+1. Java Ver 1.8 is installed at the server where the application is being deployed and the server is installed with web server Tomcat 7.0.69 at <TOMCAT_HOME> directory
+2. MYSQL Ver 5.6.30+ is installed on the server.
+3. Execute the Database creation script **GITHUB > demo > project-mgmt > design > database >fosterfamilies_DBScript.sql
+
+######Steps to Deploy Application :
+
+1. Stop the Tomcat server if already running on the target server
+	- Use ps –ef | grep tomcat to check if tomcat is running
+
+2. Copy chhs.war file in the MASTER Branch from the location **GITHUB > demo > builds**  to **<TOMCAT_HOME>/webapps/** directory
+
+3. Start Tomcat server
+	- Goto **<TOMCAT_HOME>/bin** directory and run startup.bat or startup.sh (for linux)
+	- Check logs using (tail –f “<TOMCAT_HOME>/logs/catalina.out”  if you get DB error:
+		- Stop the Tomcat server
+		- Goto <TOMCAT_HOME>/webapps/chhs/WEB-INF/classes
+		- Edit chhs_config.properties file and update db,url,db.user,db.password and save file
+		- Restart the Tomcat server using Goto <TOMCAT_HOME>/bin director and use startup.bat or startup.sh (for linux)
+
+4. Please update the URL of the target server in the file for UI **dataservice.js**  located at **GITHUB > demo > src > main > webapp > app >services**. Update   
+Variable Name **APIHostAddress** with target server URL. eg **http://fosterfamilies.chhs.net/**
+ 
 ###APPENDIX
 
 | Folder Name                              | Description                                                              |
@@ -208,6 +228,6 @@ UAT defects reported were logged in the REDMINE tool. Upon successful fix and re
 |                                          | Requirement elicitation                                                  |
 | demo/project-mgmt/design/database/       | Contains DB Scripts, ER Dig                                              |
 | demo/project-mgmt/design/Testing/        | Contains Manual Test Cases,Automation Test scripts,Test results,Test Plan|
-| demo/builds/                             | Contains Build scripts, .war file, Builds logs                           |
+| demo/builds/                             | Contains Build scripts, .war file, Builds Console logs                   |
 | demo/logs/                               | Contains Application logs etc.                                           |
 | demo/src/main/webapp/                    | Contains Application Source code for Java,UI, web.xml etc.               |
