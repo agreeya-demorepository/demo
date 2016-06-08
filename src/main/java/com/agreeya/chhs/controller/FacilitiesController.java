@@ -1,7 +1,6 @@
 package com.agreeya.chhs.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -72,7 +71,6 @@ public class FacilitiesController {
 	
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/agencynearby")
 	public Response getAgenciesByLocation(@Context HttpServletRequest request,
 			@FormParam(WSConstants.REQUEST_PARAM) String rawRequestData) throws WSException {

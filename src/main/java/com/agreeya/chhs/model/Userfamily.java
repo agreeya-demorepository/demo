@@ -2,6 +2,7 @@ package com.agreeya.chhs.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 /**
  * The persistent class for the userfamily database table.
@@ -33,6 +35,7 @@ public class Userfamily implements Serializable {
 	private int modifiedBy;
 	private Date modifiedOn;
 	private User user;
+	private List<Userkid> kids;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -122,5 +125,13 @@ public class Userfamily implements Serializable {
 		this.user = user;
 	}
 
+	@Transient
+	public List<Userkid> getKids() {
+		return kids;
+	}
+
+	public void setKids(List<Userkid> kids) {
+		this.kids = kids;
+	}
 
 }

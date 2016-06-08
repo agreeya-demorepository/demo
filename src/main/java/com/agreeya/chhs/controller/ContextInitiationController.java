@@ -8,6 +8,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
+import org.codehaus.jackson.map.ObjectMapper;
 
 import com.agreeya.chhs.bd.AESSecurityBD;
 import com.agreeya.chhs.bd.MemberServiceBD;
@@ -20,9 +21,9 @@ import com.agreeya.chhs.response.CreateUserContextResponse;
 import com.agreeya.chhs.response.UserLogoutResponse;
 import com.agreeya.chhs.response.user.UserResponse;
 import com.agreeya.chhs.to.UserContextTO;
-import com.agreeya.chhs.util.Constants;
-import com.agreeya.chhs.util.JsonConverter;
+import com.agreeya.chhs.to.UserTO;
 import com.agreeya.chhs.util.CHHSErrorCodes;
+import com.agreeya.chhs.util.JsonConverter;
 import com.agreeya.chhs.util.WSConstants;
 
 /**
@@ -139,16 +140,17 @@ public class ContextInitiationController {
 			log.info("enter into ContextInitiationController for checkUserDetailExist() method ...................");
 			ForgotPasswordRequest wsRequest = (ForgotPasswordRequest) request.getAttribute(WSConstants.WS_REQUEST_OBJECT);
 			String userName = wsRequest.getUserName();
-			String userEmail = wsRequest.getEmail();
-			String msg = this.memberServiceBD.checkUserDetailExist(userName, userEmail);
+			UserTO usr = this.memberServiceBD.checkUserDetailExist(userName);
 			UserResponse response = new UserResponse();
-			if (msg.equals(Constants.EXIST)) {
+			if (null != usr) {
 				response.setStatus(WSConstants.RESPONSE_OK);
 			} else {
 				response.setStatus(WSConstants.RESPONSE_ERROR);
 			}
-			// response.setStatus(msg);
-			String result = JsonConverter.convertJavaObjectToJsonString(response);
+		    response.setUser(usr);
+		    ObjectMapper mapper = new ObjectMapper();
+		    
+			String result = mapper.writeValueAsString(response);
 			// for audit logging.
 			try {
 				request.setAttribute(WSConstants.WS_RESPONSE, result);

@@ -41,32 +41,53 @@ import com.agreeya.chhs.util.DateUtil;
  * @author AgreeYa Solutions
  *
  */
+@Transactional
 public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 
 	private AESSecurityBD aESSecurityBD;
 
 	/**
 	 * @purpose: check user detail is exist or not by user name and email
+	 * for API /contextinit/checkuserdetailexist
 	 * @param email
 	 * @param userName
 	 * @return String
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public String checkUserDetailExist(String userName, String email) {
-		String status = "";
+	public User checkUserDetailExist(String userName) {
+		Integer userDetailID = null;
 		Query query = sessionFactory.getCurrentSession()
-				.createSQLQuery("SELECT u.id FROM user u INNER JOIN userauth uth ON  u.id=uth.userId "
-						+ "AND u.status='ACTIVE' AND uth.userStatus='ACTIVE' " + 
-						"AND uth.userStatus='active' AND u.userName='" + userName
-						+ "' AND u.userEmailId='" + email + "' AND uth.userName='" + userName + "'");
-		List<Long> listId = query.list();
-		if (null != listId && !listId.isEmpty()) {
-			status = Constants.EXIST;
+				.createSQLQuery("SELECT userID FROM user u where "
+						+ " u.status IN ('ACTIVE', 'INCOMPLETE') AND u.userName = '"
+						+ userName
+						+ "'");
+		List<Integer> idList = query.list();
+		if (idList.size() > 0) {
+			userDetailID = idList.get(0);
 		}
-		return status;
+
+		User user = getById(User.class, userDetailID);
+
+		if (null != user) {
+			if (user.getUserfamilies().size() > 0) {
+				Query kidsQuery = sessionFactory.getCurrentSession().createSQLQuery("SELECT * FROM userkids uk "
+						+ "WHERE uk.familyID = " 
+						+ user.getUserfamilies().get(0).getId()).addEntity(Userkid.class);
+
+				user.getUserfamilies().get(0).setKids(kidsQuery.list());
+			}
+			return user;
+		}
+		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @purpose: register new User in system and save profile and family details and license 
+	 * for API /member/register
+	 * 
+	 * @param request
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
@@ -158,38 +179,36 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 
 			sess.saveOrUpdate(userDtls);
 
-			Query spouseQuery = sess
-					.createSQLQuery("SELECT userSpouseID FROM userspouse us " + "WHERE us.UserID = " + user.getUserID());
-
-			int userSpouseID = 0;
-			List<Integer> idListspouse = spouseQuery.list();
-			if (idListspouse.size() > 0) {
-				userSpouseID = idListspouse.get(0);
+			if ("Married".equalsIgnoreCase(userDtls.getMaritalStatus())) {
+				Query spouseQuery = sess
+						.createSQLQuery("SELECT userSpouseID FROM userspouse us " + "WHERE us.UserID = " + user.getUserID());
+				int userSpouseID = 0;
+				List<Integer> idListspouse = spouseQuery.list();
+				if (idListspouse.size() > 0) {
+					userSpouseID = idListspouse.get(0);
+				}
+				Userspouse spouseDtls = new Userspouse();
+				if (userSpouseID > 0) {
+					spouseDtls = getById(Userspouse.class, userSpouseID);
+				}
+				spouseDtls.setUser(user);
+				spouseDtls.setFirstName(request.getPersonalDetails().getSpouseDetails().getFirstName());
+				spouseDtls.setContactNo(request.getPersonalDetails().getSpouseDetails().getContactNo());
+				spouseDtls.setDob(DateUtil.getDateFromString(request.getPersonalDetails().getSpouseDetails().getDob(), "MM/dd/yyyy"));
+				spouseDtls.setGender(request.getPersonalDetails().getSpouseDetails().getGender());
+				spouseDtls.setRace(request.getPersonalDetails().getSpouseDetails().getRace());
+				spouseDtls.setFirstName(request.getPersonalDetails().getSpouseDetails().getFirstName());
+				spouseDtls.setReligion(request.getPersonalDetails().getSpouseDetails().getReligion());
+				spouseDtls.setOccupation(request.getPersonalDetails().getSpouseDetails().getOccupation());
+				spouseDtls.setPreference(request.getPersonalDetails().getSpouseDetails().getPreference());
+				spouseDtls.setHobbies(request.getPersonalDetails().getSpouseDetails().getHobbies());
+				spouseDtls.setIncome(request.getPersonalDetails().getSpouseDetails().getIncome());
+				spouseDtls.setCreatedBy(userId);
+				spouseDtls.setCreatedOn(new Date());
+				spouseDtls.setModifiedBy(userId);
+				spouseDtls.setModifiedOn(new Date());
+				sess.saveOrUpdate(spouseDtls);
 			}
-
-			Userspouse spouseDtls = new Userspouse();
-			if (userSpouseID > 0) {
-				spouseDtls = getById(Userspouse.class, userSpouseID);
-			}
-
-			spouseDtls.setUser(user);
-			spouseDtls.setFirstName(request.getPersonalDetails().getSpouseDetails().getFirstName());
-			spouseDtls.setContactNo(request.getPersonalDetails().getSpouseDetails().getContactNo());
-			spouseDtls.setDob(DateUtil.getDateFromString(request.getPersonalDetails().getSpouseDetails().getDob(), "MM/dd/yyyy"));
-			spouseDtls.setGender(request.getPersonalDetails().getSpouseDetails().getGender());
-			spouseDtls.setRace(request.getPersonalDetails().getSpouseDetails().getRace());
-			spouseDtls.setFirstName(request.getPersonalDetails().getSpouseDetails().getFirstName());
-			spouseDtls.setReligion(request.getPersonalDetails().getSpouseDetails().getReligion());
-			spouseDtls.setOccupation(request.getPersonalDetails().getSpouseDetails().getOccupation());
-			spouseDtls.setPreference(request.getPersonalDetails().getSpouseDetails().getPreference());
-			spouseDtls.setHobbies(request.getPersonalDetails().getSpouseDetails().getHobbies());
-			spouseDtls.setIncome(request.getPersonalDetails().getSpouseDetails().getIncome());
-			spouseDtls.setCreatedBy(userId);
-			spouseDtls.setCreatedOn(new Date());
-			spouseDtls.setModifiedBy(userId);
-			spouseDtls.setModifiedOn(new Date());
-
-			sess.saveOrUpdate(spouseDtls);
 
 		}
 
@@ -222,28 +241,30 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 
 			Query kidsQuery = sess.createSQLQuery("SELECT userKidID FROM userkids uk " + "WHERE uk.familyID = " + userFamilyID);
 
-			List<Integer> idListkids = kidsQuery.list();
-			if (idListkids.size() > 0) {
-				for (int kid : idListkids) {
-					Userkid uKid = getById(Userkid.class, kid);
-					for (UserKidsDetails reqKid : request.getFamilyDetails().getKids()) {
-						uKid.setName(reqKid.getKidName());
-						uKid.setAgeGroup(reqKid.getAge());
-						uKid.setHobbies(reqKid.getHobbies());
+			if ("y".equalsIgnoreCase(famDtls.getHaveKids())) {
+				List<Integer> idListkids = kidsQuery.list();
+				if (idListkids.size() > 0) {
+					for (int kid : idListkids) {
+						Userkid uKid = getById(Userkid.class, kid);
+						for (UserKidsDetails reqKid : request.getFamilyDetails().getKids()) {
+							uKid.setName(reqKid.getKidName());
+							uKid.setAgeGroup(reqKid.getAge());
+							uKid.setHobbies(reqKid.getHobbies());
+							uKid.setUserfamily(famDtls);
+							sess.saveOrUpdate(uKid);
+						}
+					}
+
+				} else {
+					for (UserKidsDetails kid : request.getFamilyDetails().getKids()) {
+						Userkid uKid = new Userkid();
+						uKid.setName(kid.getKidName());
+						uKid.setAgeGroup(kid.getAge());
+						uKid.setHobbies(kid.getHobbies());
 						uKid.setUserfamily(famDtls);
 						sess.saveOrUpdate(uKid);
 					}
-				}
-
-			} else {
-				for (UserKidsDetails kid : request.getFamilyDetails().getKids()) {
-					Userkid uKid = new Userkid();
-					uKid.setName(kid.getKidName());
-					uKid.setAgeGroup(kid.getAge());
-					uKid.setHobbies(kid.getHobbies());
-					uKid.setUserfamily(famDtls);
-					sess.saveOrUpdate(uKid);
-				}
+				} 
 			}
 
 		}
@@ -262,7 +283,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 			}
 
 			lic.setAgencyContact(request.getLicenceDetails().getAgencyContact());
-			lic.setAgencyWorker(100);
+			lic.setAgencyWorker(request.getLicenceDetails().getAgencyWorker());
 			lic.setLicenceNo(request.getLicenceDetails().getLicenceNo());
 			lic.setDateOfIssue(DateUtil.getDateFromString(request.getLicenceDetails().getDateOfIssue(), "MM/dd/yyyy"));
 
@@ -294,6 +315,12 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 		return msg;
 	}
 
+	/* (non-Javadoc)
+	 * @purpose: save/Update User profile and family details and license 
+	 * for API /member/save
+	 * 
+	 * @param request
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
@@ -306,7 +333,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 
 		Session sess = sessionFactory.openSession();
 		userList = (List<User>) sessionFactory.getCurrentSession().createQuery("from User as u WHERE u.userName = '" + userName + "' "
-				+ "	AND u.useremail = '" + emailId + "' and status ='ACTIVE' or  status ='INCOMPLETE'").list();
+				+ "	AND u.useremail = '" + emailId + "' and status IN ('ACTIVE','INCOMPLETE') ").list();
 
 		if (userList != null) {
 			if (!userList.isEmpty()) {
@@ -316,8 +343,6 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 				user.setPassword(aESSecurityBD.encryptAES(request.getPersonalProfile().getPassword()));
 
 				user.setUseremail(request.getPersonalProfile().getUseremail());
-				user.setHomestudy(request.getPersonalProfile().getHomestudy());
-				user.setTraining(request.getPersonalProfile().getTraining());
 				Role role = getById(Role.class, 1);
 				user.setRole(role);
 				if (request.getRegistrationStage() < 4) {
@@ -385,35 +410,37 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 						userSpouseID = idListspouse.get(0);
 					}
 
-					Userspouse spouseDtls = new Userspouse();
-					if (userSpouseID > 0) {
-						spouseDtls = getById(Userspouse.class, userSpouseID);
+					if ("Married".equalsIgnoreCase(userDtls.getMaritalStatus())) {
+						Userspouse spouseDtls = new Userspouse();
+						if (userSpouseID > 0) {
+							spouseDtls = getById(Userspouse.class, userSpouseID);
+						}
+						spouseDtls.setUser(user);
+						spouseDtls.setFirstName(request.getPersonalDetails().getSpouseDetails().getFirstName());
+						spouseDtls.setContactNo(request.getPersonalDetails().getSpouseDetails().getContactNo());
+						spouseDtls.setDob(DateUtil.getDateFromString(request.getPersonalDetails()
+								.getSpouseDetails().getDob(), "MM/dd/yyyy"));
+						spouseDtls.setGender(request.getPersonalDetails().getSpouseDetails().getGender());
+						spouseDtls.setRace(request.getPersonalDetails().getSpouseDetails().getRace());
+						spouseDtls.setFirstName(request.getPersonalDetails().getSpouseDetails().getFirstName());
+						spouseDtls.setReligion(request.getPersonalDetails().getSpouseDetails().getReligion());
+						spouseDtls.setOccupation(request.getPersonalDetails().getSpouseDetails().getOccupation());
+						spouseDtls.setPreference(request.getPersonalDetails().getSpouseDetails().getPreference());
+						spouseDtls.setHobbies(request.getPersonalDetails().getSpouseDetails().getHobbies());
+						spouseDtls.setIncome(request.getPersonalDetails().getSpouseDetails().getIncome());
+						spouseDtls.setCreatedBy(userId);
+						spouseDtls.setCreatedOn(new Date());
+						spouseDtls.setModifiedBy(userId);
+						spouseDtls.setModifiedOn(new Date());
+						sess.saveOrUpdate(spouseDtls);
 					}
-
-					spouseDtls.setUser(user);
-					spouseDtls.setFirstName(request.getPersonalDetails().getSpouseDetails().getFirstName());
-					spouseDtls.setContactNo(request.getPersonalDetails().getSpouseDetails().getContactNo());
-					spouseDtls.setDob(DateUtil.getDateFromString(request.getPersonalDetails().getSpouseDetails().getDob(), "MM/dd/yyyy"));
-					spouseDtls.setGender(request.getPersonalDetails().getSpouseDetails().getGender());
-					spouseDtls.setRace(request.getPersonalDetails().getSpouseDetails().getRace());
-					spouseDtls.setFirstName(request.getPersonalDetails().getSpouseDetails().getFirstName());
-					spouseDtls.setReligion(request.getPersonalDetails().getSpouseDetails().getReligion());
-					spouseDtls.setOccupation(request.getPersonalDetails().getSpouseDetails().getOccupation());
-					spouseDtls.setPreference(request.getPersonalDetails().getSpouseDetails().getPreference());
-					spouseDtls.setHobbies(request.getPersonalDetails().getSpouseDetails().getHobbies());
-					spouseDtls.setIncome(request.getPersonalDetails().getSpouseDetails().getIncome());
-					spouseDtls.setCreatedBy(userId);
-					spouseDtls.setCreatedOn(new Date());
-					spouseDtls.setModifiedBy(userId);
-					spouseDtls.setModifiedOn(new Date());
-
-					sess.saveOrUpdate(spouseDtls);
 
 				}
 
 				if (request.getRegistrationStage() >= 3) {
 
-					Query familyQuery = sess.createSQLQuery("SELECT id FROM userfamily uf " + "WHERE uf.UserID = " + user.getUserID());
+					Query familyQuery = sess.createSQLQuery("SELECT id FROM userfamily uf " 
+							+ "WHERE uf.UserID = " + user.getUserID());
 
 					int userFamilyID = 0;
 					List<Integer> idListfam = familyQuery.list();
@@ -441,34 +468,37 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 
 					Query kidsQuery = sess.createSQLQuery("SELECT userKidID FROM userkids uk " + "WHERE uk.familyID = " + userFamilyID);
 
-					List<Integer> idListkids = kidsQuery.list();
-					if (idListkids.size() > 0) {
-						for (int kid : idListkids) {
-							Userkid uKid = getById(Userkid.class, kid);
-							for (UserKidsDetails reqKid : request.getFamilyDetails().getKids()) {
-								uKid.setName(reqKid.getKidName());
-								uKid.setAgeGroup(reqKid.getAge());
-								uKid.setHobbies(reqKid.getHobbies());
+					if ("y".equalsIgnoreCase(famDtls.getHaveKids())) {
+						List<Integer> idListkids = kidsQuery.list();
+						if (idListkids.size() > 0) {
+							for (int kid : idListkids) {
+								Userkid uKid = getById(Userkid.class, kid);
+								for (UserKidsDetails reqKid : request.getFamilyDetails().getKids()) {
+									uKid.setName(reqKid.getKidName());
+									uKid.setAgeGroup(reqKid.getAge());
+									uKid.setHobbies(reqKid.getHobbies());
+									uKid.setUserfamily(famDtls);
+									sess.saveOrUpdate(uKid);
+								}
+							}
+
+						} else {
+							for (UserKidsDetails kid : request.getFamilyDetails().getKids()) {
+								Userkid uKid = new Userkid();
+								uKid.setName(kid.getKidName());
+								uKid.setAgeGroup(kid.getAge());
+								uKid.setHobbies(kid.getHobbies());
 								uKid.setUserfamily(famDtls);
 								sess.saveOrUpdate(uKid);
 							}
-						}
-
-					} else {
-						for (UserKidsDetails kid : request.getFamilyDetails().getKids()) {
-							Userkid uKid = new Userkid();
-							uKid.setName(kid.getKidName());
-							uKid.setAgeGroup(kid.getAge());
-							uKid.setHobbies(kid.getHobbies());
-							uKid.setUserfamily(famDtls);
-							sess.saveOrUpdate(uKid);
-						}
+						} 
 					}
 
 				}
 				if (request.getRegistrationStage() >= 4) {
 					Userlicence lic = new Userlicence();
-					Query licQuery = sess.createSQLQuery("SELECT id FROM userlicence l " + "WHERE l.UserID = " + user.getUserID());
+					Query licQuery = sess.createSQLQuery("SELECT id FROM userlicence l "
+							+ "WHERE l.UserID = " + user.getUserID());
 
 					int userLicID = 0;
 					List<Integer> idListLic = licQuery.list();
@@ -481,7 +511,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 					}
 
 					lic.setAgencyContact(request.getLicenceDetails().getAgencyContact());
-					lic.setAgencyWorker(100);
+					lic.setAgencyWorker(request.getLicenceDetails().getAgencyWorker());
 					lic.setLicenceNo(request.getLicenceDetails().getLicenceNo());
 					lic.setDateOfIssue(DateUtil.getDateFromString(request.getLicenceDetails().getDateOfIssue(), "MM/dd/yyyy"));
 
@@ -506,11 +536,17 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 		return msg;
 	}
 
+	/* (non-Javadoc)
+	 * @purpose: Get User communication 
+	 * for API /member/inbox
+	 * 
+	 * @param request
+	 */
 	@Override
 	@Transactional
 	public UserInboxResponse getUserInbox(GetUserInboxRequest request, UserInboxResponse response) {
 		Query query = sessionFactory.getCurrentSession()
-				.createSQLQuery("SELECT * FROM userinbox ib WHERE ib.UserID = " + request.getUserContext().getUserId())
+				.createSQLQuery("SELECT * FROM userinbox ib WHERE ib.UserID = 1")
 				.addEntity(Userinbox.class);
 
 		List<Userinbox> inboxes = query.list();
@@ -572,7 +608,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 	@Override
 	@Transactional
 	public String getUserSessionForTest() {
-		Query query = sessionFactory.getCurrentSession().createSQLQuery("SELECT * FROM usersession ss WHERE ss.UserId = 397")
+		Query query = sessionFactory.getCurrentSession().createSQLQuery("SELECT * FROM usersession ss WHERE ss.userId = 1")
 				.addEntity(UserSession.class);
 
 		List<UserSession> list = query.list();

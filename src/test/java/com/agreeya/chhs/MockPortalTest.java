@@ -28,7 +28,6 @@ import com.agreeya.chhs.dao.UserDAO;
 import com.agreeya.chhs.request.CreateUserContextRequest;
 import com.agreeya.chhs.request.FindAgenciesBytLocationRequest;
 import com.agreeya.chhs.request.SaveUserRequest;
-import com.agreeya.chhs.request.UserLogoutRequest;
 import com.agreeya.chhs.request.UserRegistrationRequest;
 import com.agreeya.chhs.request.user.UserFamilyDetails;
 import com.agreeya.chhs.request.user.UserKidsDetails;
@@ -38,7 +37,6 @@ import com.agreeya.chhs.request.user.UserProfile;
 import com.agreeya.chhs.request.user.UserSpouseDetails;
 import com.agreeya.chhs.response.CreateUserContextResponse;
 import com.agreeya.chhs.response.SaveUserResponse;
-import com.agreeya.chhs.response.UserLogoutResponse;
 import com.agreeya.chhs.response.UserRegistrationResponse;
 import com.agreeya.chhs.to.UserContextTO;
 import com.agreeya.chhs.util.ContextProvider;
@@ -90,9 +88,7 @@ public class MockPortalTest {
 	public void getFacilitiesByLocation() throws Exception {
 		FindAgenciesBytLocationRequest usReq = new FindAgenciesBytLocationRequest();
 
-		usReq.setLattitude("-118");
-		usReq.setLongitude("34");
-		usReq.setRadius("10000");
+		
 		Gson gson = new Gson();
 
 		HttpClient client = HttpClientBuilder.create().build();
@@ -115,7 +111,9 @@ public class MockPortalTest {
 		}
 
 		SaveUserResponse reg = gson.fromJson(builder.toString(), SaveUserResponse.class);
+		String responseStatus = reg.getStatus();
 		Assert.assertEquals("Status not okay", 200, mockResponse.getStatusLine().getStatusCode());
+		Assert.assertEquals("Status not okay", "1", responseStatus);
 	}
 	
 	
@@ -426,7 +424,7 @@ public class MockPortalTest {
 		userKidsDetails.add(userKidsDetail);
 		userKidsDetails.add(userKidsDetail2);
 		UserFamilyDetails familyDetails = new UserFamilyDetails("description", "Y", "2", "test data", userKidsDetails);
-		UserLicenceDetails licenceDetails = new UserLicenceDetails("123456789", 10, "05/31/2016", "321456789");
+		UserLicenceDetails licenceDetails = new UserLicenceDetails("123456789", "TEST", "05/31/2016", "321456789");
 
 		urr.setFamilyDetails(familyDetails);
 		urr.setLicenceDetails(licenceDetails);
@@ -480,7 +478,7 @@ public class MockPortalTest {
 		userKidsDetails.add(userKidsDetail);
 		userKidsDetails.add(userKidsDetail2);
 		UserFamilyDetails familyDetails = new UserFamilyDetails("description", "Y", "2", "test data", userKidsDetails);
-		UserLicenceDetails licenceDetails = new UserLicenceDetails("123456789", 10, "05/31/2016", "321456789");
+		UserLicenceDetails licenceDetails = new UserLicenceDetails("123456789", "test", "05/31/2016", "321456789");
 
 		urr.setFamilyDetails(familyDetails);
 		urr.setLicenceDetails(licenceDetails);

@@ -23,7 +23,6 @@ public class UserPersonal {
 	
 	private UserSpouseDetails spouseDetails;
 	
-	
 
 	public UserPersonal(String contactNo, String dob, String firstName, 
 			String gender, String hobbies, String income,
