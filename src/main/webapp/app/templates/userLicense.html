@@ -35,11 +35,11 @@
                          <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Do you have Foster care Licence?</label>
                          <div class="col-sm-6">
                              <label class="radio-inline">
-                                 <input name="radio" checked="checked" type="radio">
+                                 <input name="radio" type="radio" ng-checked="model.haveLicense == 'y'">
                                  Yes
                              </label>
                              <label class="radio-inline">
-                                 <input name="radio" type="radio">
+                                 <input name="radio" type="radio" ng-checked="model.haveLicense == 'n'">
                                  No
                              </label>
                          </div>
@@ -47,14 +47,16 @@
                      <div class="form-group required">
                          <label for="inputPassword" class="control-label col-sm-4 paddingTop7">License Number</label>
                          <div class="col-sm-6">
-                             <input class="form-control" ng-model="model.licenseDetails.licenceNo">
+                             <input class="form-control" name="licenceNo" id="licenceNo" ng-model="model.licenceDetails.licenceNo" required ng-disabled="model.haveLicense == 'y'">
+                             <p ng-show="userForm4.licenceNo.$invalid && !userForm4.licenceNo.$pristine" class="help-block">Enter License.</p>
                          </div>
                      </div>
-                     <div class="form-group">
+                     <div class="form-group required">
                          <label class="col-sm-4 control-label">Date of Issue</label>
                          <div class="col-sm-6 ">
-                             <div class="input-append date form-control datepicker" id="dp3" data-date-format="dd-mm-yyyy">
-                                 <input class="span2" size="16" type="text" ng-model="model.licenseDetails.dateOfIssue">
+                             <div class="input-append date form-control datepicker" id="dp3" data-date-format="mm/dd/yyyy">
+                                 <input class="span2" size="16" type="text" name="dateofissue" id="dateofissue" ng-model=" model.licencedetails.dateofissue" required>
+                                 <p ng-show="userForm4.dateofissue.$invalid && !userForm4.dateofissue.$pristine" class="help-block">Enter Date Of Issue.</p>
                                  <span class="add-on"><i class="icon-th"></i></span>
                              </div>
                          </div>
@@ -63,13 +65,15 @@
                      <div class="form-group required">
                          <label class="col-sm-4 control-label">Agency Case Worker</label>
                          <div class="col-sm-6">
-                             <input class="form-control" ng-model="model.licenseDetails.agencyWorker">
+                             <input class="form-control" ng-model="model.licenceDetails.agencyWorker" id="agencyWorker" name="agencyWorker">
+                             <p ng-show="userForm4.agencyWorker.$invalid && !userForm4.agencyWorker.$pristine" class="help-block">Enter Agency worker.</p>
                          </div>
                      </div>
-                     <div class="form-group">
+                     <div class="form-group required">
                          <label class="col-sm-4 control-label">Agency's Contact Number</label>
                          <div class="col-sm-6">
-                             <input class="form-control" ng-model="model.licenseDetails.agencyContact">
+                             <input class="form-control" ng-model="model.licenceDetails.agencyContact" required id="agencyContact" name="agencyContact">
+                             <p ng-show="userForm4.agencyContact.$invalid && !userForm4.agencyContact.$pristine" class="help-block">Enter Agency contact.</p>
                          </div>
                      </div>
                      <div class="form-group">
@@ -77,9 +81,8 @@
                          <div class="col-sm-6">
                              <!--<input class="btn btn-primary" value="Update" type="submit">-->
 
-                             <button class="btn btn-primary" type="submit">Update</button>
-
-                             <input class="btn btn-default" value="Cancel" type="button" onclick="location.href='ManageProfile-Step3.html'">
+                             <button class="btn btn-primary" type="submit" ng-disabled="userForm4.$invalid">Update</button>
+                             <input class="btn btn-default" value="Cancel" type="button" ng-link="['UserLicense']">
                          </div>
                      </div>
                  </div>
@@ -92,4 +95,15 @@
      </div>
 
             </div>
-        <main-script></main-script>
+        
+
+<script language="javascript">
+
+    $(document).ready(function () {
+
+    });
+
+
+
+    $('.datepicker').datepicker();
+</script>

@@ -27,193 +27,193 @@
             </ul>
         </div>
     </div>
-    <div class="form-horizontal marginTop20">
-        <div class="form-group required">
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">First Name</label>
-            <div class="col-sm-3">
-                <input class="form-control" value="Robert">
-            </div>
 
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Last Name</label>
-            <div class="col-sm-3">
-                <input class="form-control" value="Wordsworth">
-            </div>
-        </div>
-        <div class="form-group required">
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Contact Number</label>
-            <div class="col-sm-3">
-                <input class="form-control" value="+1-567-987-1234">
-            </div>
+    <form name="registrationForm2" ng-submit="model.updatePersonalInformation()" novalidate >
+        <div class="form-horizontal marginTop20">
+            <div class="form-group required" ng-class="{ 'has-error' : registrationForm2.firstName.$invalid && !registrationForm2.firstName.$pristine }">
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">First Name</label>
+                <div class="col-sm-3">
+                    <input class="form-control" name="firstName" id="firstName" type="text" ng-model="model.personalDetails.firstName" required>
+                    <span ng-show="registrationForm2.firstName.$invalid && !registrationForm2.firstName.$pristine" class="help-block"> First name required.</span>
+                </div>
 
-            <label class="col-sm-2 control-label">Date of Birth</label>
-            <div class="col-sm-3">
-                <div class="input-append date form-control datepicker" id="dp3" data-date-format="dd-mm-yyyy">
-                    <input class="span2" size="16" type="text" value="12-08-1978">
-                    <span class="add-on"><i class="icon-th"></i></span>
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Last Name</label>
+                <div class="col-sm-3">
+                    <input class="form-control" name="lastName" ng-model="model.personalDetails.lastName" type="text" required>
+                    <span ng-show="registrationForm2.lastName.$invalid && !registrationForm2.lastName.$pristine" class="help-block"> Last name required.</span>
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Gender</label>
-            <div class="col-sm-3">
-                <select class="form-control">
-                    <option>Select</option>
-                    <option selected>Male</option>
-                    <option>Female</option>
-                </select>
-            </div>
+            <div class="form-group required" ng-class="{ 'has-error' : registrationForm2.contactNumber.$invalid && !registrationForm1.contactNumber.$pristine }">
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Contact Number</label>
+                <div class="col-sm-3">
+                    <input class="form-control" type="text" name="contactNumber" ng-model="model.personalDetails.contactNo" required>
+                    <span ng-show="registrationForm2.contactNumber.$invalid && !registrationForm2.contactNumber.$pristine" class="help-block"> Contact number required.</span>
+                </div>
 
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Marital Status</label>
-            <div class="col-sm-3">
-                <select class="form-control" id="MaritalStatusSelector">
-                    <option value="status">Select Status</option>
-                    <option value="single">Single</option>
-                    <option value="Married" selected>Married</option>
-                </select>
-            </div>
-        </div>
-        <div class="panel panel-default MaritalStatus" id="Married">
-            <div class="panel-heading"><b>Spouse Details</b></div>
-            <div class="panel-body">
-                <div class="form-group">
-                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Spouse Name</label>
-                    <div class="col-sm-3">
-                        <input class="form-control" value="Jane Miller">
-                    </div>
-
-                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Spouse Contact Number</label>
-                    <div class="col-sm-3">
-                        <input class="form-control" value="+1-579-789-1234">
+                <label class="col-sm-2 control-label">Date of Birth</label>
+                <div class="col-sm-3" ng-class="{ 'has-error' : registrationForm2.dob.$invalid && !registrationForm1.dob.$pristine }">
+                    <div class="input-append date form-control datepicker" id="dp3" data-date-format="mm/dd/yyyy">
+                        <input class="span2" size="16" type="text" value="" name="dob" ng-model="model.personalDetails.dob" required>
+                        <span ng-show="registrationForm2.dob.$invalid && !registrationForm2.dob.$pristine" class="help-block"> Date of birth required.</span>
+                        <span class="add-on"><i class="icon-th"></i></span>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Spouse DOB</label>
-                    <div class="col-sm-3">
-                        <div class="input-append date form-control datepicker" id="dp3" data-date-format="dd-mm-yyyy">
-                            <input class="span2 " size="16" type="text" value="18-04-1982">
-                            <span class="add-on"><i class="icon-th"></i></span>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Gender</label>
+                <div class="col-sm-3">
+                    <select class="form-control" ng-model="model.personalDetails.gender">
+                        <option ng-repeat="x in model.genders" value="{{x.value}}">{{x.text}}</option>
+                    </select>
+                </div>
+
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Marital Status</label>
+                <div class="col-sm-3">
+                    <select class="form-control" id="MaritalStatusSelector" ng-model="model.personalDetails.maritalStatus">
+                        <option ng-repeat="x in model.martialStatus" value="{{x.value}}">{{x.text}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="panel panel-default MaritalStatus" ng-show="model.personalDetails.maritalStatus == 'Married'" id="married">
+                <div class="panel-heading"><b>Spouse Details</b>
+                    <a class="btn btn-default btn-xs pull-right" ng-click="model.onChangeSpouseDetails()"><i ng-class="model.spouseClass"></i></a>
+                </div>
+                <div class="panel-body" ng-show="model.showSpouseDetails">
+                    <div class="form-group">
+                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">First Name</label>
+                        <div class="col-sm-3">
+                            <input class="form-control" ng-model="model.personalDetails.spouseDetails.firstName">
+                        </div>
+
+                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Contact Number</label>
+                        <div class="col-sm-3">
+                            <input class="form-control" ng-model="model.personalDetails.spouseDetails.contactNo">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Date of Birth</label>
+                        <div class="col-sm-3">
+                            <div class="input-append date form-control datepicker" id="dp3" data-date-format="mm/dd/yyyy">
+                                <input class="span2 " size="16" type="text" ng-model="model.personalDetails.spouseDetails.dob">
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                        </div>
 
-                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Gender</label>
-                    <div class="col-sm-3">
-                        <select class="form-control">
-                            <option>Select</option>
-                            <option selected>Male</option>
-                            <option>Female</option>
-                        </select>
+                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Gender</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" ng-model="model.personalDetails.spouseDetails.gender">
+                                <option ng-repeat="x in model.genders" value="{{x.value}}">{{x.text}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Race</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" ng-model="model.personalDetails.spouseDetails.race">
+                                <option ng-repeat="x in model.races" value="{{x.value}}">{{x.text}}</option>
+                            </select>
+                        </div>
+
+                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Religion</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" ng-model="model.personalDetails.spouseDetails.religion">
+                                <option ng-repeat="x in model.religions" value="{{x.value}}">{{x.text}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                       
+
+                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Occupation</label>
+                        <div class="col-sm-3">
+                            <input class="form-control" ng-model="model.personalDetails.spouseDetails.occupation">
+                        </div>
+                         <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Income (in USD)</label>
+                        <div class="col-sm-3">
+                            <input class="form-control" ng-model="model.personalDetails.spouseDetails.income">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Foster Kid's Preferences</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" ng-model="model.personalDetails.spouseDetails.preference">
+                                <option ng-repeat="x in model.preferences" value="{{x.value}}">{{x.text}}</option>
+                            </select>
+                        </div>
+
+                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Your Hobbies</label>
+                        <div class="col-sm-3 paddingTop7">
+                            <textarea class="form-control" rows="4" ng-model="model.personalDetails.spouseDetails.hobbies"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12 text-center">
+                            <button type="button" class="btn btn-default" onclick="$('#married').hide()">Cancel</button>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group ">
-                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Race</label>
-                    <div class="col-sm-3">
-                        <select class="form-control">
-                            <option>Select</option>
-                            <option selected>White </option>
-                            <option>Black or African American </option>
-                            <option>American Indian and Alaska Native </option>
-                            <option>Asian </option>
-                            <option>Native Hawaiian and Other Pacific Islander </option>
-                            <option>Some other race</option>
-                        </select>
-                    </div>
+                <!--/.panel-body -->
+            </div>
+            <!--/.panel -->
 
-                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Religion</label>
-                    <div class="col-sm-3">
-                        <select class="form-control">
-                            <option>Select</option>
-                            <option selected>Christian</option>
-                        </select>
-                    </div>
+            <div class="form-group">
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Race</label>
+                <div class="col-sm-3">
+                    <select class="form-control" ng-model="model.personalDetails.race">
+                        <option ng-repeat="x in model.races" value="{{x.value}}">{{x.text}}</option>
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Choose your Preferences</label>
-                    <div class="col-sm-3">
-                        <select class="form-control">
-                            <option>Select</option>
-                        </select>
-                    </div>
 
-                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Occupation</label>
-                    <div class="col-sm-3">
-                        <input class="form-control" value="Self Employed">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Income</label>
-                    <div class="col-sm-3">
-                        <input class="form-control" value="$50,000">
-                    </div>
-
-                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Hobbies</label>
-                    <div class="col-sm-3 paddingTop7">
-                        <textarea class="form-control">Reading</textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-12 text-center">
-                        <button type="submit" class="btn btn-default" onclick="$('#Married').hide()">Cancel</button>
-                    </div>
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Religion</label>
+                <div class="col-sm-3">
+                    <select class="form-control" ng-model="model.personalDetails.religion">
+                        <option ng-repeat="x in model.religions" value="{{x.value}}">{{x.text}}</option>
+                    </select>
                 </div>
             </div>
-            <!--/.panel-body -->
-        </div>
-        <!--/.panel -->
+            <div class="form-group">
+               
 
-        <div class="form-group">
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Race</label>
-            <div class="col-sm-3">
-                <select class="form-control">
-                    <option>Select</option>
-                    <option selected>White </option>
-                    <option>Black or African American </option>
-                    <option>American Indian and Alaska Native </option>
-                    <option>Asian </option>
-                    <option>Native Hawaiian and Other Pacific Islander </option>
-                    <option>Some other race</option>
-                </select>
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Occupation</label>
+                <div class="col-sm-3">
+                    <input class="form-control" ng-model="model.personalDetails.occupation">
+                </div>
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Income (in USD)</label>
+                <div class="col-sm-3">
+                    <input class="form-control" ng-model="model.personalDetails.income">
+                </div>
             </div>
+            <div class="form-group">
+                 <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Foster Kid's Preferences</label>
+                <div class="col-sm-3">
+                    <select class="form-control" ng-model="model.personalDetails.preference">
+                        <option ng-repeat="x in model.preferences" value="{{x.value}}">{{x.text}}</option>
+                    </select>
+                </div>
 
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Religion</label>
-            <div class="col-sm-3">
-                <select class="form-control">
-                    <option>Select</option>
-                    <option selected>Christian</option>
-                </select>
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Your Hobbies</label>
+                <div class="col-sm-3 paddingTop7">
+                    <textarea class="form-control" rows="4" ng-model="model.personalDetails.hobbies"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-6 col-sm-offset-2">
+                    <input class="btn btn-primary" value="Update" type="submit" ng-disabled="registrationForm2.$invalid">
+                    <input class="btn btn-default" value="Cancel" type="button" ng-link="['UserPersonalInformation']">
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Choose your Preferences</label>
-            <div class="col-sm-3">
-                <select class="form-control">
-                    <option>Select</option>
-                </select>
-            </div>
-
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Occupation</label>
-            <div class="col-sm-3">
-                <input class="form-control" value="Self Employed">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Income</label>
-            <div class="col-sm-3">
-                <input class="form-control" value="$50,000">
-            </div>
-
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Write about your hobbies</label>
-            <div class="col-sm-3 paddingTop7">
-                <textarea class="form-control">Travelling, Reading</textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-6 col-sm-offset-2">
-                <input class="btn btn-primary" value="Update" type="button" onclick="location.href='ManageProfile-Step3.html'">
-                <input class="btn btn-default" value="Cancel" type="button" onclick="location.href='ManageProfile-Step1.html'">
-            </div>
-        </div>
-    </div>
-    <!-- /.form-horizontal -->
+        <!-- /.form-horizontal -->
+    </form>
 </div>
 
-<main-script></main-script>
+<script language="javascript">
+    
+    $(document).ready(function () {
+        
+    });
+
+   
+
+    $('.datepicker').datepicker();
+</script>

@@ -51,6 +51,19 @@
     //controller for step 2:
     function familyRegistrationProfileStep2Controller($cookieStore, userService, toaster) {
         var model = this;
+        model.showSpouseDetails = true;
+        model.spouseClass = "glyphicon glyphicon-minus";
+
+        model.onChangeSpouseDetails = function(){
+            if(model.showSpouseDetails === true) {
+                model.showSpouseDetails = false;
+                model.spouseClass = "glyphicon glyphicon-plus";
+            } else {
+                model.showSpouseDetails = true;
+                model.spouseClass = "glyphicon glyphicon-minus";
+            }
+        }
+
         model.genders = [{
             Id: 1,
             Name: 'Male'
@@ -412,7 +425,7 @@
 
         model.licenceDetails = {
             agencyContact: "",
-            agencyWorker: 0,
+            agencyWorker: "",
             dateOfIssue: "",
             licenceNo: ""
 	    }

@@ -106,7 +106,7 @@
     };
 
      
-      //Update user account details data in database and return userContext in response.
+        //Update user account details data in database and return userContext in response.
     userService.UpdateAccountDetails = function (accountDetailsData) {
         var deferred = $q.defer();
         dataService.UpdateAccountDetails(accountDetailsData).then(function (accountDetailsDataResponse) {
@@ -128,7 +128,7 @@
             deferred.reject();
         });
         return deferred.promise;
-    }; 
+    };
 
 
     return userService;

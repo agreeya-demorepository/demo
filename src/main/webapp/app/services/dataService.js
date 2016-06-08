@@ -37,7 +37,7 @@
 
   dataService.logoutUser = function(userContext) {
     var deferred = $q.defer();
-    var userData = JSON.stringify(userContext);
+    var userData = JSON.stringify({userContext: userContext});
     $.post( APIHostAddress + "chhs/rest/contextinit/userlogout", userData, function( data ) {
       var userResponse = JSON.parse(data);
       console.log(userResponse);

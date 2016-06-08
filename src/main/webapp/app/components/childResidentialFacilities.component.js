@@ -38,6 +38,7 @@
       enableSorting: true,
       rowModelType: 'pagination'
     }
+   // model.agGridStyle = "grid";
     model.agGridStyle = {
       'width': '98%',
       'height': '300px'//,
@@ -107,7 +108,7 @@
           }
 
         }, function(error){
-          model.isFacilitiesAvailable = 'no';
+          model.isFacilitiesAvailable = 'default';
           console.log(error);
           console.log("Error in searching child residential facilities");
         });
