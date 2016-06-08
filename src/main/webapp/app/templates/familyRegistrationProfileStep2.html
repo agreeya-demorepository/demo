@@ -51,7 +51,7 @@
             </div>
 
             <label class="col-sm-2 control-label">Date of Birth</label>
-            <div class="col-sm-3 " ng-class="{ 'has-error' : registrationForm2.dob.$invalid && !registrationForm2.dob.$pristine }">
+            <div class="col-sm-3" ng-class="{ 'has-error' : registrationForm2.dob.$invalid && !registrationForm2.dob.$pristine }">
                 <div class="input-append date form-control datepicker" id="dp3" data-date-format="mm/dd/yyyy">
                     <input class="span2" size="16" type="text" value="" name="dob" ng-model="model.personalDetails.dob" required>
                     <span ng-show="registrationForm2.dob.$invalid && !registrationForm2.dob.$pristine" class="help-block"> Date of birth required.</span>
@@ -147,7 +147,7 @@
                 <div class="form-group">
                   
                     
-                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Forster Kid's Preferences</label>
+                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Foster Kid's Preferences</label>
                     <div class="col-sm-3">
                       <select name="ddl_preferences" class="form-control" ng-model="model.personalDetails.spouseDetails.preference" ng-options="preference.Name as preference.Name for preference in model.preferencesData">
                           <option value="">Select</option>

@@ -30,12 +30,12 @@
                 <div class="form-horizontal marginTop20">
                     <form name="registrationForm" novalidate>
                         <div class="form-group">
-                            <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Do you have Foster care Licence?</label>
+                            <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Do you have Foster care License?</label>
                             <div class="col-sm-6">
                                 <label class="radio-inline">
-                                    <input name="radio" type="radio" ng-model="model.haveFosterLicense" value="yes"> Yes </label>
+                                    <input name="radio" checked="checked" type="radio" ng-model="model.haveFosterLicense" value="yes"> Yes </label>
                                 <label class="radio-inline">
-                                    <input name="radio" checked="checked" type="radio" ng-model="model.haveFosterLicense" value="no"> No </label>
+                                    <input name="radio" type="radio" ng-model="model.haveFosterLicense" value="no"> No </label>
                             </div>
                         </div>
                         <div class="form-group required" ng-class="{ 'has-error' : registrationForm.licenseNumber.$invalid && !registrationForm.licenseNumber.$pristine }">
@@ -74,8 +74,8 @@
                                                 <div class="form-group">
                             <label for="inputPassword" class="control-label col-sm-4 paddingTop7"> </label>
                             <div class="col-sm-6">
-                                <input class="btn btn-primary" value="Submit" type="submit" ng-click="model.SaveRegistrationProfileData()">
-                                <input class="btn btn-default" value="Save & Exit" type="submit" ng-click="model.SaveRegistrationProfileData()">
+                                <input class="btn btn-primary" value="Submit" type="submit" ng-click="model.SaveRegistrationProfileData()" ng-disabled="registrationForm.$invalid">
+                                <input class="btn btn-default" value="Save & Exit" type="submit" ng-click="model.SaveRegistrationProfileData()" ng-disabled="registrationForm.$invalid">
                             </div>
                         </div>
                     </form>
