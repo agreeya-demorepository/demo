@@ -410,35 +410,37 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 						userSpouseID = idListspouse.get(0);
 					}
 
-					Userspouse spouseDtls = new Userspouse();
-					if (userSpouseID > 0) {
-						spouseDtls = getById(Userspouse.class, userSpouseID);
+					if ("Married".equalsIgnoreCase(userDtls.getMaritalStatus())) {
+						Userspouse spouseDtls = new Userspouse();
+						if (userSpouseID > 0) {
+							spouseDtls = getById(Userspouse.class, userSpouseID);
+						}
+						spouseDtls.setUser(user);
+						spouseDtls.setFirstName(request.getPersonalDetails().getSpouseDetails().getFirstName());
+						spouseDtls.setContactNo(request.getPersonalDetails().getSpouseDetails().getContactNo());
+						spouseDtls.setDob(DateUtil.getDateFromString(request.getPersonalDetails()
+								.getSpouseDetails().getDob(), "MM/dd/yyyy"));
+						spouseDtls.setGender(request.getPersonalDetails().getSpouseDetails().getGender());
+						spouseDtls.setRace(request.getPersonalDetails().getSpouseDetails().getRace());
+						spouseDtls.setFirstName(request.getPersonalDetails().getSpouseDetails().getFirstName());
+						spouseDtls.setReligion(request.getPersonalDetails().getSpouseDetails().getReligion());
+						spouseDtls.setOccupation(request.getPersonalDetails().getSpouseDetails().getOccupation());
+						spouseDtls.setPreference(request.getPersonalDetails().getSpouseDetails().getPreference());
+						spouseDtls.setHobbies(request.getPersonalDetails().getSpouseDetails().getHobbies());
+						spouseDtls.setIncome(request.getPersonalDetails().getSpouseDetails().getIncome());
+						spouseDtls.setCreatedBy(userId);
+						spouseDtls.setCreatedOn(new Date());
+						spouseDtls.setModifiedBy(userId);
+						spouseDtls.setModifiedOn(new Date());
+						sess.saveOrUpdate(spouseDtls);
 					}
-
-					spouseDtls.setUser(user);
-					spouseDtls.setFirstName(request.getPersonalDetails().getSpouseDetails().getFirstName());
-					spouseDtls.setContactNo(request.getPersonalDetails().getSpouseDetails().getContactNo());
-					spouseDtls.setDob(DateUtil.getDateFromString(request.getPersonalDetails().getSpouseDetails().getDob(), "MM/dd/yyyy"));
-					spouseDtls.setGender(request.getPersonalDetails().getSpouseDetails().getGender());
-					spouseDtls.setRace(request.getPersonalDetails().getSpouseDetails().getRace());
-					spouseDtls.setFirstName(request.getPersonalDetails().getSpouseDetails().getFirstName());
-					spouseDtls.setReligion(request.getPersonalDetails().getSpouseDetails().getReligion());
-					spouseDtls.setOccupation(request.getPersonalDetails().getSpouseDetails().getOccupation());
-					spouseDtls.setPreference(request.getPersonalDetails().getSpouseDetails().getPreference());
-					spouseDtls.setHobbies(request.getPersonalDetails().getSpouseDetails().getHobbies());
-					spouseDtls.setIncome(request.getPersonalDetails().getSpouseDetails().getIncome());
-					spouseDtls.setCreatedBy(userId);
-					spouseDtls.setCreatedOn(new Date());
-					spouseDtls.setModifiedBy(userId);
-					spouseDtls.setModifiedOn(new Date());
-
-					sess.saveOrUpdate(spouseDtls);
 
 				}
 
 				if (request.getRegistrationStage() >= 3) {
 
-					Query familyQuery = sess.createSQLQuery("SELECT id FROM userfamily uf " + "WHERE uf.UserID = " + user.getUserID());
+					Query familyQuery = sess.createSQLQuery("SELECT id FROM userfamily uf " 
+							+ "WHERE uf.UserID = " + user.getUserID());
 
 					int userFamilyID = 0;
 					List<Integer> idListfam = familyQuery.list();
@@ -466,28 +468,30 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 
 					Query kidsQuery = sess.createSQLQuery("SELECT userKidID FROM userkids uk " + "WHERE uk.familyID = " + userFamilyID);
 
-					List<Integer> idListkids = kidsQuery.list();
-					if (idListkids.size() > 0) {
-						for (int kid : idListkids) {
-							Userkid uKid = getById(Userkid.class, kid);
-							for (UserKidsDetails reqKid : request.getFamilyDetails().getKids()) {
-								uKid.setName(reqKid.getKidName());
-								uKid.setAgeGroup(reqKid.getAge());
-								uKid.setHobbies(reqKid.getHobbies());
+					if ("y".equalsIgnoreCase(famDtls.getHaveKids())) {
+						List<Integer> idListkids = kidsQuery.list();
+						if (idListkids.size() > 0) {
+							for (int kid : idListkids) {
+								Userkid uKid = getById(Userkid.class, kid);
+								for (UserKidsDetails reqKid : request.getFamilyDetails().getKids()) {
+									uKid.setName(reqKid.getKidName());
+									uKid.setAgeGroup(reqKid.getAge());
+									uKid.setHobbies(reqKid.getHobbies());
+									uKid.setUserfamily(famDtls);
+									sess.saveOrUpdate(uKid);
+								}
+							}
+
+						} else {
+							for (UserKidsDetails kid : request.getFamilyDetails().getKids()) {
+								Userkid uKid = new Userkid();
+								uKid.setName(kid.getKidName());
+								uKid.setAgeGroup(kid.getAge());
+								uKid.setHobbies(kid.getHobbies());
 								uKid.setUserfamily(famDtls);
 								sess.saveOrUpdate(uKid);
 							}
-						}
-
-					} else {
-						for (UserKidsDetails kid : request.getFamilyDetails().getKids()) {
-							Userkid uKid = new Userkid();
-							uKid.setName(kid.getKidName());
-							uKid.setAgeGroup(kid.getAge());
-							uKid.setHobbies(kid.getHobbies());
-							uKid.setUserfamily(famDtls);
-							sess.saveOrUpdate(uKid);
-						}
+						} 
 					}
 
 				}
