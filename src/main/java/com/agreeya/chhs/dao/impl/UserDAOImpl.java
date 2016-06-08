@@ -399,7 +399,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 					userDtls.setModifiedBy(userId);
 					userDtls.setModifiedOn(new Date());
 
-					sess.saveOrUpdate(userDtls);
+					sess.merge(userDtls);
 
 					Query spouseQuery = sess
 							.createSQLQuery("SELECT userSpouseID FROM userspouse us " + "WHERE us.UserID = " + user.getUserID());
@@ -432,7 +432,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 						spouseDtls.setCreatedOn(new Date());
 						spouseDtls.setModifiedBy(userId);
 						spouseDtls.setModifiedOn(new Date());
-						sess.saveOrUpdate(spouseDtls);
+						sess.merge(spouseDtls);
 					}
 
 				}
@@ -464,9 +464,10 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 					famDtls.setCreatedOn(new Date());
 					famDtls.setModifiedOn(new Date());
 
-					sess.saveOrUpdate(famDtls);
+					sess.merge(famDtls);
 
-					Query kidsQuery = sess.createSQLQuery("SELECT userKidID FROM userkids uk " + "WHERE uk.familyID = " + userFamilyID);
+					Query kidsQuery = sess.createSQLQuery("SELECT userKidID FROM userkids uk "
+					+ "WHERE uk.familyID = " + userFamilyID);
 
 					if ("y".equalsIgnoreCase(famDtls.getHaveKids())) {
 						List<Integer> idListkids = kidsQuery.list();
@@ -478,7 +479,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 									uKid.setAgeGroup(reqKid.getAge());
 									uKid.setHobbies(reqKid.getHobbies());
 									uKid.setUserfamily(famDtls);
-									sess.saveOrUpdate(uKid);
+									sess.merge(uKid);
 								}
 							}
 
@@ -489,7 +490,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 								uKid.setAgeGroup(kid.getAge());
 								uKid.setHobbies(kid.getHobbies());
 								uKid.setUserfamily(famDtls);
-								sess.saveOrUpdate(uKid);
+								sess.merge(uKid);
 							}
 						} 
 					}
@@ -521,7 +522,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 					lic.setCreatedon(new Date());
 					lic.setModifiedOn(new Date());
 
-					sess.saveOrUpdate(lic);
+					sess.merge(lic);
 				}
 
 				sess.flush();

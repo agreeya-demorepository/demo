@@ -11,7 +11,7 @@ import com.agreeya.chhs.model.UserSession;
 import com.agreeya.chhs.util.Constants;
 
 /**
- * This class has methods that store and fetches the membership details in
+ * This class has methods that store and fetches the membership details
  * @author amit.sharma
  *
  */
