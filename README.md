@@ -1,5 +1,5 @@
 ### URL 
-##### https://fostercaredemo-agreeya.com
+##### http://fosterfamilies.agreeya.net/chhs
 
 This project is about building a working prototype that would enable Families to Register and Manage their profiles so that they can receive foster placements. Apart from Registering their Profiles, prototype functionality would allow registered users to Manage Profiles, Search through Children Residential Facilities within their zipcode and locate Foster care agencies in their nearby neighbourhood. Registered users can view their private mailbox for communication emails sent or received. The prototype utilizes the publicly exposed CHHS API to retrieve information related to the Foster Care Agencies in nearby neighborhood of the user.
 ***********************************************************************************************************************************************************************
@@ -27,7 +27,7 @@ The user interfaces have dynamic structure that do not require complete page ref
 The whole application’s business logic and data can be packaged and transferred from one platform to other like local deployment to hosted solution,hosted solution to localized deployment, from one hosted solution to the other with minimum interruption. The application is developed using standard web technologies to provide full accessibility from desktop/laptop and tablet browsers.
 
 ######Security  
-As soon the user logs into the application a user specific session-Id is created which does not get time out until the subscriber gets inactive during configured duration. The handshake between client & API calls is enabled by sharing this session-Id in every subsequent API calls by that client.This secures client access in the application. Additionally, the application can be accessed over the http secure using ssl certificate for secure communication.
+As soon the user logs into the application a user specific session-Id is created which does not get time out until the subscriber gets inactive during configured duration. The handshake between client & API calls is enabled by sharing this session-Id in every subsequent API calls by that client.This secures client access in the application. Additionally, the application could be accessed over the http secure using ssl certificate for secure communication.
 
 
 #####Sample Request Flow
@@ -40,7 +40,7 @@ The CHHS prototype development follows standards of Java code conventions and ch
 #####Prototype Screen Workflows
 
 ######Step 1 Registration 
-User enters the URL, https://fostercaredemo-agreeya.com in the web browser or smartphone
+User enters the URL, http://fosterfamilies.agreeya.net/chhs in the web browser or smartphone
 
 ######Step 2 Registration 
 User lands on the Home page from where a new user can initiate activity “creation of a Family profile” by clicking on the Family Registration link.
@@ -180,18 +180,14 @@ This demonstrates during the prototype development process the use of a setup th
 ### User Acceptance Testing (UAT)
 Post the system test , a User Acceptance Test with usergroup was conducted to validate usability and system functionality. 
 UAT defects reported were logged in the REDMINE tool. Upon successful fix and re-test the bugs were marked as closed.
-  
-
-### Continous Monitoring
-
-  
+UAT Test Cases and results were published and available at **GITHUB > demo > project-mgmt > design > Testing> UAT**
 
 ### INSTALL and DEPLOYMENT INSTRUCTIONS
 
 ######Prerequisite  
 1. Java Ver 1.8 is installed at the server where the application is being deployed and the server is installed with web server Tomcat 7.0.69 at <TOMCAT_HOME> directory
 2. MYSQL Ver 5.6.30+ is installed on the server.
-3. Execute the Database creation script **GITHUB > demo > project-mgmt > design > database >fosterfamilies_DBScript.sql
+3. Execute the Database creation script **GITHUB > demo > project-mgmt > design > database >fosterfamilies_DBScript.sql**
 
 ######Steps to Deploy Application :
 
@@ -224,10 +220,11 @@ Variable Name **APIHostAddress** with target server URL. eg **http://fosterfamil
 |                                          | files of the Redmine Tool used for the Backlog Mangement                 |
 | demo/project-mgmt/docs/Daily-Scrum       | Contains Daily Team Standup Meeting Minutes                              |                                
 | demo/project-mgmt/docs/Sprint Reviews/   | Contains Sprint Reviews conducted with usergroups                        |
-| demo/project-mgmt/design/ui/             | Contains mockups, screen designs,Click-Throughused during                |
+| demo/project-mgmt/design/ui/             | Contains mockups, screen designs,Click-Through used during                |
 |                                          | Requirement elicitation                                                  |
 | demo/project-mgmt/design/database/       | Contains DB Scripts, ER Dig                                              |
 | demo/project-mgmt/design/Testing/        | Contains Manual Test Cases,Automation Test scripts,Test results,Test Plan|
+|                                          | UAT Test Cases , UAT feedback                                            |
 | demo/builds/                             | Contains Build scripts, .war file, Builds Console logs                   |
 | demo/logs/                               | Contains Application logs etc.                                           |
 | demo/src/main/webapp/                    | Contains Application Source code for Java,UI, web.xml etc.               |
