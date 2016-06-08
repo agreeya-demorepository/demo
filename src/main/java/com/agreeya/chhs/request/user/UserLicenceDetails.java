@@ -9,11 +9,11 @@ package com.agreeya.chhs.request.user;
 public class UserLicenceDetails {
 
 	private String agencyContact;
-	private int agencyWorker;
+	private String agencyWorker;
 	private String dateOfIssue;
 	private String licenceNo;
 
-	public UserLicenceDetails(String agencyContact, int agencyWorker, String dateOfIssue, String licenceNo) {
+	public UserLicenceDetails(String agencyContact, String agencyWorker, String dateOfIssue, String licenceNo) {
 		super();
 		this.agencyContact = agencyContact;
 		this.agencyWorker = agencyWorker;
@@ -29,11 +29,12 @@ public class UserLicenceDetails {
 		this.agencyContact = agencyContact;
 	}
 
-	public int getAgencyWorker() {
+
+	public String getAgencyWorker() {
 		return agencyWorker;
 	}
 
-	public void setAgencyWorker(int agencyWorker) {
+	public void setAgencyWorker(String agencyWorker) {
 		this.agencyWorker = agencyWorker;
 	}
 

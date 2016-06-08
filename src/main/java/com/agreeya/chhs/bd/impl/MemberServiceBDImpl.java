@@ -216,53 +216,72 @@ public class MemberServiceBDImpl implements MemberServiceBD {
 
 		User usr = memberService.checkUserDetailExist(userName);
 		UserTO usrTO = new UserTO();
-		UserProfile personalProfile = new UserProfile(usr.getHomestudy(), usr.getTraining(), 
-				usr.getUseremail(), usr.getUserName(), usr.getPassword());		
+		UserProfile personalProfile = new UserProfile(usr.getHomestudy(), usr.getTraining(), usr.getUseremail(), usr.getUserName(),
+				usr.getPassword());
 		usrTO.setPersonalProfile(personalProfile);
-		
-		Userspouse spouse = usr.getUserspouses().get(0);
-		
-		Userdetail detail = usr.getUserdetails().get(0);
-		
-		
-		UserSpouseDetails spouseDtl = new UserSpouseDetails(spouse.getContactNo(), 
-				spouse.getDob().toString(), spouse.getFirstName(), spouse.getFirstName(), 
-				spouse.getHobbies(), spouse.getIncome(), spouse.getOccupation(),
-				spouse.getPreference(), spouse.getRace(), spouse.getReligion());
-		
-		UserPersonal personalDetails = new UserPersonal(detail.getContactNo(),
-				detail.getDob().toString(), 
-				detail.getFirstName(), detail.getGender(),
-				detail.getHobbies(), detail.getIncome(), detail.getLastName(), detail.getMaritalStatus(), detail.getOccupation(),
-				detail.getPreference(), detail.getRace(), detail.getReligion(), spouseDtl);
-		
-		
-		Userfamily fam = usr.getUserfamilies().get(0);
-		
-		List<UserKidsDetails> kidList = new ArrayList<UserKidsDetails>();
-		
-		for (Userkid kid : fam.getKids()) {
-			UserKidsDetails kidDtl = new UserKidsDetails(kid.getName(), kid.getAgeGroup(), kid.getHobbies());
-			kidList.add(kidDtl);
+
+		if (usr.getUserdetails().size() > 0) {
+
+			Userdetail detail = usr.getUserdetails().get(0);
+
+			UserSpouseDetails spouseDtl;
+			UserPersonal personalDetails;
+			if (usr.getUserspouses().size() > 0) {
+				Userspouse spouse = usr.getUserspouses().get(0);
+				spouseDtl = new UserSpouseDetails(spouse.getContactNo(), spouse.getDob().toString(), spouse.getFirstName(),
+						spouse.getFirstName(), spouse.getHobbies(), spouse.getIncome(), spouse.getOccupation(), spouse.getPreference(),
+						spouse.getRace(), spouse.getReligion());
+
+				personalDetails = new UserPersonal(detail.getContactNo(), detail.getDob().toString(), detail.getFirstName(),
+						detail.getGender(), detail.getHobbies(), detail.getIncome(),
+						detail.getLastName(), detail.getMaritalStatus(),
+						detail.getOccupation(),
+
+						detail.getPreference(), detail.getRace(), detail.getReligion(), spouseDtl);
+			} else {
+				personalDetails = new UserPersonal(detail.getContactNo(), detail.getDob().toString(), detail.getFirstName(),
+						detail.getGender(), detail.getHobbies(), detail.getIncome(),
+						detail.getLastName(), detail.getMaritalStatus(),
+						detail.getOccupation(),
+
+						detail.getPreference(), detail.getRace(), detail.getReligion(), null);
+			}
+			usrTO.setPersonalDetails(personalDetails);
+		} else {
+			usrTO.setPersonalDetails(null);
 		}
-		
-		UserFamilyDetails famDtls = new UserFamilyDetails(fam.getDescription(),
-				fam.getHaveKids(), fam.getKid(), fam.getKidsInfo(), kidList);
-		
-		
-		Userlicence ulic = usr.getUserlicences().get(0);
-		UserLicenceDetails lic = new UserLicenceDetails(ulic.getAgencyContact(), ulic.getAgencyWorker(),
-				ulic.getDateOfIssue().toString(), ulic.getLicenceNo());
-		
-		
-		
-		usrTO.setPersonalDetails(personalDetails);
-		usrTO.setFamilyDetails(famDtls);
-		usrTO.setLicenceDetails(lic);
-		usrTO.setPersonalProfile(personalProfile);
-		
-		
-		
+
+		if (usr.getUserfamilies().size() > 0) {
+			UserFamilyDetails famDtls;
+			Userfamily fam = usr.getUserfamilies().get(0);
+			if (null != fam.getKids().get(0) || fam.getKids().size() > 0) {
+				List<UserKidsDetails> kidList = new ArrayList<UserKidsDetails>();
+
+				for (Userkid kid : fam.getKids()) {
+					UserKidsDetails kidDtl = new UserKidsDetails(kid.getName(), kid.getAgeGroup(), kid.getHobbies());
+					kidList.add(kidDtl);
+				}
+				famDtls = new UserFamilyDetails(fam.getDescription(), fam.getHaveKids(), fam.getKid(), fam.getKidsInfo(), kidList);
+			} else {
+				famDtls = new UserFamilyDetails(fam.getDescription(), fam.getHaveKids(), fam.getKid(), fam.getKidsInfo(), null);
+			}
+
+			usrTO.setFamilyDetails(famDtls);
+
+		} else {
+			usrTO.setFamilyDetails(null);
+		}
+
+		if (usr.getUserlicences().size() > 0) {
+			Userlicence ulic = usr.getUserlicences().get(0);
+			UserLicenceDetails lic = new UserLicenceDetails(ulic.getAgencyContact(), ulic.getAgencyWorker(),
+					ulic.getDateOfIssue().toString(), ulic.getLicenceNo());
+
+			usrTO.setLicenceDetails(lic);
+		} else {
+			usrTO.setLicenceDetails(null);
+		}
+
 		log.info("enter into MemberServiceBDImpl checkUserDetailExist() method....................");
 		return usrTO;
 	}

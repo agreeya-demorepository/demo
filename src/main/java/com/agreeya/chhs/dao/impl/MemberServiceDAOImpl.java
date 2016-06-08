@@ -11,7 +11,7 @@ import com.agreeya.chhs.model.UserSession;
 import com.agreeya.chhs.util.Constants;
 
 /**
- * This class has methods that store and fetches the membership details
+ * This class has methods that store and fetches the membership details in
  * @author amit.sharma
  *
  */
@@ -20,6 +20,12 @@ public class MemberServiceDAOImpl extends BaseDAOImpl implements MemberServiceDA
 
 	private static Logger log = Logger.getLogger(MemberServiceDAOImpl.class);
 
+	/*
+	 * 
+	 * @purpose : This method is used to find login
+	 * 
+	 * @param : userName Password
+	 */
 	@Override
 	public User authenticateUser(String userName, String password) {
 		log.info("enter into MemberServiceDAOImpl authenticateUser() mtehod ....................");
@@ -33,6 +39,12 @@ public class MemberServiceDAOImpl extends BaseDAOImpl implements MemberServiceDA
 		return (User) query.uniqueResult();
 	}
 
+	/*
+	 * 
+	 * @purpose : This method is used to create user Session
+	 * 
+	 * @param : user
+	 */
 	@Override
 	public void createOrUpdateUserSession(UserSession userSession) {
 		log.info("enter into MemberServiceDAOImpl createOrUpdateUserSession() method ....................");
@@ -57,6 +69,12 @@ public class MemberServiceDAOImpl extends BaseDAOImpl implements MemberServiceDA
 
 	}
 
+	/*
+	 * 
+	 * @purpose : This method is used to find existing user Session
+	 * 
+	 * @param : userId Session Id
+	 */
 	@Override
 	public UserSession findUserSession(String sessionId, int userId) {
 		log.info("enter into MemberServiceDAOImpl findUserSession() method....................");
@@ -68,6 +86,12 @@ public class MemberServiceDAOImpl extends BaseDAOImpl implements MemberServiceDA
 
 	}
 
+	/*
+	 * 
+	 * @purpose : This method is used to find existing user Session
+	 * 
+	 * @param : user
+	 */
 	@Override
 	public UserSession findPrevUserSession(User user) {
 		log.info("enter into MemberServiceDAOImpl findPrevUserSession() method ....................");
@@ -78,6 +102,12 @@ public class MemberServiceDAOImpl extends BaseDAOImpl implements MemberServiceDA
 
 	}
 
+	/*
+	 * 
+	 * @purpose : This method is used to Find Existing User Details
+	 * 
+	 * @param : userName
+	 */
 	@Override
 	public User findUserByUserName(String userName) {
 		log.info("enter into MemberServiceDAOImpl findUserByUserName() method...................");
