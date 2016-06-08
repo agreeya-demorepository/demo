@@ -1,7 +1,7 @@
 ### URL 
 ##### https://fostercaredemo-agreeya.com
 
-This project is about building a working prototype that would enable Families to Register and Manage their profiles so that they can receive foster placements. Apart from Registering their Profiles, prototype functionality would allow registered users to Manage Profiles, Search through Children Residential Facilities within their zipcode and locate Foster care agencies in their nearby neighbourhood. Registered users can view their private mailbox for communication emails sent or received. The prototype utilizes the publicly exposed HHS API to retrieve information related to the Foster Care Agencies in nearby neighborhood of the user.
+This project is about building a working prototype that would enable Families to Register and Manage their profiles so that they can receive foster placements. Apart from Registering their Profiles, prototype functionality would allow registered users to Manage Profiles, Search through Children Residential Facilities within their zipcode and locate Foster care agencies in their nearby neighbourhood. Registered users can view their private mailbox for communication emails sent or received. The prototype utilizes the publicly exposed CHHS API to retrieve information related to the Foster Care Agencies in nearby neighborhood of the user.
 ***********************************************************************************************************************************************************************
 
 ### CHHS Prototype Development Approach
@@ -91,25 +91,28 @@ a.	**JAD sessions** conducted with usergroup to know what is needed , goals of p
 Refer **CHHS Prototype Development - Story PBI with Priority.pdf** for Prioritization of user stories based in the **GITHUB > demo > project-mgmt > docs >Backlog.**  
 The above information is demonstration of adherence to US Digital Services Play book play WHAT PEOPLE NEED.
 					
-b.	**BRD Review** - Usergroup suggested to mandatorily add Requirement for Partialling Filling the Family Registration Form with SAVE AND EXIT functionality is added to the BRD.  
+b.	**BRD Review** - Usergroup suggested to mandatorily add Requirement to Partially Fill the Family Registration Form with SAVE AND EXIT option . The functionality was added to the BRD.  
 
-Refer Sec 3.1 for addition of this requirement in **GITHUB > demo > project-mgmt > docs > BRD BRD_CHHS-Prototype V1.0.doc** .
+Refer Sec 3.1 for addition of this requirement in **GITHUB > demo > project-mgmt > docs > BRD BRD_CHHS-Prototype V1.0.doc**.  
+
 This also demonstrates adherence to US Digital Services Play book play SIMPLE & INTUITIVE where user can save details during Family Registration partially and exit to return later to complete the registration process. Also the UI design shows screen navigation using breadcrumbs on every screen informing users of where they are in the website . Registration Process shows to the user how many steps of total steps are done thus making UI design simple and intuitive for the users.
 
 c.	Sprint 1 Review - UI Refinements suggested by usegroup.A new Story created and added to 
 Backlog in the RedMine tool.  
 Refer Sprint Review document  at **GITHUB > demo > project-mgmt > docs > SprintReviews** mentioning usergroup feedback for UI Design refinements.  
 Pl refer **GITHUB > demo > project-mgmt > docs > Bocklog >CHHS Prototype Development - Story PBI with Priority.pdf** for REDMINE Backlog ScreenShot with Story # 167 "UI Design- Refinements" added in the backlog . 
-This demonstrates that approach followed taking feedback from usergroup during Sprint Reviews leading to subsequent work item in the backlog
+This demonstrates that approach followed taking feedback from usergroup during Sprint Reviews leading to subsequent work item in the backlog.  
+Additionally, this supports performing usability tests with usergroup to ascertain effective and easy use of applications.  
 
 d.	The website also has a mechanism for allowing users to Report any Technical issues they encounter during their interaction on the website. This demonstrates adherence to US Digital Services Play book play **DEFAULT TO OPEN** .
 Pl refer footer on the website on each page with a link "REPORT TECHNICAL ISSUES"
+
 e.	Use of Agile scrum model for development process in sprints demonstrates adherence to 
 Agile and iterative development process.Collaboratively working with usergroup to gather feedback , Task boarding , review artifacts , code reviews , sprint reviews , MoM's ,mockups demonstrates adherence to US Digital Services Play book play USE OF AGILE & ITERATIVE PROCESS.  
 Refer artifacts in the **GITHUB > demo > project-mgmt > docs** folder.
 
 f.	Setup a multidisciplinary team with a identified leader as PRODUCT OWNER and single point of authority for the team for approvals and decision, direction for the team .  
-Refer the team members and roles of the scrum team at **GITHUB > demo > project-mgmt > docs > Bocklog >Backlog Details.jpg**
+Refer the team members and roles of the scrum team at **GITHUB > demo > project-mgmt > docs > Backlog >Backlog Details.jpg**
                                  
 ### Development Technology Stack 
 
@@ -127,14 +130,14 @@ Refer the team members and roles of the scrum team at **GITHUB > demo > project-
 				h. Continous Integration - Build Automation & Deployment - Jenkins Ver 1.65 OPEN SOURCE
 				i. IDE - Eclipse MARS OPEN SOURCE
 #####  Platform
-				a. OS - Ubuntu Ver. OPEN SOURCE
+				a. OS - Ubuntu Ver.14.04.1 OPEN SOURCE
 #####  Database
-				a. MYSQL Ver. OPEN SOURCE
+				a. MYSQL Ver.5.7 OPEN SOURCE
 #####  Source Control
 				a. GITHUB  https://github.com/agreeya-demorepository/demo.git
 
-#####  BACKLOG & Defect Management Tool
-				a. REDMINE Ver 3.2.2  OPEN SOURCE
+#####  Product Backlog & Defect Management Tool
+				a. REDMINE Ver 3.2.3  OPEN SOURCE
 
 
 ### Responsive Design 
@@ -144,15 +147,16 @@ This demonstrates the screens to be accessible from multiple devices.
 
 ### Style Guide & Coding Conventions
 As part of coding conventions and stylechecks we have used a set of standard guidelines so as to have consistency in coding approach during the course of development of this prototype.
-File stylecheck.xml provides the list of stylechecks used and PMD is used for following coding conventions and standards for development of Java backend.
+File stylecheck.xml provides the list of stylechecks used and PMD integrated with IDE Eclipse is used for following coding conventions and standards for development of Java backend.
 This demonstrates adherence to the use of a Style Guide during the prototype development process.
 
 
 
 ### Unit & Automation Testing
-JUnit based units test cases are developed as part of the code . These are executed by the developer as part of the development activity . JUnits are exeucted automatically during the Build process.
+JUnit based units test cases are developed as part of the code . These are executed by the developer as part of the development activity . JUnits are exeucted automatically during the Build process also.
 There are two ways in which System Testing for the application is done. Manual test case execution and automation test case suite is created to run the test case automatically using a script. The results of the automation test cases are published in a file.
-Pl refer the GITHUB folder 
+
+Pl refer the GITHUB folder **GITHUB > demo > project-mgmt > design > Testing> Automation Test**
 Pl refer GITHUB folder for Automation test cases scripts at **GITHUB > demo > project-mgmt > design > Testing> Automation Test**
 This demonstrates the adherence to the US Digital Services playbook play AUTOMATION TESTING AND DEPLOYMENTS
 
@@ -160,7 +164,7 @@ This demonstrates the adherence to the US Digital Services playbook play AUTOMAT
 ### Configuration Management
 GITHUB is the source code and documents repository used during the development of the CHHS prototype. It automatically maintains version history of each and every document or file that is checked in by the collaborators. The source code is structured in 3 different branches local-branch, dev-branch, master.
 Team members identified as collaborators can only check in code or a document to this repository.
-Versions of deployable .war files are kept at GITHUB repository **GITHUB > demo > Builds**
+Versions of deployable .war files are kept at GITHUB repository **GITHUB > demo > Builds** with Build logs.
 
 ### Continous Integration & Deployment
 During the course of development of this prototype , we have followed automated build and deployment process using the Jenkins Continous Integration tool.
