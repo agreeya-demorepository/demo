@@ -207,7 +207,7 @@ public class SaveUserRequest extends AbstractRequiresUserContext implements WSRe
 		if (lic.getAgencyContact() == null || lic.getAgencyContact().isEmpty()) {
 			vr.addMessage("Agency Contact is not provided!.");
 		}
-		if (lic.getAgencyWorker() < 0) {
+		if (lic.getAgencyWorker()  == null || lic.getAgencyWorker().isEmpty()) {
 			vr.addMessage("Agency Worker is not provided!.");
 		}
 		if (lic.getDateOfIssue() == null || lic.getDateOfIssue().isEmpty()) {

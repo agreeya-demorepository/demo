@@ -24,7 +24,7 @@ public class Userlicence implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String agencyContact;
-	private int agencyWorker;
+	private String agencyWorker;
 	private int createdBy;
 	private Date createdon;
 	private Date dateOfIssue;
@@ -56,11 +56,11 @@ public class Userlicence implements Serializable {
 		this.agencyContact = agencyContact;
 	}
 
-	public int getAgencyWorker() {
+	public String getAgencyWorker() {
 		return this.agencyWorker;
 	}
 
-	public void setAgencyWorker(int agencyWorker) {
+	public void setAgencyWorker(String agencyWorker) {
 		this.agencyWorker = agencyWorker;
 	}
 
