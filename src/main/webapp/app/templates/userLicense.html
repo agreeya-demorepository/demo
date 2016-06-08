@@ -1,0 +1,95 @@
+
+            
+ <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="nav nav-pills nav-justified tabPills">
+                            <li>
+                                <a ng-link="['UserAccountDetails']">
+                                    Update<br />
+                                    Account Detail
+                                </a>
+                            </li>
+                            <li>
+                                <a ng-link="['UserPersonalInformation']">
+                                    Update<br />
+                                    Personal Information
+                                </a>
+                            </li>
+                            <li>
+                                <a ng-link="['UserPreferences']">
+                                    Update Family
+                                    Narrative &amp; Preferences
+                                </a>
+                            </li>
+                            <li class="active"><a ng-link="['UserLicense']">Update License &amp; Agency Detail</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+     <div class="row">
+         <div class="col-sm-7">
+             <form name="userForm4" ng-submit="model.updateUserLicense()" novalidate>
+                 <div class="form-horizontal marginTop20">
+                     <div class="form-group">
+                         <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Do you have Foster care Licence?</label>
+                         <div class="col-sm-6">
+                             <label class="radio-inline">
+                                 <input name="radio" checked="checked" type="radio">
+                                 Yes
+                             </label>
+                             <label class="radio-inline">
+                                 <input name="radio" type="radio">
+                                 No
+                             </label>
+                         </div>
+                     </div>
+                     <div class="form-group required">
+                         <label for="inputPassword" class="control-label col-sm-4 paddingTop7">License Number</label>
+                         <div class="col-sm-6">
+                             <input class="form-control" ng-model="model.licenseDetails.licenceNo">
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <label class="col-sm-4 control-label">Date of Issue</label>
+                         <div class="col-sm-6 ">
+                             <div class="input-append date form-control datepicker" id="dp3" data-date-format="dd-mm-yyyy">
+                                 <input class="span2" size="16" type="text" ng-model="model.licenseDetails.dateOfIssue">
+                                 <span class="add-on"><i class="icon-th"></i></span>
+                             </div>
+                         </div>
+                     </div>
+
+                     <div class="form-group required">
+                         <label class="col-sm-4 control-label">Agency Case Worker</label>
+                         <div class="col-sm-6">
+                             <input class="form-control" ng-model="model.licenseDetails.agencyWorker">
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <label class="col-sm-4 control-label">Agency's Contact Number</label>
+                         <div class="col-sm-6">
+                             <input class="form-control" ng-model="model.licenseDetails.agencyContact">
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <label for="inputPassword" class="control-label col-sm-4 paddingTop7"> </label>
+                         <div class="col-sm-6">
+                             <!--<input class="btn btn-primary" value="Update" type="submit">-->
+
+                             <button class="btn btn-primary" type="submit">Update</button>
+
+                             <input class="btn btn-default" value="Cancel" type="button" onclick="location.href='ManageProfile-Step3.html'">
+                         </div>
+                     </div>
+                 </div>
+                 <!-- /.form-horizontal -->
+            </form>
+    </div>
+         <div class="col-sm-5 marginTop20 LeftDivider">
+             <img src="./contents/images/registerFiller.jpg" width="388" height="408" alt="" class="img-responsive" />
+         </div>
+     </div>
+
+            </div>
+        <main-script></main-script>

@@ -8,13 +8,9 @@
      /*dataService.getResponse().then(function(data){
        console.log(data);
      });*/
-     
+
 
    }
-
-
-
-
 
    module.component("mainApp", {
       templateUrl: "./app/templates/main.html",
@@ -24,8 +20,8 @@
           {path: "/familyRegistration/...", component: "familyRegistration", name: "FamilyRegistration"},
           {path: "/list", component: "movieList", name: "List"},
           {path: "/about", component: "appAbout", name: "About"},
-          {path: "/detail/:id", component: "movieDetails", name: "Details"},
           {path: "/userHome", component: "userHomeComponent", name: "UserHomePage"},
+          {path: "/userHomeRoot/...", component: "userHomeRoot", name: "UserHomeRoot" },
           {path: "/**", redirectTo: ["Home"]}
       ],
       controllerAs: "model",

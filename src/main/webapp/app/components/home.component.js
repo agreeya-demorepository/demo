@@ -9,9 +9,10 @@
       model.$router.navigate(['FamilyRegistration', 'FamilyRegistrationEligibility']);
     }
 
-    if($cookieStore.get('userContext')){
-      var context = $cookieStore.get('userContext');
-      model.$router.navigate(['UserHomePage']);
+    if($cookieStore.get('userContext') && $cookieStore.get("fromLogin")){
+      
+      //model.$router.navigate(['UserHomePage']);      
+       model.$router.navigate(['UserHomeRoot', 'UserStatus']);
     };
   }
 
