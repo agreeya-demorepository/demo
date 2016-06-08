@@ -58,6 +58,7 @@ body{font-family:Segoe, "Segoe UI", Arial;font-size:12px;background-color:#F9F9F
 .carousel-caption{text-align:left;left:3%;right:auto;text-shadow:none;top:0px;padding-top:0px;}
 .carousel-caption a{color:white;}
 .carouselContentBG{background-color:rgba(47,168,219,0.8);padding:10px;;}
+.carouselContentBG a{cursor: pointer;}
 
 .txtItalic{font-style:italic;}
 .txtUppercase{text-transform:uppercase;}
@@ -91,7 +92,7 @@ h1, h4{color: #3f67c0}
 .font0dot9em{font-size:0.9em;}
 .font1dot3em{font-size:1.3em;}
 
-.form-group.required .control-label:after { content:"*"; color:red;margin-left:3px;} 
+.form-group.required .control-label:after { content:"*"; color:red;margin-left:3px;}
 .panel-body{padding-left:0px;padding-right:0px;}
 
 .date input{border:0px;width:100%;}
@@ -113,14 +114,14 @@ h1, h4{color: #3f67c0}
 .navbar-default .navbar-nav > li > a{font-size:1.15em;}
 }
 @media (max-width: 992px) {
-	
+
 	.txtBoxSearch{display:inline-block;width:130px;}
 	.userLoginBox{width:180px;}
 	.carousel-caption{position:relative;left:0px;top:0px;}
 	.carousel-caption h1, .carousel-caption h2, .carousel-caption h4{color:#3f67c0}
-	
+
 	.in.navbar-collapse{overflow:visible}
-		
+
 	   .navbar-header {
   		  float: none;
 	    }
@@ -149,9 +150,9 @@ h1, h4{color: #3f67c0}
 	        float: none;
 	        margin: 15px 0;
 	    }
-	    
+
 	    /* since 3.1.0 */
-	    .navbar-collapse.collapse.in { 
+	    .navbar-collapse.collapse.in {
 	        display: block!important;
 	    }
 	    .collapsing {
@@ -161,12 +162,12 @@ h1, h4{color: #3f67c0}
 			color:white;
 
 		}
-	
-		
-	
-		
-	
-	
+
+
+
+
+
+
 }
 @media (max-width: 767px) {
 	.text-center-xs{text-align:center;}
@@ -185,16 +186,16 @@ h1, h4{color: #3f67c0}
 	.topNavigation{margin-top:5px}
 	.noPaddingLeft-sm{padding-left:0px;}
 	.noPaddingRight-sm{padding-right:0px;}
-	
+
 	.leftNav{min-height:500px;}
 	.rightSection{min-height:500px;}
 	.stepCount{display:block;margin-top:7px; text-align:right;}
 	.navbar-nav > li > a{padding-top:12px;padding-bottom:12px;}
 	.dropdown-menu > li > a{padding-top:10px;padding-bottom:10px;}
 	.navbar-leftAlign.dropdown-menu{left:0px;min-width:200px;;}
-	
+
 	.topNavigation .navbar{margin-bottom:5px;}
-	
+
 }
 
 
@@ -203,5 +204,8 @@ h1, h4{color: #3f67c0}
 
 }
 @media (min-width: 1200px) {
-.carousel-caption h3{margin-bottom:0px;margin-top:20px;}	
+.carousel-caption h3{margin-bottom:0px;margin-top:20px;}
+}
+.logoutCursor {
+	cursor: pointer;
 }

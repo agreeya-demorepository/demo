@@ -3,14 +3,14 @@
         <div class="col-sm-12">
             <ol class="breadcrumb">
                 <li><a href="default.html">Home</a></li>
-                <li><a href="default.html">Register Profile</a></li>
+                <li><a href="default.html">Establish Profile</a></li>
                 <li class="active">Family Narrative &amp; Preferences</li>
             </ol>
         </div>
     </div>
     <section>
         <div class="row marginTop7 lightGrayBG">
-            <div class="col-xs-12 col-sm-6 h3 txtBlue marginTop7">Register Profile</div>
+            <div class="col-xs-12 col-sm-6 h3 txtBlue marginTop7">Establish Profile</div>
             <div class="col-xs-12 col-sm-6 txtBlue font1dot5em"><span class="stepCount">Step <span class="badge alert-info font1em">3</span> of <span class="badge alert-info font1em">4</span></span>
             </div>
         </div>
@@ -40,17 +40,17 @@
                             <div class="col-sm-6">
                                 <p>
                                     <label>
-                                        <input type="radio" name="RadioGroup1" id="RadioGroup1_0" ng-model="model.familyDetails.haveKids" value="yes"> Yes
+                                        <input type="radio" name="RadioGroup1" id="RadioGroup1_0" ng-model="model.familyDetails.haveKids" value="y"> Yes
                                     </label>
                                     &nbsp;
                                     <label>
-                                        <input type="radio" name="RadioGroup1" id="RadioGroup1_1" ng-model="mode.familyDetails.haveKids" value="no"> No
+                                        <input type="radio" name="RadioGroup1" id="RadioGroup1_1" ng-model="mode.familyDetails.haveKids" value="n"> No
                                     </label>
                                     <br>
                                 </p>
                             </div>
                         </div>
-                        <div class="form-group required" id="dv_numofkids" ng-if="model.familyDetails.haveKids == 'yes'" ng-class="{ 'has-error' : registrationForm.ddl_numofKids.$invalid && !registrationForm.ddl_numofKids.$pristine }">
+                        <div class="form-group required" id="dv_numofkids" ng-if="model.familyDetails.haveKids == 'y'" ng-class="{ 'has-error' : registrationForm.ddl_numofKids.$invalid && !registrationForm.ddl_numofKids.$pristine }">
                             <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Number of Kids</label>
                             <div class="col-sm-6">
                                 <select name="ddl_numofKids" class="form-control" ng-model="model.familyDetails.numberOfKids" ng-options="kid.Id as kid.Kid for kid in model.ddlNumberOfKids" required>

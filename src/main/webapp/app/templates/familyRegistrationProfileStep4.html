@@ -4,14 +4,14 @@
         <div class="col-sm-12">
             <ol class="breadcrumb">
                 <li><a href="default.html">Home</a></li>
-                <li><a href="default.html">Register Profile</a></li>
+                <li><a href="default.html">Establish Profile</a></li>
                 <li class="active">License &amp; Agency Detail</li>
             </ol>
         </div>
     </div>
     <section>
         <div class="row marginTop7 lightGrayBG">
-            <div class="col-xs-12 col-sm-6 h3 txtBlue marginTop7">Register Profile</div>
+            <div class="col-xs-12 col-sm-6 h3 txtBlue marginTop7">Establish Profile</div>
             <div class="col-xs-12 col-sm-6 txtBlue font1dot5em"><span class="stepCount">Step <span class="badge alert-info font1em">4</span> of <span class="badge alert-info font1em">4</span></span>
             </div>
         </div>
@@ -48,7 +48,7 @@
                         <div class="form-group required" ng-class="{ 'has-error' : registrationForm.dateOfIssue.$invalid && !registrationForm.dateOfIssue.$pristine }">
                             <label class="col-sm-4 control-label">Date of Issue</label>
                             <div class="col-sm-6 ">
-                                <div class="input-append date form-control" id="dp3" data-date-format="dd-mm-yyyy">
+                                <div class="input-append date form-control datepicker" id="dp3" data-date-format="mm/dd/yyyy">
                                     <input class="span2" size="16" type="text" value="" name="dateOfIssue" ng-model="model.licenceDetails.dateOfIssue" required>
                                     <span ng-show="registrationForm.dateOfIssue.$invalid && !registrationForm.dateOfIssue.$pristine" class="help-block"> Date of issue required.</span>
                                     <span class="add-on"><i class="icon-th"></i></span>
@@ -93,5 +93,6 @@
 <main-script></main-script>
 
 <script language="javascript">
-    $('#dp3').datepicker();
+    //$('#dp3').datepicker();
+    $('.datepicker').datepicker();
 </script>

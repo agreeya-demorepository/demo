@@ -1,0 +1,44 @@
+
+      <div class="col-sm-12 rightSection">
+
+        <div class="form-horizontal marginTop20">
+
+          <div class="form-group required">
+            <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Enter Zip Code</label>
+            <div class="col-sm-4">
+              <input class="form-control" type="text" ng-model="model.zipCode" ng-keydown="model.searchFacilities(model.zipCode)">
+            </div>
+            <div class="col-sm-1">
+              <button class="btn btn-primary" ng-click="model.searchFacilities(model.zipCode)"><i class="glyphicon glyphicon-search"></i> Search</button>
+            </div>
+          </div>
+
+          <div id="searchResult" ng-if="model.isFacilitiesAvailable != 'default'">
+            <h4>Search Results</h4>
+            <div class="row">
+              <div ng-if="model.isFacilitiesAvailable == 'yes'" class="col-sm-3">
+                Page Size:
+                <select name="ddl_pageSizes" class="form-control" ng-change="model.onPageSizeChanged(model.selectedPageSize)" ng-model="model.selectedPageSize"
+                  ng-options="page.Id as page.Name for page in model.pageSizes">
+                      <option value="">Select</option>
+                  </select>
+              </div>
+            </div>
+
+            <div ag-grid="model.gridOptions" class="ag-fresh" id="facilitiesGrid" ng-style="model.agGridStyle" class="table-responsive"
+              ng-if="model.isFacilitiesAvailable == 'yes'">
+
+            </div>
+            <div ng-if="model.isFacilitiesAvailable == 'no'">
+              <h3>No facilities available for this location.</h3>
+            </div>
+          </div>
+
+
+
+
+        </div>
+        <!-- /.form-horizontal -->
+      </div>
+
+<main-script></main-script>
