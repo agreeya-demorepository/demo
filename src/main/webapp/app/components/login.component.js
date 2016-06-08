@@ -58,12 +58,12 @@
                  }
               location.href="index.html";
             } else {
-              toaster.pop('error', "Logout", userResponse.message);
+              //toaster.pop('error', "Logout", userResponse.message);
               model.isLoggedIn = true;
             }
           }
       }, function(error){
-        toaster.pop('error', "Logout", "Error in logout");
+        //toaster.pop('error', "Logout", "Error in logout");
         $cookieStore.remove('userContext');
         model.isLoggedIn = false;
         location.href="index.html";

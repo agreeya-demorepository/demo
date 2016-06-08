@@ -2,7 +2,7 @@
     'use strict';
     // get ag-Grid to create an Angular module and register the ag-Grid directive
     agGrid.initialiseAgGridWithAngular1(angular);
-    var module = angular.module("chhsDemo", ["toaster", "ngComponentRouter", "ngResource", "ngCookies", "angular-cache", "agGrid", 'ngSanitize','ui.bootstrap', 'dialogs.main']);
+    var module = angular.module("chhsDemo", ["toaster", "ngComponentRouter", "ngResource", "ngCookies", "angular-cache", "agGrid", 'ngSanitize','ui.bootstrap', 'dialogs.main', 'ngGeolocation']);
 
     module.config(function ($httpProvider, CacheFactoryProvider) {
       $httpProvider.defaults.useXDomain = true;

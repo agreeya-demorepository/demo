@@ -1,5 +1,15 @@
 <script language="javascript">
 function moveSecondaryNav() {
+
+       function toggleChevron(e) {
+            $(e.target)
+                .prev('.panel-heading')
+                .find("i.indicator")
+                .toggleClass('glyphicon-minus glyphicon-plus');
+           return false;     
+        }
+        $('#accordion').on('hidden.bs.collapse', toggleChevron);
+        $('#accordion').on('shown.bs.collapse', toggleChevron);
     var windowWidth = $(window).width();
     if (windowWidth < 767) {
         $("#loginBoxNewPosition").append($("#loginNav"));
@@ -17,8 +27,7 @@ function moveSecondaryNav() {
 
 $(document).ready(function () {
     moveSecondaryNav();
-$('#MainContainer').css('margin-top',$('header').height()+"px");
-$('#MainContainer').css('margin-top',$('header').height()+"px");
+$('#MainContainer').css('margin-top',$('header').height()+7+"px");
 
 //alert($('#MainContainer').html());
 //alert($('header').html());

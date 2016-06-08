@@ -65,7 +65,6 @@ public class HHSApiCaller {
 		reader.close();
 
 		httpClient.close();
-		System.out.println(response.toString());
 		return response.toString();
 	}
 

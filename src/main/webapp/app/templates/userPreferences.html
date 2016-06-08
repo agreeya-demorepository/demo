@@ -35,7 +35,8 @@
                      <div class="form-group required">
                          <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Please provide as much information to describe you and your family. </label>
                          <div class="col-sm-6 paddingTop7">
-                             <textarea type="text" class="form-control" ng-model="model.familyDetails.description"></textarea>
+                             <textarea type="text" rows="4" class="form-control" name="description" id="description" ng-model="model.familyDetails.description" required></textarea>
+                             <span ng-show="userForm3.description.$invalid && !userForm3.description.$pristine" class="help-block"> Description required.</span>
                          </div>
                      </div>
                      <div class="form-group required">
@@ -43,12 +44,12 @@
                          <div class="col-sm-6">
                              <p>
                                  <label>
-                                     <input type="radio" name="RadioGroup1" value="yes" id="RadioGroup1_0" ng-model="model.familyDetails.haveKids" ng-checked="model.familyDetails.haveKids == 'yes'">
+                                     <input type="radio" name="RadioGroup1" value="y" id="RadioGroup1_0" ng-model="model.familyDetails.haveKids" ng-checked="model.familyDetails.haveKids == 'y'">
                                      Yes
                                  </label>
                                  &nbsp;
                                  <label>
-                                     <input type="radio" name="RadioGroup1" value="no" id="RadioGroup1_1" ng-model="model.familyDetails.haveKids" ng-checked="model.familyDetails.haveKids == 'no'">
+                                     <input type="radio" name="RadioGroup1" value="n" id="RadioGroup1_1" ng-model="model.familyDetails.haveKids" ng-checked="model.familyDetails.haveKids == 'n'">
                                      No
                                  </label>
                                  <br>
@@ -56,7 +57,7 @@
                          </div>
                      </div>
                      
-                     <div ng-show="model.familyDetails.haveKids == 'yes'">
+                     <div ng-show="model.familyDetails.haveKids == 'y'">
                          <div class="form-group  required" id="dv_numofkids">
                              <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Number of Kids</label>
                              <div class="col-sm-6">
@@ -71,7 +72,8 @@
                                  <div class="form-group required">
                                      <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Name</label>
                                      <div class="col-sm-6">
-                                         <input class="form-control" ng-model="model.kid1Name" />
+                                         <input class="form-control" ng-model="model.kid1Name" id="kid1Name" name="kid1Name" required/>
+                                         <span ng-show="userForm3.kid1Name.$invalid && !userForm3.kid1Name.$pristine" class="help-block"> First Kid's Name required.</span>
                                      </div>
                                  </div>
                                  <div class="form-group required ">
@@ -85,7 +87,8 @@
                                  <div class="form-group required">
                                      <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Hobbies</label>
                                      <div class="col-sm-6 paddingTop7">
-                                         <textarea type="text" class="form-control" ng-model="model.kid1Hobbies">Soccer</textarea>
+                                         <textarea type="text" rows="4" class="form-control" ng-model="model.kid1Hobbies" id="kid1Hobbies" name="kid1Hobbies"></textarea>
+                                         <span ng-show="userForm3.kid1Hobbies.$invalid && !userForm3.kid1Hobbies.$pristine" class="help-block"> First Kid's Hobbies required.</span>
                                      </div>
                                  </div>
                              </div>
@@ -96,7 +99,8 @@
                                  <div class="form-group required">
                                      <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Name</label>
                                      <div class="col-sm-6">
-                                         <input class="form-control" ng-model="model.kid2Name" />
+                                         <input class="form-control" ng-model="model.kid2Name" id="kid2Name" name="kid2Name" required />
+                                         <span ng-show="userForm3.kid2Name.$invalid && !userForm3.kid2Name.$pristine" class="help-block"> Second Kid's Name required.</span>
                                      </div>
                                  </div>
                                  <div class="form-group required ">
@@ -110,7 +114,8 @@
                                  <div class="form-group required">
                                      <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Hobbies</label>
                                      <div class="col-sm-6 paddingTop7">
-                                         <textarea type="text" class="form-control" ng-model="model.kid2Hobbies"></textarea>
+                                         <textarea type="text" rows="4" class="form-control" ng-model="model.kid2Hobbies" id="kid2Hobbies" name="kid2Hobbies" required></textarea>
+                                         <span ng-show="userForm3.kid2Hobbies.$invalid && !userForm3.kid2Hobbies.$pristine" class="help-block"> Second Kid's Hobbies required.</span>
                                      </div>
                                  </div>
                              </div>
@@ -118,7 +123,8 @@
                          <div class="form-group required">
                              <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Please be open in expressing your Kids behaviour, emotional and other preferences</label>
                              <div class="col-sm-6 paddingTop7">
-                                 <textarea type="text" class="form-control" ng-model="model.familyDetails.kidsPref"></textarea>
+                                 <textarea type="text" rows="4" class="form-control" id="kidsPref" name="kidsPref" ng-model="model.familyDetails.kidsPref" required></textarea>
+                                 <span ng-show="userForm3.kidsPref.$invalid && !userForm3.kidsPref.$pristine" class="help-block"> Kid's preferences are required.</span>
                              </div>
                          </div>
 
@@ -126,7 +132,7 @@
                      <div class="form-group">
                          <div class="col-sm-6 col-sm-offset-4">
                              <input class="btn btn-primary" value="Update" type="submit">
-                             <input class="btn btn-default" value="Cancel" type="button" onclick="location.href='ManageProfile-Step2.html'">
+                             <input class="btn btn-default" value="Cancel" type="button" ng-link="['UserPreferences']">
                          </div>
                      </div>
                  </div>
@@ -139,4 +145,4 @@
      </div>
 
             </div>
-        <main-script></main-script>
+        

@@ -9,9 +9,9 @@
         </div>
     </div>
     <section>
-        <div class="row marginTop7 lightGrayBG">
+        <div class="row marginTop10 lightGrayBG">
             <div class="col-xs-12 col-sm-6 h3 txtBlue marginTop7">Establish Profile</div>
-            <div class="col-xs-12 col-sm-6 txtBlue font1dot5em"><span class="stepCount">Step <span class="badge alert-info font1em">3</span> of <span class="badge alert-info font1em">4</span></span>
+            <div class="col-xs-12 col-sm-6 txtBlue font1dot5em"><span class="stepCount">Step <span class="font1em">3</span> of <span class="font1em">4</span></span>
             </div>
         </div>
         <div class="row">
@@ -29,9 +29,9 @@
                 <div class="form-horizontal marginTop20">
                     <form name="registrationForm" novalidate>
                         <div class="form-group required" ng-class="{ 'has-error' : registrationForm.description.$invalid && !registrationForm.description.$pristine }">
-                            <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Please provide as much information to describe you and your family. </label>
+                            <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Please provide information to describe you and your family. </label>
                             <div class="col-sm-6 paddingTop7">
-                                <textarea type="text" class="form-control" name="description" ng-model="model.familyDetails.description" required></textarea>
+                                <textarea type="text" rows="4" class="form-control" name="description" ng-model="model.familyDetails.description" required></textarea>
                                 <span ng-show="registrationForm.description.$invalid && !registrationForm.description.$pristine" class="help-block"> Desription required.</span>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                                 <div class="form-group required" ng-class="{ 'has-error' : registrationForm.firstKidHobbies.$invalid && !registrationForm.firstKidHobbies.$pristine }">
                                     <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Hobbies</label>
                                     <div class="col-sm-6">
-                                        <textarea class="form-control" name="firstKidHobbies" type="text" ng-model="model.kid1.hobbies" required></textarea>
+                                        <textarea class="form-control" rows="4" name="firstKidHobbies" type="text" ng-model="model.kid1.hobbies" required></textarea>
                                         <span ng-show="registrationForm.firstKidHobbies.$invalid && !registrationForm.firstKidHobbies.$pristine" class="help-block"> Hobbies required.</span>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                                 <div class="form-group required" ng-class="{ 'has-error' : registrationForm.secondKidHobbies.$invalid && !registrationForm.secondKidHobbies.$pristine }">
                                     <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Hobbies</label>
                                     <div class="col-sm-6">
-                                        <textarea class="form-control" name="secondKidHobbies" type="text" ng-model="model.kid2.hobbies" required></textarea>
+                                        <textarea class="form-control" rows="4" name="secondKidHobbies" type="text" ng-model="model.kid2.hobbies" required></textarea>
                                         <span ng-show="registrationForm.secondKidHobbies.$invalid && !registrationForm.secondKidHobbies.$pristine" class="help-block"> Hobbies required.</span>
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@
                          <div class="form-group required" ng-class="{ 'has-error' : registrationForm.kidsPreference.$invalid && !registrationForm.kidsPreference.$pristine }">
                             <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Please be open in expressing your Kids behaviour, emotional and other preferences</label>
                             <div class="col-sm-6 paddingTop7">
-                                <textarea type="text" class="form-control" name="kidsPreference" ng-model="model.familyDetails.kidsPref" required></textarea>
+                                <textarea type="text" rows="4" class="form-control" name="kidsPreference" ng-model="model.familyDetails.kidsPref" required></textarea>
                                 <span ng-show="registrationForm.kidsPreference.$invalid && !registrationForm.kidsPreference.$pristine" class="help-block"> Desription required.</span>
                             </div>
                         </div>

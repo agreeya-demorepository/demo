@@ -530,9 +530,4 @@ public class MockPortalTest {
 		return usrC;
 	}
 
-	public static void main(String[] args) {
-		MockPortalTest test = new MockPortalTest();
-		System.out.println(test.getUsrContxtTO().toString());
-		System.out.println(test.getUsrContxtTO().getSessionId());
-	}
 }

@@ -4,7 +4,7 @@
 
 
   //controller
-  function fosterCareAgenciesController(toaster, searchService, userService, dataService) {
+  function fosterCareAgenciesController(toaster, searchService, userService, dataService, $geolocation) {
     var model = this;
     model.lat = 0;
     model.lang = 0;
@@ -64,17 +64,12 @@
             //rowCount: ???, - not setting the row count, infinite paging will be used
             pageSize: pSize, // changing to number, as scope keeps it as a string
             getRows: function (params) {
-                // this code should contact the server for rows. however for the purposes of the demo,
-                // the data is generated locally, a timer is used to give the experience of
-                // an asynchronous call
+              
                 console.log('asking for ' + params.startRow + ' to ' + params.endRow);
                 setTimeout(function () {
                     // take a chunk of the array, matching the start and finish times
                     var rowsThisPage = model.agencies.facilities.pojoList.slice(params.startRow, params.endRow);
-                    // see if we have come to the last page. if we have, set lastRow to
-                    // the very last row of the last page. if you are getting data from
-                    // a server, lastRow could be returned separately if the lastRow
-                    // is not in the current page.
+                   
                     var lastRow = -1;
                     if (model.agencies.facilities.pojoList.length <= params.endRow) {
                         lastRow = model.agencies.facilities.pojoList.length;
@@ -88,6 +83,7 @@
     }
 
     model.$onInit = function() {
+
       var geolocation;
       if ( navigator.geolocation )
        {
@@ -200,7 +196,7 @@
   module.component("fosterCareAgencies", {
     templateUrl: './app/templates/fosterCareAgencies.html',
     controllerAs: 'model',
-    controller: ['toaster', 'searchService', 'userService', 'dataService', fosterCareAgenciesController],
+    controller: ['toaster', 'searchService', 'userService', 'dataService', '$geolocation', fosterCareAgenciesController],
     bindings: {
       $router: '<'
     }
