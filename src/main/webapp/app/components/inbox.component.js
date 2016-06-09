@@ -5,16 +5,16 @@
   //controller function
   function userInboxController(userService) {
     var model = this;
-    model.isMails = false;
+    model.isMails = 'default';
     model.inboxData = [];
     model.$onInit = function() {
       userService.getuserInboxData().then(function(response){
         model.inboxData = response.emails;
         console.log(model.inboxData);
-        model.isMails = true;
+        model.isMails = 'yes';
       }, function(error){
         console.log("Error in loading emails");
-        model.isMails = false;
+        model.isMails = 'no';
       });
     }
 

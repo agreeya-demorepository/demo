@@ -4,7 +4,7 @@
 
   function userPreferencesController($cookieStore, toaster, userService) {
     var model = this;
-    
+
     var context = {};
     var _personalProfile = {};
     var _personalDetails = {};
@@ -23,8 +23,27 @@
     if ($cookieStore.get('personalDetails')) {
         _personalDetails = $cookieStore.get('personalDetails');
     };
-    
+
     model.familyDetails = {};
+    model.formatDate = function (input) {
+        var datePart = input.match(/\d+/g),
+        year = datePart[0], // get only two digits
+        month = datePart[1], day = datePart[2];
+        return month + '/' + day + '/' + year;
+    }
+
+      // default data load
+    model.ageGroups = ["3-5 years", "6-8 years", "9-11 years", "12-15 years"];
+
+    model.kid1AgeGroup = model.ageGroups[0];
+    model.kid2AgeGroup = model.ageGroups[0];
+
+    model.kids = ["1", "2"];
+    model.familyDetails.numberOfKids = model.kids[0];
+
+    model.hasTwoKids = false;
+
+
 
     var userInfo = {};
     var userData = JSON.stringify({ userName: _userName });
@@ -32,12 +51,19 @@
         userInfo = userDataResponse;
         if (userInfo.user != null) {
             model.familyDetails = userInfo.user.familyDetails;
+            //debugger;
+            _personalProfile = userInfo.user.personalProfile;
+            _personalDetails = userInfo.user.personalDetails;
 
-            if (_personalProfile == null) {
-                _personalProfile = model.personalProfile;
+            _personalProfile.password = 'none';
+            if (_personalDetails.dob) {
+                var newDate = model.formatDate(_personalDetails.dob);
+                _personalDetails.dob = newDate;
             }
-            if (_personalDetails == null) {
-                _personalDetails = model.personalDetails;
+
+            if (_personalDetails.spouseDetails.dob) {
+                var newDate = model.formatDate(_personalDetails.spouseDetails.dob);
+                _personalDetails.spouseDetails.dob = newDate;
             }
 
             if(!model.familyDetails.haveKids || model.familyDetails.haveKids=="")
@@ -45,25 +71,35 @@
                 //default
                 model.familyDetails.haveKids = "n";
             }
+            //load kids data
+
+            if (model.familyDetails.haveKids == "y" || model.familyDetails.haveKids == "n") {
+                if (model.familyDetails.kids != null && model.familyDetails.kids.length > 0) {
+                    var kidInfo1 = model.familyDetails.kids[0];
+                    model.kid1Name = kidInfo1.kidName;
+                    model.kid1AgeGroup = kidInfo1.age;
+                    model.kid1Hobbies = kidInfo1.hobbies;
+
+                    if (model.familyDetails.numberOfKids == "2") {
+                        var kidInfo2 = model.familyDetails.kids[1];
+                        model.kid2Name = kidInfo2.kidName;
+                        model.kid2AgeGroup = kidInfo2.age;
+                        model.kid2Hobbies = kidInfo2.hobbies;
+                    }
+                }
+            }
+            model.setKidsSection();
+            //debugger;
         }
     }, function (error) {
         console.log("User Info response: ", error);
         toaster.pop("error", "Unable to fetch user info", "Error in profile registration.");
     });
 
-    model.ageGroups = ["3-5 years", "6-8 years", "9-11 years", "12-15 years"];
-    
-    model.kid1AgeGroup = model.ageGroups[0];
-    model.kid2AgeGroup = model.ageGroups[0];
-
-    model.kids = ["1", "2"];
-    model.familyDetails.numberOfKids = model.kids[0];
 
 
-     
-    
 
-   
+
     model.validatePreferences = function () {
         var valid = true;
         if (!model.familyDetails.description || model.familyDetails.description == "")
@@ -114,7 +150,7 @@
                     userKids = [{ kidName: model.kid1Name, age: model.kid1AgeGroup, hobbies: model.kid1Hobbies }];
                 }
             }
-
+            //model.familyDetails.haveKids = "Yes";
             model.familyDetails.kids = userKids;
             var userProfileData = JSON.stringify({ userContext: context, personalProfile: _personalProfile, personalDetails: _personalDetails, familyDetails: model.familyDetails, registrationStage: 3 });
             userService.UpdateAccountDetails(userProfileData).then(function (userAccountDetailsResponse) {
