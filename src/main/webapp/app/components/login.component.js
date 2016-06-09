@@ -56,6 +56,9 @@
                if ($cookieStore.get("fromLogin")) {
                     $cookieStore.remove("fromLogin");
                  }
+              if($cookieStore.get("selectedTab")){
+                $cookieStore.remove("selectedTab");
+              }
               location.href="index.html";
             } else {
               //toaster.pop('error', "Logout", userResponse.message);
