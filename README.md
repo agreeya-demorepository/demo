@@ -205,8 +205,8 @@ UAT Test Cases and results were published and available at **GITHUB > demo > pro
 		- Edit chhs_config.properties file and update db,url,db.user,db.password and save file
 		- Restart the Tomcat server using Goto <TOMCAT_HOME>/bin director and use startup.bat or startup.sh (for linux)
 
-4. Please update the URL of the target server in the file for UI **dataservice.js**  located at **GITHUB > demo > src > main > webapp > app >services**. Update   
-Variable Name **APIHostAddress** with target server URL. eg **http://fosterfamilies.agreeya.net/**
+4. Please update the URL of the target server in the file for UI **config.js**  located at **GITHUB > demo > src > main > webapp > app **. Update   
+Variable Name **apiHostUrl** with target server URL. eg **http://fosterfamilies.agreeya.net/**
  
 ###APPENDIX
 
