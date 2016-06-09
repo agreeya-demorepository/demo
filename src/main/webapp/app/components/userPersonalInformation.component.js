@@ -33,12 +33,10 @@
 
     model.races = [
      { value: "", text: "Select Race" },
-     { value: "White", text: "White" },
-     { value: "Black or African American", text: "Black or African American" },
-     { value: "American Indian and Alaska Native", text: "American Indian and Alaska Native" },
-     { value: "Native Hawaiian and Other Pacific Islander", text: "Native Hawaiian and Other Pacific Islander" },
+     { value: "American Indian", text: "American Indian" },
      { value: "Asian", text: "Asian" },
-     { value: "Some other race", text: "Some other race" }
+     { value: "Pacific  Native", text: "Pacific  Native" },
+     { value: "White European", text: "White European" }
     ];
 
     model.martialStatus = [
@@ -109,9 +107,9 @@
     model.religions = [
          { value: "", text: "Select Religion" },
          { value: "Christian", text: "Christian" },
-         { value: "Muslim", text: "Muslim" },
-         { value: "Jew", text: "Jew" },
-         { value: "Hindu", text: "Hindu" }
+         { value: "Catholic", text: "Catholic" },
+         { value: "Jewish", text: "Jewish" },
+         { value: "Buddhist", text: "Buddhist" }
     ];
     if (!model.personalDetails.religion) {
         model.personalDetails.religion = model.religions[0].value;
@@ -130,12 +128,10 @@
     }
 
     model.preferences = [
-        { value: "", text: "Select Preference" },
-        { value: "prefA", text: "prefA" },
-        { value: "prefB", text: "prefB" },
-        { value: "prefC", text: "prefC" },
-        { value: "prefD", text: "prefD" },
-        { value: "prefE", text: "prefE" }
+        { value: "Autism Spectrum Disorder", text: "Autism Spectrum Disorder" },
+        { value: "Down syndrome", text: "Down syndrome" },
+        { value: "Physical Impairment", text: "Physical Impairment" },
+        { value: "Fetal Alcohol syndrome", text: "Fetal Alcohol syndrome" }
     ];
     if (!model.personalDetails.preference) {
         model.personalDetails.preference = model.preferences[0].value;
