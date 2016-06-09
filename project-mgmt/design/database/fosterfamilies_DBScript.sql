@@ -2,8 +2,7 @@
 SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.6.30-0ubuntu0.14.04.1 : Database - foster
 *********************************************************************
-*/
-
+*/
 /*!40101 SET NAMES utf8 */;
 
 /*!40101 SET SQL_MODE=''*/;
@@ -173,7 +172,7 @@ CREATE TABLE `userinbox` (
 
 /*Data for the table `userinbox` */
 
-insert  into `userinbox`(`userinboxid`,`mailbody`,`mailcc`,`mailfrom`,`mailread`,`mailto`,`recieveddate`,`sentcaseid`,`subject`,`userid`) values (1,'Dear Foster parent\r\nThank you for taking the first step on the road to fostering and/or adopting a child .We are honored to help you in your efforts to become foster parent and build a relationship with foster child. We would be pleased to help you start your journey into the world of fostering and adoption.\r\n','admin@chhs.net','Williams.Krig@chhs.com','y','user@test.com\r\n','2016-06-07 15:26:58',NULL,'Thanks for Registering eith us!!',1),(2,'Dear Foster parent\r\nThis is a time to honor and thank the foster families who work hard every day to keep these youths safe. It is also a time to be thankful there are compassionate, loving people willing to open their hearts and homes to children in desperate need of some stability. It\'s also a time for us to think about what each of us can do to help.\r\nThanks.\r\n','admin2@chhs.net','Caroline.g@chhs.com','y','user@test.com','2016-06-07 15:28:23',NULL,'Thanks for Your Support!',1);
+insert  into `userinbox`(`userinboxid`,`mailbody`,`mailcc`,`mailfrom`,`mailread`,`mailto`,`recieveddate`,`sentcaseid`,`subject`,`userid`) values (1,'Dear Foster parent\r\nThank you for taking the first step on the road to fostering and/or adopting a child .We are honored to help you in your efforts to become foster parent and build a relationship with foster child. We would be pleased to help you start your journey into the world of fostering and adoption.\r\n','admin@chhs.net','Williams.Krig@chhs.com','y','user@test.com\r\n','2016-06-07 15:26:58',NULL,'Thanks for Registering with us!!',1),(2,'Dear Foster parent\r\nThis is a time to honor and thank the foster families who work hard every day to keep these youths safe. It is also a time to be thankful there are compassionate, loving people willing to open their hearts and homes to children in desperate need of some stability. It\'s also a time for us to think about what each of us can do to help.\r\nThanks.\r\n','admin2@chhs.net','Caroline.g@chhs.com','y','user@test.com','2016-06-07 15:28:23',NULL,'Thanks for Your Support!',1);
 
 /*Table structure for table `userkids` */
 
