@@ -424,7 +424,7 @@ public class MockPortalTest {
 		userKidsDetails.add(userKidsDetail);
 		userKidsDetails.add(userKidsDetail2);
 		UserFamilyDetails familyDetails = new UserFamilyDetails("description", "Y", "2", "test data", userKidsDetails);
-		UserLicenceDetails licenceDetails = new UserLicenceDetails("123456789", 10, "05/31/2016", "321456789");
+		UserLicenceDetails licenceDetails = new UserLicenceDetails("123456789", "TEST", "05/31/2016", "321456789");
 
 		urr.setFamilyDetails(familyDetails);
 		urr.setLicenceDetails(licenceDetails);
@@ -478,7 +478,7 @@ public class MockPortalTest {
 		userKidsDetails.add(userKidsDetail);
 		userKidsDetails.add(userKidsDetail2);
 		UserFamilyDetails familyDetails = new UserFamilyDetails("description", "Y", "2", "test data", userKidsDetails);
-		UserLicenceDetails licenceDetails = new UserLicenceDetails("123456789", 10, "05/31/2016", "321456789");
+		UserLicenceDetails licenceDetails = new UserLicenceDetails("123456789", "test", "05/31/2016", "321456789");
 
 		urr.setFamilyDetails(familyDetails);
 		urr.setLicenceDetails(licenceDetails);
@@ -530,9 +530,4 @@ public class MockPortalTest {
 		return usrC;
 	}
 
-	public static void main(String[] args) {
-		MockPortalTest test = new MockPortalTest();
-		System.out.println(test.getUsrContxtTO().toString());
-		System.out.println(test.getUsrContxtTO().getSessionId());
-	}
 }

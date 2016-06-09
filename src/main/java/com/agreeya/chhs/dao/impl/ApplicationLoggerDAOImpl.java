@@ -7,7 +7,7 @@ import com.agreeya.chhs.dao.ApplicationLoggerDAO;
 import com.agreeya.chhs.model.ApplicationLog;
 
 /**
- * Implementation class for ApplicationLoggerDAO
+ * Implementation class for ApplicationLoggerDAO.
  * @author AgreeYa Solutions
  *
  */

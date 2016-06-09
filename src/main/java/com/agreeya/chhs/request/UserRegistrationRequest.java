@@ -173,8 +173,8 @@ public class UserRegistrationRequest extends AbstractDoesNotRequireAnyContext im
 		if (fam.getKidsPref() == null || fam.getKidsPref().isEmpty()) {
 			vr.addMessage("kids pref is not provided!.");
 		}
-		if (fam.getHaveKids() == null || fam.getHaveKids().isEmpty()) {
-			vr.addMessage("Have Kids is not answered!.");
+		if (fam.getNumberOfKids() == null || fam.getNumberOfKids().isEmpty()) {
+			fam.setNumberOfKids("0");
 		}
 
 		if ("Y".equalsIgnoreCase(fam.getHaveKids())) {

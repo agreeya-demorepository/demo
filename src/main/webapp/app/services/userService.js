@@ -21,7 +21,7 @@
       var deferred = $q.defer();
       var context = $cookieStore.get('userContext');
       if(context){
-        dataService.logoutUser(context).then(function(userResponse){
+        dataService.logoutUser(context.userContext).then(function(userResponse){
           console.log("User response data: ", userResponse);
             deferred.resolve(userResponse);
         }, function(errors){
@@ -86,6 +86,50 @@
       });
       return deferred.promise;
     };
+
+    //Save user registration data in database and return userContext in response.
+    userService.getuserInboxData = function(){
+      var deferred = $q.defer();
+      var context = userService.getUserContext();
+      if(context) {
+        dataService.getUesrInboxData(context).then(function(response){
+          console.log("User registration response data: ", response);
+            deferred.resolve(response);
+        }, function(errors){
+          deferred.reject();
+        });
+      } else {
+        deferred.reject();
+      }
+
+      return deferred.promise;
+    };
+
+     
+        //Update user account details data in database and return userContext in response.
+    userService.UpdateAccountDetails = function (accountDetailsData) {
+        var deferred = $q.defer();
+        dataService.UpdateAccountDetails(accountDetailsData).then(function (accountDetailsDataResponse) {
+            console.log("User registration response data: ", accountDetailsDataResponse);
+            deferred.resolve(accountDetailsDataResponse);
+        }, function (errors) {
+            deferred.reject();
+        });
+        return deferred.promise;
+    };
+
+
+    userService.GetAccountDetails = function (accountDetailsData) {
+        var deferred = $q.defer();
+        dataService.GetAccountDetails(accountDetailsData).then(function (accountDetailsDataResponse) {
+            console.log("User registratAccount Details response data: ", accountDetailsDataResponse);
+            deferred.resolve(accountDetailsDataResponse);
+        }, function (errors) {
+            deferred.reject();
+        });
+        return deferred.promise;
+    };
+
 
     return userService;
   }]);

@@ -169,6 +169,7 @@ ag-grid-ng2 {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  background-color: #fff;
 }
 .ag-floating-top {
   position: absolute;

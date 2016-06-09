@@ -243,16 +243,21 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 
 			if ("y".equalsIgnoreCase(famDtls.getHaveKids())) {
 				List<Integer> idListkids = kidsQuery.list();
+				List<Userkid> kidListEntity = new ArrayList(); 
 				if (idListkids.size() > 0) {
 					for (int kid : idListkids) {
 						Userkid uKid = getById(Userkid.class, kid);
-						for (UserKidsDetails reqKid : request.getFamilyDetails().getKids()) {
+						kidListEntity.add(uKid);
+					}
+					int i = 0;
+					for (UserKidsDetails reqKid : request.getFamilyDetails().getKids()) {
+							Userkid uKid = kidListEntity.get(i);
 							uKid.setName(reqKid.getKidName());
 							uKid.setAgeGroup(reqKid.getAge());
 							uKid.setHobbies(reqKid.getHobbies());
 							uKid.setUserfamily(famDtls);
-							sess.saveOrUpdate(uKid);
-						}
+							sess.merge(uKid);
+							i++;
 					}
 
 				} else {
@@ -340,8 +345,9 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 				User user = userList.get(0);
 
 				user.setUserName(user.getUserName());
-				user.setPassword(aESSecurityBD.encryptAES(request.getPersonalProfile().getPassword()));
-
+				if (!"none".equalsIgnoreCase(request.getPersonalProfile().getPassword())) {
+					user.setPassword(aESSecurityBD.encryptAES(request.getPersonalProfile().getPassword()));
+				}
 				user.setUseremail(request.getPersonalProfile().getUseremail());
 				Role role = getById(Role.class, 1);
 				user.setRole(role);
@@ -399,8 +405,11 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 					userDtls.setModifiedBy(userId);
 					userDtls.setModifiedOn(new Date());
 
-					sess.merge(userDtls);
-
+					if (idList.size() > 0) {
+						sess.merge(userDtls);
+					} else {
+						sess.saveOrUpdate(userDtls);
+					}
 					Query spouseQuery = sess
 							.createSQLQuery("SELECT userSpouseID FROM userspouse us " + "WHERE us.UserID = " + user.getUserID());
 
@@ -432,7 +441,11 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 						spouseDtls.setCreatedOn(new Date());
 						spouseDtls.setModifiedBy(userId);
 						spouseDtls.setModifiedOn(new Date());
-						sess.merge(spouseDtls);
+						if (idListspouse.size() > 0) {
+							sess.merge(spouseDtls);
+						} else {
+							sess.saveOrUpdate(spouseDtls);
+						}
 					}
 
 				}
@@ -464,8 +477,11 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 					famDtls.setCreatedOn(new Date());
 					famDtls.setModifiedOn(new Date());
 
-					sess.merge(famDtls);
-
+					if (idListfam.size() > 0) {
+						sess.merge(famDtls);
+					} else {
+						sess.saveOrUpdate(famDtls);
+					}
 					Query kidsQuery = sess.createSQLQuery("SELECT userKidID FROM userkids uk "
 					+ "WHERE uk.familyID = " + userFamilyID);
 
@@ -490,7 +506,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 								uKid.setAgeGroup(kid.getAge());
 								uKid.setHobbies(kid.getHobbies());
 								uKid.setUserfamily(famDtls);
-								sess.merge(uKid);
+								sess.saveOrUpdate(uKid);
 							}
 						} 
 					}
@@ -522,7 +538,11 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 					lic.setCreatedon(new Date());
 					lic.setModifiedOn(new Date());
 
-					sess.merge(lic);
+					if (idListLic.size() > 0) {
+						sess.merge(lic);
+					} else {
+						sess.saveOrUpdate(lic);
+					}
 				}
 
 				sess.flush();

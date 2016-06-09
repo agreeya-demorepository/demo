@@ -15,7 +15,7 @@
         {path: "/familyRegistrationProfileStep2", component: "familyRegistrationProfileStep2", name: "FamilyRegistrationProfileStep2"},
         {path: "/familyRegistrationProfileStep3", component: "familyRegistrationProfileStep3", name: "FamilyRegistrationProfileStep3"},
         {path: "/familyRegistrationProfileStep4", component: "familyRegistrationProfileStep4", name: "FamilyRegistrationProfileStep4"},
-        {path: "/registrationThankYou", component: "registrationThankYou", name: "RegistrationThankYou"}
+        {path: "/registrationThankYou", component: "familyRegistrationProfileThankYou", name: "RegistrationThankYou"}
     ],
     controllerAs: "model",
     controller: [familyRegistrationController]

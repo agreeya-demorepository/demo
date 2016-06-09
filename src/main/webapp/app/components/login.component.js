@@ -28,7 +28,10 @@
                 model.fullName = userResponse.userContext.userName;
               }
               model.isLoggedIn = true;
-              toaster.pop('success', "Login", "You are successfully logged in.");
+              //toaster.pop('success', "Login", "You are successfully logged in.");
+               if (!$cookieStore.get("fromLogin")) {
+                    $cookieStore.put("fromLogin", "yes");
+                 }
               location.href="index.html";
 
           }
@@ -50,14 +53,20 @@
             if(userResponse.status == "0"){
               $cookieStore.remove('userContext');
               model.isLoggedIn = false;
+               if ($cookieStore.get("fromLogin")) {
+                    $cookieStore.remove("fromLogin");
+                 }
+              if($cookieStore.get("selectedTab")){
+                $cookieStore.remove("selectedTab");
+              }
               location.href="index.html";
             } else {
-              toaster.pop('error', "Logout", userResponse.message);
+              //toaster.pop('error', "Logout", userResponse.message);
               model.isLoggedIn = true;
             }
           }
       }, function(error){
-        toaster.pop('error', "Logout", "Error in logout");
+        //toaster.pop('error', "Logout", "Error in logout");
         $cookieStore.remove('userContext');
         model.isLoggedIn = false;
         location.href="index.html";

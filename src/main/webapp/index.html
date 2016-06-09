@@ -6,6 +6,7 @@
     <title>CHHS Demo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
     <!-- IE required polyfills, in this exact order -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.33.3/es6-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.20/system-polyfills.js"></script>
@@ -16,6 +17,9 @@
     <link rel="stylesheet" href="contents/css/portal.css">
     <link rel="stylesheet" href="contents/css/font-awesome.min.css">
     <link href="contents/css/datepicker.css" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/ag-grid/dist/styles/ag-grid.css">
+    <link rel="stylesheet" href="bower_components/ag-grid/dist/styles/theme-bootstrap.css">
+
 
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -34,6 +38,7 @@
 
 
     <script src="scripts/jquery.min.js"></script>
+      <script src="scripts/bootstrap.min.js"></script>
     <script src="scripts/bootstrap-datepicker.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-component-router/angular_1_router.js"></script>
@@ -45,22 +50,31 @@
     <script src="bower_components/angular-dialog-service/dist/dialogs.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/ngGeolocation/ngGeolocation.js"></script>
     <script src="app/appModule.js"></script>
+    <script src="app/config.js"></script>
     <script src="app/components/mainScript.component.js"></script>
     <script src="app/components/mainApp.component.js"></script>
     <script src="app/components/home.component.js"></script>
     <script src="app/services/dataService.js"></script>
     <script src="app/services/userService.js"></script>
+    <script src="app/services/searchService.js"></script>
     <script src="app/components/footer.component.js"></script>
     <script src="app/components/familyRegistration.component.js"></script>
     <script src="app/components/familyRegistrationEligibility.component.js"></script>
     <script src="app/components/familyRegistrationProfile.component.js"></script>
     <script src="app/components/login.component.js"></script>
     <script src="app/components/userHome.component.js"></script>
+    <script src="app/components/childResidentialFacilities.component.js"></script>
+    <script src="app/components/fosterCareAgencies.component.js"></script>
+    <script src="app/components/inbox.component.js"></script>
 
-    <script src="scripts/bootstrap.min.js"></script>
-
-
+    <script src="app/components/userHomeRoot.component.js"></script>
+    <script src="app/components/userStatus.component.js"></script>
+    <script src="app/components/userAccountDetails.component.js"></script>
+    <script src="app/components/userPersonalInformation.component.js"></script>
+    <script src="app/components/userPreferences.component.js"></script>
+    <script src="app/components/userLicense.component.js"></script>
 </body>
 
 </html>

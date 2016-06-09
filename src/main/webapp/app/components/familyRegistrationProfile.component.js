@@ -2,6 +2,8 @@
     'use strict';
     var module = angular.module("chhsDemo");
 
+
+
     function familyRegistrationProfileController($cookieStore, userService, toaster) {
         var model = this;
         model.confirmPassword = "";
@@ -24,10 +26,15 @@
             userService.SaveRegistrationProfileData(userProfileData).then(function (userRegistrationResponse) {
                 if (userRegistrationResponse.status == "0") {
                     console.log("User registration response: ", userRegistrationResponse);
-                    toaster.pop("success", "Register Profile", userRegistrationResponse.message);
+                    //toaster.pop("success", "Register Profile", userRegistrationResponse.message);
                     $cookieStore.put("personalProfile", model.personalProfile);
-                    $cookieStore.put("userContext", userRegistrationResponse);
-                    model.$router.navigate(["FamilyRegistrationProfileStep2"])
+                    if(userRegistrationResponse.userContext){
+                      $cookieStore.put("userContext", userRegistrationResponse);
+                      model.$router.navigate(["FamilyRegistrationProfileStep2"]);
+                    } else {
+                      model.$router.navigate(["HomePage"]);
+                    }
+
                 } else {
                     console.log("User registration response: ", userRegistrationResponse.Error);
                     toaster.pop("error", "Register Profile", userRegistrationResponse.message);
@@ -44,6 +51,19 @@
     //controller for step 2:
     function familyRegistrationProfileStep2Controller($cookieStore, userService, toaster) {
         var model = this;
+        model.showSpouseDetails = true;
+        model.spouseClass = "glyphicon glyphicon-minus";
+
+        model.onChangeSpouseDetails = function(){
+            if(model.showSpouseDetails === true) {
+                model.showSpouseDetails = false;
+                model.spouseClass = "glyphicon glyphicon-plus";
+            } else {
+                model.showSpouseDetails = true;
+                model.spouseClass = "glyphicon glyphicon-minus";
+            }
+        }
+
         model.genders = [{
             Id: 1,
             Name: 'Male'
@@ -58,9 +78,6 @@
           }, {
                 Id: 2,
                 Name: 'Married'
-          }, {
-                Id: 3,
-                Name: 'Divorced'
           }
         ];
         model.racesData = [
@@ -168,12 +185,18 @@
                 userService.SaveRegistrationProfileData(userProfileData).then(function (userRegistrationResponse) {
                     if (userRegistrationResponse.status == "0") {
                         console.log("User registration response: ", userRegistrationResponse);
-                        toaster.pop("success", "Register Profile", userRegistrationResponse.message);
+                        //toaster.pop("success", "Register Profile", "Profile data successfully saved");
+                        if ($cookieStore.get("personalDetails")) {
+                              $cookieStore.remove("personalDetails");
+                          }
                         $cookieStore.put("personalDetails", model.personalDetails);
-                        if ($cookieStore.get("userContext")) {
-                            $cookieStore.remove("userContext");
+
+                        if(userRegistrationResponse.userContext){
+                          if ($cookieStore.get("userContext")) {
+                              $cookieStore.remove("userContext");
+                          }
+                            $cookieStore.put("userContext", userRegistrationResponse);
                         }
-                        $cookieStore.put("userContext", userRegistrationResponse);
                         model.$router.navigate(["FamilyRegistrationProfileStep3"]);
                     } else {
                         console.log("User registration response: ", userRegistrationResponse.Error);
@@ -207,12 +230,14 @@
                 userService.SaveRegistrationProfileData(userProfileData).then(function (userRegistrationResponse) {
                     if (userRegistrationResponse.status == "0") {
                         console.log("User registration response: ", userRegistrationResponse);
-                        toaster.pop("success", "Register Profile", userRegistrationResponse.message);
+                        //toaster.pop("success", "Register Profile", "Profile data successfully saved");
                         $cookieStore.remove("personalProfile");
-                        if ($cookieStore.get("userContext")) {
-                            $cookieStore.remove("userContext");
+                        if(userRegistrationResponse.userContext){
+                          if ($cookieStore.get("userContext")) {
+                              $cookieStore.remove("userContext");
+                          }
+                            $cookieStore.put("userContext", userRegistrationResponse);
                         }
-                        $cookieStore.put("userContext", userRegistrationResponse);
                         model.$router.navigate(["RegistrationThankYou"]);
                     } else {
                         console.log("User registration response: ", userRegistrationResponse.Error);
@@ -233,7 +258,7 @@
     //Controller for step 3
     function familyRegistrationProfileStep3Controller($cookieStore, userService, toaster) {
         var model = this;
-        model.haveKids = "no"
+        model.haveKids = "n"
         model.numberOfKids = 0;
         model.kid1 = {
             kidName: "",
@@ -255,9 +280,9 @@
 
         model.familyDetails = {
             description: "",
-            numberOfKids: "",
+            numberOfKids: "0",
             kidsPref: "",
-            haveKids: "",
+            haveKids: "n",
             kids: []
         }
 
@@ -300,9 +325,13 @@
             if ($cookieStore.get("personalProfile") && $cookieStore.get("personalDetails")) {
                 var personalProfileData = $cookieStore.get("personalProfile");
                 var personalDetailsData = $cookieStore.get("personalDetails");
+                if(model.familyDetails.numberOfKids > 0){
+                    model.kids.push(model.kid1);
+                }
+                if(model.familyDetails.numberOfKids > 1){
+                    model.kids.push(model.kid2);
+                }
 
-                model.kids.push(model.kid1);
-                model.kids.push(model.kid2);
                 model.familyDetails.kids = model.kids;
 
                 var userProfileData = JSON.stringify({
@@ -314,12 +343,18 @@
                 userService.SaveRegistrationProfileData(userProfileData).then(function (userRegistrationResponse) {
                     if (userRegistrationResponse.status == "0") {
                         console.log("User registration response: ", userRegistrationResponse);
-                        toaster.pop("success", "Register Profile", userRegistrationResponse.message);
+                        //toaster.pop("success", "Register Profile", "Profile data successfully saved");
+                         if ($cookieStore.get("familyDetails")) {
+                              $cookieStore.remove("familyDetails");
+                          }
                         $cookieStore.put("familyDetails", model.familyDetails);
-                        if ($cookieStore.get("userContext")) {
-                            $cookieStore.remove("userContext");
+
+                        if(userRegistrationResponse.userContext){
+                          if ($cookieStore.get("userContext")) {
+                              $cookieStore.remove("userContext");
+                          }
+                            $cookieStore.put("userContext", userRegistrationResponse);
                         }
-                        $cookieStore.put("userContext", userRegistrationResponse);
                         model.$router.navigate(["FamilyRegistrationProfileStep4"]);
                     } else {
                         console.log("User registration response: ", userRegistrationResponse.Error);
@@ -356,13 +391,16 @@
                 userService.SaveRegistrationProfileData(userProfileData).then(function (userRegistrationResponse) {
                     if (userRegistrationResponse.status == "0") {
                         console.log("User registration response: ", userRegistrationResponse);
-                        toaster.pop("success", "Register Profile", userRegistrationResponse.message);
+                        //toaster.pop("success", "Register Profile", userRegistrationResponse.message);
                         $cookieStore.remove("personalProfile");
                         $cookieStore.remove("personalDetails");
-                        if ($cookieStore.get("userContext")) {
-                            $cookieStore.remove("userContext");
+
+                        if(userRegistrationResponse.userContext){
+                          if ($cookieStore.get("userContext")) {
+                              $cookieStore.remove("userContext");
+                          }
+                            $cookieStore.put("userContext", userRegistrationResponse);
                         }
-                        $cookieStore.put("userContext", userRegistrationResponse);
                         model.$router.navigate(["RegistrationThankYou"]);
                     } else {
                         console.log("User registration response: ", userRegistrationResponse.Error);
@@ -383,11 +421,11 @@
     //Controller for step 4
     function familyRegistrationProfileStep4Controller($cookieStore, userService, toaster) {
         var model = this;
-        model.haveFosterLicense = "no";
+        model.haveFosterLicense = "yes";
 
         model.licenceDetails = {
             agencyContact: "",
-            agencyWorker: 0,
+            agencyWorker: "",
             dateOfIssue: "",
             licenceNo: ""
 	    }
@@ -411,15 +449,17 @@
                 userService.SaveRegistrationProfileData(userProfileData).then(function (userRegistrationResponse) {
                     if (userRegistrationResponse.status == "0") {
                         console.log("User registration response: ", userRegistrationResponse);
-                        toaster.pop("success", "Register Profile", userRegistrationResponse.message);
+                        //toaster.pop("success", "Register Profile", userRegistrationResponse.message);
 
                         $cookieStore.remove("personalProfile");
                         $cookieStore.remove("personalDetails");
                         $cookieStore.remove("familyDetails");
-                        if ($cookieStore.get("userContext")) {
-                            $cookieStore.remove("userContext");
+                        if(userRegistrationResponse.userContext){
+                          if ($cookieStore.get("userContext")) {
+                              $cookieStore.remove("userContext");
+                          }
+                            $cookieStore.put("userContext", userRegistrationResponse);
                         }
-                        $cookieStore.put("userContext", userRegistrationResponse);
                         model.$router.navigate(["RegistrationThankYou"]);
                     } else {
                         console.log("User registration response: ", userRegistrationResponse.Error);
@@ -444,10 +484,11 @@
 
         model.GotoMyPage = function() {
             if($cookieStore.get("userContext")){
-                model.$router.navigate(["UserHomePage"]);
-            } else {
-                model.$router.navigate(["Home"]);
+                 if (!$cookieStore.get("fromLogin")) {
+                    $cookieStore.put("fromLogin", "yes");
+                 }
             }
+            location.href = "index.html";
 
         }
     }
@@ -496,7 +537,7 @@
         controllerAs: "model",
         controller: ["$cookieStore", familyRegistrationProfileThankYouController],
         bindings: {
-            $router: "<"
+            $router: '<'
         }
     });
 

@@ -229,7 +229,7 @@ public class MemberServiceBDImpl implements MemberServiceBD {
 			if (usr.getUserspouses().size() > 0) {
 				Userspouse spouse = usr.getUserspouses().get(0);
 				spouseDtl = new UserSpouseDetails(spouse.getContactNo(), spouse.getDob().toString(), spouse.getFirstName(),
-						spouse.getFirstName(), spouse.getHobbies(), spouse.getIncome(), spouse.getOccupation(), spouse.getPreference(),
+						spouse.getGender(), spouse.getHobbies(), spouse.getIncome(), spouse.getOccupation(), spouse.getPreference(),
 						spouse.getRace(), spouse.getReligion());
 
 				personalDetails = new UserPersonal(detail.getContactNo(), detail.getDob().toString(), detail.getFirstName(),
@@ -254,7 +254,7 @@ public class MemberServiceBDImpl implements MemberServiceBD {
 		if (usr.getUserfamilies().size() > 0) {
 			UserFamilyDetails famDtls;
 			Userfamily fam = usr.getUserfamilies().get(0);
-			if (null != fam.getKids().get(0) || fam.getKids().size() > 0) {
+			if (fam.getKids().size() > 0) {
 				List<UserKidsDetails> kidList = new ArrayList<UserKidsDetails>();
 
 				for (Userkid kid : fam.getKids()) {
