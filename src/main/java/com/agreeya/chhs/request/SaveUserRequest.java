@@ -167,7 +167,7 @@ public class SaveUserRequest extends AbstractRequiresUserContext implements WSRe
 		}
 
 		if (fam.getNumberOfKids() == null || fam.getNumberOfKids().isEmpty()) {
-			vr.addMessage("Kids is not provided!.");
+			fam.setNumberOfKids("0");
 		}
 
 		if (fam.getKidsPref() == null || fam.getKidsPref().isEmpty()) {
