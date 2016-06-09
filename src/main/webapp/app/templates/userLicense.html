@@ -35,7 +35,7 @@
                          <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Do you have Foster care Licence?</label>
                          <div class="col-sm-6">
                              <label class="radio-inline">
-                                 <input name="radio" type="radio" ng-checked="model.haveLicense == 'y'">
+                                 <input name="radio"type="radio" ng-checked="model.haveLicense == 'y'" checked >
                                  Yes
                              </label>
                              <label class="radio-inline">
@@ -70,7 +70,7 @@
                          </div>
                      </div>
                      <div class="form-group required">
-                         <label class="col-sm-4 control-label">Agency's Contact Number</label>
+                         <label class="col-sm-4 control-label">Agency Contact Number</label>
                          <div class="col-sm-6">
                              <input class="form-control" ng-model="model.licenceDetails.agencyContact" required id="agencyContact" name="agencyContact">
                              <p ng-show="userForm4.agencyContact.$invalid && !userForm4.agencyContact.$pristine" class="help-block">Enter Agency contact.</p>

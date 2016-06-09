@@ -33,7 +33,7 @@
              <form name="userForm3" ng-submit="model.updatePreferences()" novalidate>
                  <div class="form-horizontal marginTop20">
                      <div class="form-group required">
-                         <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Please provide as much information to describe you and your family. </label>
+                         <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Please provide information to describe you and your family. </label>
                          <div class="col-sm-6 paddingTop7">
                              <textarea type="text" rows="4" class="form-control" name="description" id="description" ng-model="model.familyDetails.description" required></textarea>
                              <span ng-show="userForm3.description.$invalid && !userForm3.description.$pristine" class="help-block"> Description required.</span>
@@ -121,7 +121,7 @@
                              </div>
                          </div>
                          <div class="form-group required">
-                             <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Please be open in expressing your Kids behaviour, emotional and other preferences</label>
+                             <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Please be open in expressing your Kids behavior, emotional and other preferences</label>
                              <div class="col-sm-6 paddingTop7">
                                  <textarea type="text" rows="4" class="form-control" id="kidsPref" name="kidsPref" ng-model="model.familyDetails.kidsPref" required></textarea>
                                  <span ng-show="userForm3.kidsPref.$invalid && !userForm3.kidsPref.$pristine" class="help-block"> Kid's preferences are required.</span>
@@ -145,4 +145,4 @@
      </div>
 
             </div>
-<main-script></main-script>        
+<main-script></main-script>

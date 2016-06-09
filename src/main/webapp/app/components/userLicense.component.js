@@ -6,7 +6,7 @@
     var model = this;
     model.licenceDetails = {};
 
-    model.haveLicense = 'n';
+    model.haveLicense = 'y';
     var _personalProfile = {};
     var _personalDetails = {};
     var _spouseDetails = {};

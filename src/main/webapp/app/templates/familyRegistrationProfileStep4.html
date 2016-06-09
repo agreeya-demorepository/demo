@@ -33,7 +33,7 @@
                             <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Do you have Foster care License?</label>
                             <div class="col-sm-6">
                                 <label class="radio-inline">
-                                    <input name="radio" checked="checked" type="radio" ng-model="model.haveFosterLicense" value="yes"> Yes </label>
+                                    <input name="radio" type="radio" ng-model="model.haveFosterLicense" value="yes"> Yes </label>
                                 <label class="radio-inline">
                                     <input name="radio" type="radio" ng-model="model.haveFosterLicense" value="no"> No </label>
                             </div>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="form-group" ng-class="{ 'has-error' : registrationForm.agencyContact.$invalid && !registrationForm.agencyContact.$pristine }">
-                            <label class="col-sm-4 control-label">Agency's Contact Number</label>
+                            <label class="col-sm-4 control-label">Agency Contact Number</label>
                             <div class="col-sm-6">
                                 <input class="form-control" ng-minlength="10" ng-maxlength="10" type="number" name="agencyContact" ng-model="model.licenceDetails.agencyContact" ng-required="true">
                                 <span ng-show="registrationForm.agencyContact.$error.number" class="help-block"> Contact number should be number.</span>

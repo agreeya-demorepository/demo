@@ -2,7 +2,7 @@
     'use strict';
     var module = angular.module("chhsDemo");
 
-    
+
 
     function familyRegistrationProfileController($cookieStore, userService, toaster) {
         var model = this;
@@ -331,7 +331,7 @@
                 if(model.familyDetails.numberOfKids > 1){
                     model.kids.push(model.kid2);
                 }
-                
+
                 model.familyDetails.kids = model.kids;
 
                 var userProfileData = JSON.stringify({
@@ -348,7 +348,7 @@
                               $cookieStore.remove("familyDetails");
                           }
                         $cookieStore.put("familyDetails", model.familyDetails);
-                        
+
                         if(userRegistrationResponse.userContext){
                           if ($cookieStore.get("userContext")) {
                               $cookieStore.remove("userContext");
@@ -421,7 +421,7 @@
     //Controller for step 4
     function familyRegistrationProfileStep4Controller($cookieStore, userService, toaster) {
         var model = this;
-        model.haveFosterLicense = "no";
+        model.haveFosterLicense = "yes";
 
         model.licenceDetails = {
             agencyContact: "",
@@ -482,11 +482,11 @@
     function familyRegistrationProfileThankYouController($cookieStore) {
         var model = this;
 
-        model.GotoMyPage = function() {            
+        model.GotoMyPage = function() {
             if($cookieStore.get("userContext")){
                  if (!$cookieStore.get("fromLogin")) {
                     $cookieStore.put("fromLogin", "yes");
-                 }               
+                 }
             }
             location.href = "index.html";
 
