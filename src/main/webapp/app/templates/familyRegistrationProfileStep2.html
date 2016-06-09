@@ -58,8 +58,51 @@
                     <span class="add-on"><i class="icon-th"></i></span>
                 </div>
             </div>
+        </div>      
+
+
+        <div class="form-group">
+            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Race</label>
+            <div class="col-sm-3">
+              <select name="ddl_races1" class="form-control" ng-model="model.personalDetails.race" ng-options="race.Name as race.Name for race in model.racesData">
+                  <option value="">Select</option>
+              </select>
+            </div>
+
+            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Religion</label>
+            <div class="col-sm-3">
+              <select name="ddl_religion1" class="form-control" ng-model="model.personalDetails.religion" ng-options="religion.Name as religion.Name for religion in model.religionData">
+                  <option value="">Select</option>
+              </select>
+            </div>
         </div>
-        <div class="form-group ">
+        <div class="form-group">
+
+            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Occupation</label>
+            <div class="col-sm-3">
+                <input class="form-control" type="text" name="Occupation" ng-model="model.personalDetails.occupation">
+            </div>
+            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Income (in USD)</label>
+            <div class="col-sm-3" ng-class="{ 'has-error' : registrationForm2.income.$invalid && !registrationForm2.income.$pristine }">
+              <input class="form-control" type="number" name="income" ng-model="model.personalDetails.income">
+              <span ng-show="registrationForm2.income.$error.number" class="help-block"> Income should be numeric only.</span>
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Foster kid’s preferences category</label>
+            <div class="col-sm-3">
+              <select name="ddl_preferences1" class="form-control" ng-model="model.personalDetails.preference" ng-options="preference.Name as preference.Name for preference in model.preferencesData">
+                  <option value="">Select</option>
+              </select>
+            </div>
+            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Your Hobbies</label>
+            <div class="col-sm-3">
+                <textarea class="form-control" rows="2" name="hobbies" ng-model="model.personalDetails.hobbies"></textarea>
+            </div>
+        </div>
+
+         <div class="form-group ">
             <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Gender</label>
             <div class="col-sm-3">
                 <select class="form-control" id="genderSelector">
@@ -154,9 +197,9 @@
                           <option value="">Select</option>
                       </select>
                     </div>
-                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Your Hobbies</label>
+                    <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Hobbies</label>
                     <div class="col-sm-3">
-                        <textarea class="form-control" rows="4" name="spouseHobbies" ng-model="model.personalDetails.spouseDetails.hobbies"></textarea>
+                        <textarea class="form-control" rows="2" name="spouseHobbies" ng-model="model.personalDetails.spouseDetails.hobbies"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -170,47 +213,6 @@
         </div>
         <!--/.panel -->
 
-
-        <div class="form-group">
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Race</label>
-            <div class="col-sm-3">
-              <select name="ddl_races1" class="form-control" ng-model="model.personalDetails.race" ng-options="race.Name as race.Name for race in model.racesData">
-                  <option value="">Select</option>
-              </select>
-            </div>
-
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Religion</label>
-            <div class="col-sm-3">
-              <select name="ddl_religion1" class="form-control" ng-model="model.personalDetails.religion" ng-options="religion.Name as religion.Name for religion in model.religionData">
-                  <option value="">Select</option>
-              </select>
-            </div>
-        </div>
-        <div class="form-group">
-
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Occupation</label>
-            <div class="col-sm-3">
-                <input class="form-control" type="text" name="Occupation" ng-model="model.personalDetails.occupation">
-            </div>
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Income (in USD)</label>
-            <div class="col-sm-3" ng-class="{ 'has-error' : registrationForm2.income.$invalid && !registrationForm2.income.$pristine }">
-              <input class="form-control" type="number" name="income" ng-model="model.personalDetails.income">
-              <span ng-show="registrationForm2.income.$error.number" class="help-block"> Income should be numeric only.</span>
-            </div>
-        </div>
-        <div class="form-group">
-
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Foster kid’s preferences category</label>
-            <div class="col-sm-3">
-              <select name="ddl_preferences1" class="form-control" ng-model="model.personalDetails.preference" ng-options="preference.Name as preference.Name for preference in model.preferencesData">
-                  <option value="">Select</option>
-              </select>
-            </div>
-            <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Your Hobbies</label>
-            <div class="col-sm-3">
-                <textarea class="form-control" rows="4" name="hobbies" ng-model="model.personalDetails.hobbies"></textarea>
-            </div>
-        </div>
         <div class="form-group">
             <div class="col-sm-8 col-sm-offset-2">
                 <input class="btn btn-primary" value="Save" type="submit" ng-click="model.SaveRegistrationProfileData()" ng-disabled="registrationForm2.$invalid">

@@ -44,7 +44,7 @@
                                     </label>
                                     &nbsp;
                                     <label>
-                                        <input type="radio" name="RadioGroup1" id="RadioGroup1_1" ng-model="mode.familyDetails.haveKids" value="n"> No
+                                        <input type="radio" name="RadioGroup1" id="RadioGroup1_1" ng-model="model.familyDetails.haveKids" value="n"> No
                                     </label>
                                     <br>
                                 </p>
@@ -54,13 +54,13 @@
                             <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Number of Kids</label>
                             <div class="col-sm-6">
                                 <select name="ddl_numofKids" class="form-control" ng-model="model.familyDetails.numberOfKids" ng-options="kid.Id as kid.Kid for kid in model.ddlNumberOfKids" required>
-                                    <option value="">Select</option>
+                                    <option value="0">Select</option>
                                 </select>
                                 <span ng-show="registrationForm.ddl_numofKids.$error.required">Select number of kids</span>
 
                             </div>
                         </div>
-                        <div class="panel panel-default" id="dv_FirstKid" ng-if="model.familyDetails.numberOfKids >= 1">
+                        <div class="panel panel-default" id="dv_FirstKid" ng-if="model.familyDetails.numberOfKids >= 1 || model.familyDetails.haveKids == 'y'">
                             <div class="panel-heading"><b>First Kid Details</b></div>
                             <div class="panel-body">
                                 <div class="form-group required" ng-class="{ 'has-error' : registrationForm.firstKidName.$invalid && !registrationForm.firstKidName.$pristine }">
@@ -88,7 +88,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default" id="dv_SecondKid" ng-if="model.familyDetails.numberOfKids == 2">
+                        <div class="panel panel-default" id="dv_SecondKid" ng-if="model.familyDetails.numberOfKids == 2 || model.familyDetails.haveKids == 'y'">
                             <div class="panel-heading"><b>Second Kid Details</b></div>
                             <div class="panel-body">
                                 <div class="form-group required" ng-class="{ 'has-error' : registrationForm.secondKidName.$invalid && !registrationForm.secondKidName.$pristine }">

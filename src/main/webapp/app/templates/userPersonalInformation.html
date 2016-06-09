@@ -59,6 +59,49 @@
                     </div>
                 </div>
             </div>
+            
+
+            <div class="form-group">
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Race</label>
+                <div class="col-sm-3">
+                    <select class="form-control" ng-model="model.personalDetails.race">
+                        <option ng-repeat="x in model.races" value="{{x.value}}">{{x.text}}</option>
+                    </select>
+                </div>
+
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Religion</label>
+                <div class="col-sm-3">
+                    <select class="form-control" ng-model="model.personalDetails.religion">
+                        <option ng-repeat="x in model.religions" value="{{x.value}}">{{x.text}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+
+
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Occupation</label>
+                <div class="col-sm-3">
+                    <input class="form-control" ng-model="model.personalDetails.occupation">
+                </div>
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Income (in USD)</label>
+                <div class="col-sm-3">
+                    <input class="form-control" ng-model="model.personalDetails.income">
+                </div>
+            </div>
+            <div class="form-group">
+                 <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Foster kid’s preferences category</label>
+                <div class="col-sm-3">
+                    <select class="form-control" ng-model="model.personalDetails.preference">
+                        <option ng-repeat="x in model.preferences" value="{{x.value}}">{{x.text}}</option>
+                    </select>
+                </div>
+
+                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Your Hobbies</label>
+                <div class="col-sm-3 paddingTop7">
+                    <textarea class="form-control" rows="4" ng-model="model.personalDetails.hobbies"></textarea>
+                </div>
+            </div>
+
             <div class="form-group">
                 <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Gender</label>
                 <div class="col-sm-3">
@@ -141,7 +184,7 @@
                             </select>
                         </div>
 
-                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Your Hobbies</label>
+                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Hobbies</label>
                         <div class="col-sm-3 paddingTop7">
                             <textarea class="form-control" rows="4" ng-model="model.personalDetails.spouseDetails.hobbies"></textarea>
                         </div>
@@ -156,46 +199,6 @@
             </div>
             <!--/.panel -->
 
-            <div class="form-group">
-                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Race</label>
-                <div class="col-sm-3">
-                    <select class="form-control" ng-model="model.personalDetails.race">
-                        <option ng-repeat="x in model.races" value="{{x.value}}">{{x.text}}</option>
-                    </select>
-                </div>
-
-                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Religion</label>
-                <div class="col-sm-3">
-                    <select class="form-control" ng-model="model.personalDetails.religion">
-                        <option ng-repeat="x in model.religions" value="{{x.value}}">{{x.text}}</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-
-
-                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Occupation</label>
-                <div class="col-sm-3">
-                    <input class="form-control" ng-model="model.personalDetails.occupation">
-                </div>
-                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Income (in USD)</label>
-                <div class="col-sm-3">
-                    <input class="form-control" ng-model="model.personalDetails.income">
-                </div>
-            </div>
-            <div class="form-group">
-                 <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Foster kid’s preferences category</label>
-                <div class="col-sm-3">
-                    <select class="form-control" ng-model="model.personalDetails.preference">
-                        <option ng-repeat="x in model.preferences" value="{{x.value}}">{{x.text}}</option>
-                    </select>
-                </div>
-
-                <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Your Hobbies</label>
-                <div class="col-sm-3 paddingTop7">
-                    <textarea class="form-control" rows="4" ng-model="model.personalDetails.hobbies"></textarea>
-                </div>
-            </div>
             <div class="form-group">
                 <div class="col-sm-6 col-sm-offset-2">
                     <input class="btn btn-primary" value="Update" type="submit" ng-disabled="registrationForm2.$invalid">

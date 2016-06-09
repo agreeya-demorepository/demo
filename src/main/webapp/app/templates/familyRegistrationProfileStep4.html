@@ -63,7 +63,7 @@
                                 <span ng-show="registrationForm.agencyCaseWorker.$invalid && !registrationForm.agencyCaseWorker.$pristine" class="help-block"> Agency case worker required.</span>
                             </div>
                         </div>
-                        <div class="form-group" ng-class="{ 'has-error' : registrationForm.agencyContact.$invalid && !registrationForm.agencyContact.$pristine }">
+                        <div class="form-group required" ng-class="{ 'has-error' : registrationForm.agencyContact.$invalid && !registrationForm.agencyContact.$pristine }">
                             <label class="col-sm-4 control-label">Agency Contact Number</label>
                             <div class="col-sm-6">
                                 <input class="form-control" ng-minlength="10" ng-maxlength="10" type="number" name="agencyContact" ng-model="model.licenceDetails.agencyContact" ng-required="true">

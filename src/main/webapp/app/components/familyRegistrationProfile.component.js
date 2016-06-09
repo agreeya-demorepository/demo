@@ -280,9 +280,9 @@
 
         model.familyDetails = {
             description: "",
-            numberOfKids: "",
+            numberOfKids: "0",
             kidsPref: "",
-            haveKids: "",
+            haveKids: "n",
             kids: []
         }
 

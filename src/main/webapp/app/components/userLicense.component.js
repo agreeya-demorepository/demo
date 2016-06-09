@@ -88,7 +88,7 @@
                 console.log("User License response: ", userAccountDetailsResponse);
                 toaster.pop("success", "License Details", userAccountDetailsResponse.message);
                 $cookieStore.put("licenceDetails", model.licenceDetails);
-                model.$router.navigate(["UserAccountDetails"])
+                //model.$router.navigate(["UserAccountDetails"])
             } else {
                 console.log("User Account Details response: ", userAccountDetailsResponse.Error);
                 toaster.pop("error", "License Details", userAccountDetailsResponse.message);
