@@ -61,7 +61,8 @@ An existing user can search through the Children Residential Facilities within a
 An existing user can search through the Foster Care Agencies in their nearby neighborhood. Upon entering a radius limit of users current geo location, the application communicates with the HHS API to fetch data for the facilities with selected Facility type of Foster Family Agency within the given coordinates range. The details of same are displayed in a grid on the screen.
 
 ######Private MailBox
-An existing user can view a Private mailbox.
+An existing user can view a Private mailbox.  
+
 The Prototype testing involved execution of automated Unit test cases using JUnits. Additionally, automation system test case suite is build to test the entire application. During sprint reviews the usergroup are involved to gather feedback around usability and system functionality, accepted refinements are added as new backlog work items. User feedbacks are ultimate to successful release of the application.
 The build and deployment process executed using the Jenkins Continuous integration tool. Successful builds(.war files) are deployed automatically to a target server.  An automated smoke test case is executed to confirm the successful working of the application.
 
@@ -209,6 +210,7 @@ UAT Test Cases and results were published and available at **GITHUB > demo > pro
 Update Variable Name **apiHostUrl** with target server URL. eg **http://fosterfamilies.agreeya.net/**
  
 ###APPENDIX
+
 
 | Folder Name                              | Description                                                              |
 | -----------------------------------------| -------------------------------------------------------------------------|
