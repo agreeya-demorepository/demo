@@ -41,7 +41,7 @@
                         <div class="form-group required" ng-class="{ 'has-error' : registrationForm.licenseNumber.$invalid && !registrationForm.licenseNumber.$pristine }">
                             <label for="inputPassword" class="control-label col-sm-4 paddingTop7">License Number</label>
                             <div class="col-sm-6">
-                                <input class="form-control" type="text" name="licenseNumber" ng-model="model.licenceDetails.licenceNo" required>
+                                <input class="form-control" type="text" name="licenseNumber" ng-model="model.licenceDetails.licenceNo"  ng-required="true">
                                 <span ng-show="registrationForm.licenseNumber.$invalid && !registrationForm.licenseNumber.$pristine" class="help-block"> Licence number required.</span>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                             <label class="col-sm-4 control-label">Date of Issue</label>
                             <div class="col-sm-6 ">
                                 <div class="input-append date form-control datepicker" id="dp3" data-date-format="mm/dd/yyyy">
-                                    <input class="span2" size="16" type="text" value="" name="dateOfIssue" ng-model="model.licenceDetails.dateOfIssue" required>
+                                    <input class="span2" size="16" type="text" value="" name="dateOfIssue" ng-model="model.licenceDetails.dateOfIssue"  ng-required="true">
                                     <span ng-show="registrationForm.dateOfIssue.$invalid && !registrationForm.dateOfIssue.$pristine" class="help-block"> Date of issue required.</span>
                                     <span class="add-on"><i class="icon-th"></i></span>
                                 </div>
@@ -59,15 +59,16 @@
                         <div class="form-group required" ng-class="{ 'has-error' : registrationForm.agencyCaseWorker.$invalid && !registrationForm.agencyCaseWorker.$pristine }">
                             <label class="col-sm-4 control-label">Agency Case Worker Name</label>
                             <div class="col-sm-6">
-                                <input class="form-control" type="text" name="agencyCaseWorker" ng-model="model.licenceDetails.agencyWorker" required>
+                                <input class="form-control" type="text" name="agencyCaseWorker" ng-model="model.licenceDetails.agencyWorker"  ng-required="true">
                                 <span ng-show="registrationForm.agencyCaseWorker.$invalid && !registrationForm.agencyCaseWorker.$pristine" class="help-block"> Agency case worker required.</span>
                             </div>
                         </div>
                         <div class="form-group" ng-class="{ 'has-error' : registrationForm.agencyContact.$invalid && !registrationForm.agencyContact.$pristine }">
                             <label class="col-sm-4 control-label">Agency's Contact Number</label>
                             <div class="col-sm-6">
-                                <input class="form-control" type="number" name="agencyContact" ng-model="model.licenceDetails.agencyContact" required>
-                                <span ng-show="registrationForm.agencyContact.$invalid && !registrationForm.agencyContact.$pristine" class="help-block"> Agency contact number required and should be numeric only.</span>
+                                <input class="form-control" ng-minlength="10" ng-maxlength="10" type="number" name="agencyContact" ng-model="model.licenceDetails.agencyContact" ng-required="true">
+                                <span ng-show="registrationForm.agencyContact.$error.number" class="help-block"> Contact number should be number.</span>
+                                <span class="help-block" ng-show="((registrationForm.agencyContact.$error.minlength || registrationForm.agencyContact.$error.maxlength) && registrationForm2.agencyContact.$dirty) "> Contact number should be 10 digits only</span>
                             </div>
 
                         </div>

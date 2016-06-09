@@ -3,16 +3,16 @@
 
      <div class="form-horizontal marginTop20">
 
-       <div class="row" ng-if="!model.isMails">
-         <div class="class="col-xs-12 font1dot3em""><div class="alert alert-warning" role="alert"><h3>No emails avialble.</h3></div></div>
+       <div class="row" ng-if="model.isMails == 'no'">
+         <div class="class="col-xs-12 font1dot3em""><div class="alert alert-warning" role="alert">There are no emails in your inbox.</div></div>
        </div>
-       <div class="row" ng-if="model.isMails">
+       <div class="row" ng-if="model.isMails == 'yes'">
          <div class="col-xs-12 font1dot3em">
            <a href="javascript:void(0)"><i class="fa  fa-remove"></i> Delete</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)"><i class="fa  fa-send"></i> Sent</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)"><i class="fa fa-edit"></i> Compose</a>
          </div>
       </div><!--/.row -->
 
-   <div class="table-responsive" ng-if="model.isMails">
+   <div class="table-responsive" ng-if="model.isMails == 'yes'">
      <table class="table table-striped">
        <thead>
          <tr class="grayBG">

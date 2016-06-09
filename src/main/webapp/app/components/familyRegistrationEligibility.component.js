@@ -18,8 +18,8 @@
         console.log("Selected criteria does not match");
         setTimeout(function() {
           location.href="index.html";
-        }, 3000);
-        
+        }, 2000);
+
       }
     }
 

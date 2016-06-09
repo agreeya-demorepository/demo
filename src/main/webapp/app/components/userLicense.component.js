@@ -37,26 +37,45 @@
         userInfo = userDataResponse;
         if (userInfo.user != null) {
             model.licenceDetails = userInfo.user.licenceDetails;
-            if (_personalProfile == null)
-            {
-                _personalProfile = model.personalProfile;
+            _personalProfile = userInfo.user.personalProfile;
+            _personalDetails = userInfo.user.personalDetails;
+            _familyDetails = userInfo.user.familyDetails;
+
+            _personalProfile.password = 'none';
+            if (_personalDetails.dob) {
+                var newDate = model.formatDate(_personalDetails.dob);
+                _personalDetails.dob = newDate;
             }
-            if (_personalDetails == null) {
-                _personalDetails = model.personalDetails;
+
+            if (_personalDetails.spouseDetails.dob) {
+                var newDate = model.formatDate(_personalDetails.spouseDetails.dob);
+                _personalDetails.spouseDetails.dob = newDate;
             }
-            if (_familyDetails == null) {
-                _familyDetails = model.familyDetails;
-            }
+
             if(model.licenceDetails.licenceNo && model.licenceDetails.licenceNo !== "")
             {
                 model.haveLicense = 'y';
             }
+            //debugger;
+            if (model.licenceDetails.dateOfIssue) {
+                var newDate = model.formatDate(model.licenceDetails.dateOfIssue);
+                model.licenceDetails.dateOfIssue = newDate;
+            }
+
         }
     }, function (error) {
         console.log("User Info response: ", error);
         toaster.pop("error", "Unable to fetch user info", "Error in profile registration.");
     });
 
+    model.formatDate = function (input) {
+        //debugger;
+        var datePart = input.match(/\d+/g),
+        year = datePart[0], // get only two digits
+        month = datePart[1], day = datePart[2];
+
+        return month + '/' + day + '/' + year;
+    }
 
     model.updateUserLicense = function () {
 

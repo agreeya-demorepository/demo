@@ -80,7 +80,7 @@
                 </div>
                 <div class="panel-body" ng-show="model.showSpouseDetails">
                     <div class="form-group">
-                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">First Name</label>
+                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Name</label>
                         <div class="col-sm-3">
                             <input class="form-control" ng-model="model.personalDetails.spouseDetails.firstName">
                         </div>
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                       
+
 
                         <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Occupation</label>
                         <div class="col-sm-3">
@@ -134,7 +134,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Foster Kid's Preferences</label>
+                        <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Foster kid’s preferences category</label>
                         <div class="col-sm-3">
                             <select class="form-control" ng-model="model.personalDetails.spouseDetails.preference">
                                 <option ng-repeat="x in model.preferences" value="{{x.value}}">{{x.text}}</option>
@@ -172,7 +172,7 @@
                 </div>
             </div>
             <div class="form-group">
-               
+
 
                 <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Occupation</label>
                 <div class="col-sm-3">
@@ -184,7 +184,7 @@
                 </div>
             </div>
             <div class="form-group">
-                 <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Foster Kid's Preferences</label>
+                 <label for="inputPassword" class="control-label col-sm-2 paddingTop7">Foster kid’s preferences category</label>
                 <div class="col-sm-3">
                     <select class="form-control" ng-model="model.personalDetails.preference">
                         <option ng-repeat="x in model.preferences" value="{{x.value}}">{{x.text}}</option>
@@ -208,12 +208,12 @@
 </div>
 
 <script language="javascript">
-    
+
     $(document).ready(function () {
-        
+
     });
 
-   
+
 
     $('.datepicker').datepicker();
 </script>
