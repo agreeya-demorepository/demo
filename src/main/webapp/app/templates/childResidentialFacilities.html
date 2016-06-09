@@ -6,7 +6,7 @@
           <div class="form-group required">
             <label for="inputPassword" class="control-label col-sm-4 paddingTop7">Enter Zip Code</label>
             <div class="col-sm-4" ng-class="{ 'has-error' : facilityForm.txtZipCode.$error.number || facilityForm.txtZipCode.$error.minlength || facilityForm.txtZipCode.$error.maxlength}">
-             
+
                 <input class="form-control" type="number" name="txtZipCode" ng-model="model.zipCode" ng-minlength="5" ng-maxlength="5" >
                 <span ng-show="facilityForm.txtZipCode.$error.number" class="help-block"> Zip Code should be numeric only.</span>
                 <span class="help-block" ng-show="((facilityForm.txtZipCode.$error.minlength || facilityForm.txtZipCode.$error.maxlength) && facilityForm.txtZipCode.$dirty) ">ZipCode should be 5 digits only</span>
@@ -34,8 +34,8 @@
 
             </div>
             <div ng-if="model.isFacilitiesAvailable == 'no'">
-              <div class="alert alert-warning" role="alert"><h3>No facilities available for this location.</h3></div>
-              
+              <div class="alert alert-warning" role="alert">No child residential facility is available for the selected Zip code.</div>
+
             </div>
           </div>
 

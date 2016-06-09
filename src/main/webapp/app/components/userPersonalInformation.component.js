@@ -1,22 +1,21 @@
-(function() {
+(function(angular) {
   'use strict';
   var module = angular.module("chhsDemo");
 
   function userPersonalInformationController(toaster, $cookieStore, userService) {
     var model = this;
-
     model.showSpouseDetails = true;
-        model.spouseClass = "glyphicon glyphicon-minus";
+    model.spouseClass = "glyphicon glyphicon-minus";
 
-        model.onChangeSpouseDetails = function(){
-            if(model.showSpouseDetails === true) {
-                model.showSpouseDetails = false;
-                model.spouseClass = "glyphicon glyphicon-plus";
-            } else {
-                model.showSpouseDetails = true;
-                model.spouseClass = "glyphicon glyphicon-minus";
-            }
+    model.onChangeSpouseDetails = function(){
+        if(model.showSpouseDetails === true) {
+            model.showSpouseDetails = false;
+            model.spouseClass = "glyphicon glyphicon-plus";
+        } else {
+            model.showSpouseDetails = true;
+            model.spouseClass = "glyphicon glyphicon-minus";
         }
+    }
     model.personalDetails = {};
     model.personalDetails.spouseDetails = {};
 
@@ -63,18 +62,35 @@
         model.personalDetails.spouseDetails.gender = model.genders[0].value;
     }
 
+    model.formatDate = function (input) {
+        //debugger;
+        var datePart = input.match(/\d+/g),
+        year = datePart[0], // get only two digits
+        month = datePart[1], day = datePart[2];
+
+        return month + '/' + day + '/' + year;
+    }
 
     var userInfo = {};
     var userData = JSON.stringify({ userName: _userName });
     userService.GetAccountDetails(userData).then(function (userDataResponse) {
         userInfo = userDataResponse;
         if (userInfo.user != null) {
-            if (_personalProfile == null)
-            {
-                _personalProfile = userInfo.user.personalProfile;
+            _personalProfile = userInfo.user.personalProfile;
+            model.personalDetails = userInfo.user.personalDetails;
+            //debugger;
+
+            _personalProfile.password = 'none';
+            if (model.personalDetails.dob) {
+                var newDate = model.formatDate(model.personalDetails.dob);
+                model.personalDetails.dob = newDate;
             }
 
-            model.personalDetails = userInfo.user.personalDetails;
+            if (model.personalDetails.spouseDetails.dob) {
+                var newDate = model.formatDate(model.personalDetails.spouseDetails.dob);
+                model.personalDetails.spouseDetails.dob = newDate;
+            }
+
             //debugger;
         }
     }, function (error) {
@@ -83,7 +99,7 @@
     });
 
 
-   
+
     if (model.personalDetails.maritalStatus == "" || !model.personalDetails.maritalStatus) {
         model.personalDetails.maritalStatus = model.martialStatus[0].value;
     }
@@ -105,7 +121,7 @@
     }
 
 
-    
+
     if (!model.personalDetails.race) {
         model.personalDetails.race = model.races[0].value;
     }
@@ -131,10 +147,10 @@
 
     model.updatePersonalInformation = function () {
 
-        
+
 
         var userProfileData = JSON.stringify({ userContext: context, personalProfile: _personalProfile, personalDetails: model.personalDetails, spouseDetails: model.personalDetails.spouseDetails, registrationStage: 2 });
-        
+
 
         userService.UpdateAccountDetails(userProfileData).then(function (userAccountDetailsResponse) {
             if (userAccountDetailsResponse.status == "0") {
@@ -164,4 +180,4 @@
     }
   })
 
-}());
+}(window.angular));
