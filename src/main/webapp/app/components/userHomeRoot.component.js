@@ -4,7 +4,7 @@
 
     function userHomeRootController($cookieStore) {
         var model = this;
-
+        
         //model.GoToUserAccountDetails = function () {
         //    model.$router.navigate(['UserHomeRoot', 'UserAccountDetails']);
         //}

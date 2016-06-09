@@ -9,7 +9,6 @@
     //   delete $httpProvider.defaults.headers.common['X-Requested-With'];
       angular.extend(CacheFactoryProvider.defaults, { maxAge: 15 * 60 * 1000 });
     });
-
     module.value("$routerRootComponent", "mainApp");
 
     module.component("appAbout", {

@@ -1,5 +1,5 @@
 ### URL 
-##### https://fostercaredemo-agreeya.com
+##### http://fosterfamilies.agreeya.net/chhs
 
 This project is about building a working prototype that would enable Families to Register and Manage their profiles so that they can receive foster placements. Apart from Registering their Profiles, prototype functionality would allow registered users to Manage Profiles, Search through Children Residential Facilities within their zipcode and locate Foster care agencies in their nearby neighbourhood. Registered users can view their private mailbox for communication emails sent or received. The prototype utilizes the publicly exposed CHHS API to retrieve information related to the Foster Care Agencies in nearby neighborhood of the user.
 ***********************************************************************************************************************************************************************
@@ -27,7 +27,7 @@ The user interfaces have dynamic structure that do not require complete page ref
 The whole application’s business logic and data can be packaged and transferred from one platform to other like local deployment to hosted solution,hosted solution to localized deployment, from one hosted solution to the other with minimum interruption. The application is developed using standard web technologies to provide full accessibility from desktop/laptop and tablet browsers.
 
 ######Security  
-As soon the user logs into the application a user specific session-Id is created which does not get time out until the subscriber gets inactive during configured duration. The handshake between client & API calls is enabled by sharing this session-Id in every subsequent API calls by that client.This secures client access in the application. Additionally, the application can be accessed over the http secure using ssl certificate for secure communication.
+As soon the user logs into the application a user specific session-Id is created which does not get time out until the subscriber gets inactive during configured duration. The handshake between client & API calls is enabled by sharing this session-Id in every subsequent API calls by that client.This secures client access in the application. Additionally, the application could be accessed over the http secure using ssl certificate for secure communication.
 
 
 #####Sample Request Flow
@@ -40,7 +40,7 @@ The CHHS prototype development follows standards of Java code conventions and ch
 #####Prototype Screen Workflows
 
 ######Step 1 Registration 
-User enters the URL, https://fostercaredemo-agreeya.com in the web browser or smartphone
+User enters the URL, http://fosterfamilies.agreeya.net/chhs in the web browser or smartphone
 
 ######Step 2 Registration 
 User lands on the Home page from where a new user can initiate activity “creation of a Family profile” by clicking on the Family Registration link.
@@ -122,7 +122,7 @@ Refer the team members and roles of the scrum team at **GITHUB > demo > project-
 #####  BackEnd Technologies & Tools
 				a. Java JDK ver 1.8 OPEN SOURCE
 				b. Application Server - Tomacat Ver 7.0.69 OPEN SOURCE
-				c. Spring Framework Release 4.2.6  OPEN SOURCE
+				c. Spring Framework IOC Release 4.2.6  OPEN SOURCE
 				d. Web Services - Jersey RESTful Web Services framework REST JAX-RS Jersey Ver 1.19 OPEN SOURCE
 				e. ORM Tool - Hibernate Ver 5.0.3 FINAL OPEN SOURCE
 				f. Build Tool - Maven Ver.3 OPEN SOURCE
@@ -141,19 +141,17 @@ Refer the team members and roles of the scrum team at **GITHUB > demo > project-
 
 
 ### Responsive Design 
- UI is designed using the Bootstrap front end framework. UI designs are responsive in nature and hence compatible with multiple mobile devices and platforms like smartphones, tablets on  Android, iOS
+ UI is designed using the Bootstrap front end framework. UI designs are responsive in nature and hence compatible with multiple mobile devices and platforms like smartphones, tablets on  Android, iOS. The UI designs are created in a consultative and interactive approach with usergroup with due consideration to aspects like ease of use,intuitiveness,application workflow etc.  
 This demonstrates the screens to be accessible from multiple devices.
 
 
 ### Style Guide & Coding Conventions
 As part of coding conventions and stylechecks we have used a set of standard guidelines so as to have consistency in coding approach during the course of development of this prototype.
-File stylecheck.xml provides the list of stylechecks used and PMD integrated with IDE Eclipse is used for following coding conventions and standards for development of Java backend.
+File stylecheck.xml provides the list of stylechecks used and PMD integrated with IDE Eclipse is used for following coding conventions and standards for development of Java backend.This approach reduces redundancy and extends code reviews beyond semantics validations . 
 This demonstrates adherence to the use of a Style Guide during the prototype development process.
 
-
-
 ### Unit & Automation Testing
-JUnit based units test cases are developed as part of the code . These are executed by the developer as part of the development activity . JUnits are exeucted automatically during the Build process also.
+JUnit based units test cases are developed as part of the code .These are executed by the developer as part of the development activity . JUnits are exeucted automatically during the Build process also.
 There are two ways in which System Testing for the application is done. Manual test case execution and automation test case suite is created to run the test case automatically using a script. The results of the automation test cases are published in a file.
 
 Pl refer the GITHUB folder **GITHUB > demo > project-mgmt > design > Testing> Automation Test**
@@ -182,15 +180,33 @@ This demonstrates during the prototype development process the use of a setup th
 ### User Acceptance Testing (UAT)
 Post the system test , a User Acceptance Test with usergroup was conducted to validate usability and system functionality. 
 UAT defects reported were logged in the REDMINE tool. Upon successful fix and re-test the bugs were marked as closed.
-  
-
-### Continous Monitoring
-
-  
+UAT Test Cases and results were published and available at **GITHUB > demo > project-mgmt > design > Testing> UAT**
 
 ### INSTALL and DEPLOYMENT INSTRUCTIONS
 
-  
+######Prerequisite  
+1. Java Ver 1.8 is installed at the server where the application is being deployed and the server is installed with web server Tomcat 7.0.69 at <TOMCAT_HOME> directory
+2. MYSQL Ver 5.6.30+ is installed on the server.
+3. Execute the Database creation script **GITHUB > demo > project-mgmt > design > database >fosterfamilies_DBScript.sql**
+
+######Steps to Deploy Application :
+
+1. Stop the Tomcat server if already running on the target server
+	- Use ps –ef | grep tomcat to check if tomcat is running
+
+2. Copy chhs.war file in the MASTER Branch from the location **GITHUB > demo > builds**  to **<TOMCAT_HOME>/webapps/** directory
+
+3. Start Tomcat server
+	- Goto **<TOMCAT_HOME>/bin** directory and run startup.bat or startup.sh (for linux)
+	- Check logs using (tail –f “<TOMCAT_HOME>/logs/catalina.out”  if you get DB error:
+		- Stop the Tomcat server
+		- Goto <TOMCAT_HOME>/webapps/chhs/WEB-INF/classes
+		- Edit chhs_config.properties file and update db,url,db.user,db.password and save file
+		- Restart the Tomcat server using Goto <TOMCAT_HOME>/bin director and use startup.bat or startup.sh (for linux)
+
+4. Please update the URL of the target server in the file for UI **dataservice.js**  located at **GITHUB > demo > src > main > webapp > app >services**. Update   
+Variable Name **APIHostAddress** with target server URL. eg **http://fosterfamilies.agreeya.net/**
+ 
 ###APPENDIX
 
 | Folder Name                              | Description                                                              |
@@ -204,10 +220,11 @@ UAT defects reported were logged in the REDMINE tool. Upon successful fix and re
 |                                          | files of the Redmine Tool used for the Backlog Mangement                 |
 | demo/project-mgmt/docs/Daily-Scrum       | Contains Daily Team Standup Meeting Minutes                              |                                
 | demo/project-mgmt/docs/Sprint Reviews/   | Contains Sprint Reviews conducted with usergroups                        |
-| demo/project-mgmt/design/ui/             | Contains mockups, screen designs,Click-Throughused during                |
+| demo/project-mgmt/design/ui/             | Contains mockups, screen designs,Click-Through used during                |
 |                                          | Requirement elicitation                                                  |
 | demo/project-mgmt/design/database/       | Contains DB Scripts, ER Dig                                              |
 | demo/project-mgmt/design/Testing/        | Contains Manual Test Cases,Automation Test scripts,Test results,Test Plan|
-| demo/builds/                             | Contains Build scripts, .war file, Builds logs                           |
+|                                          | UAT Test Cases , UAT feedback                                            |
+| demo/builds/                             | Contains Build scripts, .war file, Builds Console logs                   |
 | demo/logs/                               | Contains Application logs etc.                                           |
 | demo/src/main/webapp/                    | Contains Application Source code for Java,UI, web.xml etc.               |

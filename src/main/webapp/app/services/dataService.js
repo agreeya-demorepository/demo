@@ -2,10 +2,15 @@
   'use strict';
   var module = angular.module("chhsDemo");
   //Change this if API host address is changing
+<<<<<<< HEAD
+  //var APIHostAddress = "http://209.118.218.61:8080/";
+=======
   var APIHostAddress = "http://fosterfamilies.agreeya.net/";
+>>>>>>> dev-branch
 
-  module.factory("dataService", ["$http", "$resource", "$q", function ($http, $resource, $q) {
+  module.factory("dataService", ["$http", "$resource", "$q", "configVals", function ($http, $resource, $q, configVals) {
     var dataService = {};
+    var APIHostAddress = configVals.apiHostUrl;
     dataService.fetchMovies = function() {
             return $http.get("./app/data/movies.json").then(function (response) {
                 return response.data;
