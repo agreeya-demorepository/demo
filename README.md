@@ -80,11 +80,12 @@ This is private repository of the developers to checkin code on a day to day bas
 ### Development Methodology 
 
 ##### Agile-SCRUM Model :
- The development of this prototype is carried out using the Agile SCRUM model. Multi disciplinary team comprising  PRODUCT OWNER , Scrum Master,Business Analyst, Web Designer,S/W Backend Developer, Frontend Developer, S/W Tester , Configuration Manager. The whole process is carried out using Agile software development capabilities with iterartive and incremental development through sprints.Product Backlog - User Stories and Tasks are managed through the REDMINE Project Management and Bug Tracking tool.
-Two dev sprints of 4 days each in duration are executed to cover the development of work items. Prior to the first Sprint a Design phase is executed to cover activitites related to UI Design, Technical Architecture Design, DB Design, Product Backlog Planning , Sprint Scheduling , Test Planning. 
-During this phase, Joint Application Development(JAD) sessions are executed with the usergroup to participate in the design process. Usergroups are involved to understand their need for this application so as to establish the underlying requirements of this prototype. Discussions during the requirement elicitation exercise are documented in a Business Requirement Document (BRD) with relevant use cases to depict the activity flow for the application users.
+ The development of this prototype is carried out using the Agile SCRUM model. Multi disciplinary team comprising ** Product Owner , Scrum Master,Business Analyst, Web Designer,S/W Backend Developer, Frontend Developer, S/W Tester , Configuration Manager **. The whole process is carried out using Agile software development capabilities with iterartive and incremental development through sprints.Product Backlog - User Stories and Tasks are managed through the REDMINE Project Management and Bug Tracking tool.
+Two dev sprints of 4 days each in duration are executed to cover the development of work items. Prior to the first Sprint a Design phase is executed to cover activitites related to UI Design, Technical Architecture Design, DB Design, Product Backlog Planning , Sprint Scheduling , Test Planning.
+ 
+During this phase, **Joint Application Development(JAD)** sessions are executed with the usergroup to participate in the design process. Usergroups are involved to understand their need for this application so as to establish the underlying requirements of this prototype. Discussions during the requirement elicitation exercise are documented in a **Business Requirement Document (BRD)** with relevant use cases to depict the activity flow for the application users.
 Review sessions are conducted with usergroup to review the accuracy of BRD and freeze the requirements with usergroup and Product Owner approvals.As part of these sessions UI designs are reviewed and confirmed for implementation. Daily Standup meetings with entire team to check progress and bottlenecks is conducted , MoM's for each of these standups is captured and shared with all attendees.
-To Demonstrate that usergroups are involved in the design and development process , please check following references from the GITHUB REPOSITORY 
+To Demonstrate that usergroups are involved in the design and development process , please check following references from the **GITHUB REPOSITORY** 
 
 a.	**JAD sessions** conducted with usergroup to know what is needed , goals of project and create prioritized list of requirements ( Field Backlog Priority) in the Redmine tool.  
 **Pl refer** files **JAD-Session0526 Usergroup.jpg** and **JAD-Session0526.jpg** in **GITHUB > demo > project-mgmt > docs.**  
@@ -105,13 +106,13 @@ This demonstrates that approach followed taking feedback from usergroup during S
 Additionally, this supports performing usability tests with usergroup to ascertain effective and easy use of applications.  
 
 d.	The website also has a mechanism for allowing users to Report any Technical issues they encounter during their interaction on the website. This demonstrates adherence to US Digital Services Play book play **DEFAULT TO OPEN** .
-Pl refer footer on the website on each page with a link "REPORT TECHNICAL ISSUES"
+Pl refer footer on the website on each page with a link **"REPORT TECH ISSUES"**
 
 e.	Use of Agile scrum model for development process in sprints demonstrates adherence to 
-Agile and iterative development process.Collaboratively working with usergroup to gather feedback , Task boarding , review artifacts , code reviews , sprint reviews , MoM's ,mockups demonstrates adherence to US Digital Services Play book play USE OF AGILE & ITERATIVE PROCESS.  
+Agile and iterative development process.Collaboratively working with usergroup to gather feedback , Task boarding , review artifacts , code reviews , sprint reviews , MoM's ,mockups demonstrates adherence to US Digital Services Play book play USE OF **AGILE & ITERATIVE PROCESS**.  
 Refer artifacts in the **GITHUB > demo > project-mgmt > docs** folder.
 
-f.	Setup a multidisciplinary team with a identified leader as PRODUCT OWNER and single point of authority for the team for approvals and decision, direction for the team .  
+f.	Setup a multidisciplinary team with a identified leader as **Product Owner** and single point of authority for the team for approvals and decision, direction for the team .  
 Refer the team members and roles of the scrum team at **GITHUB > demo > project-mgmt > docs > Backlog >Backlog Details.jpg**
                                  
 ### Development Technology Stack 
@@ -147,7 +148,7 @@ This demonstrates the screens to be accessible from multiple devices.
 
 ### Style Guide & Coding Conventions
 As part of coding conventions and stylechecks we have used a set of standard guidelines so as to have consistency in coding approach during the course of development of this prototype.
-File stylecheck.xml provides the list of stylechecks used and PMD integrated with IDE Eclipse is used for following coding conventions and standards for development of Java backend.This approach reduces redundancy and extends code reviews beyond semantics validations . 
+File **stylecheck.xml** provides the list of stylechecks used and PMD integrated with IDE Eclipse is used for following coding conventions and standards for development of Java backend.This approach reduces redundancy and extends code reviews beyond semantics validations . 
 This demonstrates adherence to the use of a Style Guide during the prototype development process.
 
 ### Unit & Automation Testing
@@ -156,7 +157,7 @@ There are two ways in which System Testing for the application is done. Manual t
 
 Pl refer the GITHUB folder **GITHUB > demo > project-mgmt > design > Testing> Automation Test**
 Pl refer GITHUB folder for Automation test cases scripts at **GITHUB > demo > project-mgmt > design > Testing> Automation Test**
-This demonstrates the adherence to the US Digital Services playbook play AUTOMATION TESTING AND DEPLOYMENTS
+This demonstrates the adherence to the US Digital Services playbook play **AUTOMATION TESTING AND DEPLOYMENTS**
 
 
 ### Configuration Management
@@ -174,7 +175,7 @@ checkstyles we used during development of backend java code
 4.   A notification for successful build is sent to the team.  
 5.  Automatically deploys the application ( .war file) in a different server using the Deploy to Container plugin of the Jenkins tool  
 6. If the Build fails due to violation of checkstyle, Unit Test failure , compilation error due to some dependencies a notification of build failure is sent to the team , team needs to fix the the issue and initiate rebuild.  
-The build process is internally managed by MAVEN with its entire configuration done in the POM.XML file.
+The build process is internally managed by MAVEN with its entire configuration done in the **POM.XML** file.
 This demonstrates during the prototype development process the use of a setup that provides continuous integration framework
   
 ### User Acceptance Testing (UAT)
@@ -220,7 +221,7 @@ Variable Name **APIHostAddress** with target server URL. eg **http://fosterfamil
 |                                          | files of the Redmine Tool used for the Backlog Mangement                 |
 | demo/project-mgmt/docs/Daily-Scrum       | Contains Daily Team Standup Meeting Minutes                              |                                
 | demo/project-mgmt/docs/Sprint Reviews/   | Contains Sprint Reviews conducted with usergroups                        |
-| demo/project-mgmt/design/ui/             | Contains mockups, screen designs,Click-Through used during                |
+| demo/project-mgmt/design/ui/             | Contains mockups, screen designs,Click-Through used during               |
 |                                          | Requirement elicitation                                                  |
 | demo/project-mgmt/design/database/       | Contains DB Scripts, ER Dig                                              |
 | demo/project-mgmt/design/Testing/        | Contains Manual Test Cases,Automation Test scripts,Test results,Test Plan|
