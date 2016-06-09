@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-sm-12">
             <ol class="breadcrumb">
-                <li><a href="default.html">Home</a></li>
-                <li><a href="default.html">Establish Profile</a></li>
+                <li><a href="#/">Home</a></li>
+                <li><a href="javascript:void(0);">Establish Profile</a></li>
                 <li class="active">Family Narrative &amp; Preferences</li>
             </ol>
         </div>
@@ -60,7 +60,7 @@
 
                             </div>
                         </div>
-                        <div class="panel panel-default" id="dv_FirstKid" ng-if="model.familyDetails.numberOfKids >= 1 || model.familyDetails.haveKids == 'y'">
+                        <div class="panel panel-default" id="dv_FirstKid" ng-if="model.familyDetails.numberOfKids >= 1 && model.familyDetails.haveKids == 'y'">
                             <div class="panel-heading"><b>First Kid Details</b></div>
                             <div class="panel-body">
                                 <div class="form-group required" ng-class="{ 'has-error' : registrationForm.firstKidName.$invalid && !registrationForm.firstKidName.$pristine }">
@@ -88,7 +88,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default" id="dv_SecondKid" ng-if="model.familyDetails.numberOfKids == 2 || model.familyDetails.haveKids == 'y'">
+                        <div class="panel panel-default" id="dv_SecondKid" ng-if="model.familyDetails.numberOfKids == 2 && model.familyDetails.haveKids == 'y'">
                             <div class="panel-heading"><b>Second Kid Details</b></div>
                             <div class="panel-body">
                                 <div class="form-group required" ng-class="{ 'has-error' : registrationForm.secondKidName.$invalid && !registrationForm.secondKidName.$pristine }">

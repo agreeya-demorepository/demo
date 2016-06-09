@@ -243,16 +243,21 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 
 			if ("y".equalsIgnoreCase(famDtls.getHaveKids())) {
 				List<Integer> idListkids = kidsQuery.list();
+				List<Userkid> kidListEntity = new ArrayList(); 
 				if (idListkids.size() > 0) {
 					for (int kid : idListkids) {
 						Userkid uKid = getById(Userkid.class, kid);
-						for (UserKidsDetails reqKid : request.getFamilyDetails().getKids()) {
+						kidListEntity.add(uKid);
+					}
+					int i = 0;
+					for (UserKidsDetails reqKid : request.getFamilyDetails().getKids()) {
+							Userkid uKid = kidListEntity.get(i);
 							uKid.setName(reqKid.getKidName());
 							uKid.setAgeGroup(reqKid.getAge());
 							uKid.setHobbies(reqKid.getHobbies());
 							uKid.setUserfamily(famDtls);
-							sess.saveOrUpdate(uKid);
-						}
+							sess.merge(uKid);
+							i++;
 					}
 
 				} else {
