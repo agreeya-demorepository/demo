@@ -254,7 +254,7 @@ public class MemberServiceBDImpl implements MemberServiceBD {
 		if (usr.getUserfamilies().size() > 0) {
 			UserFamilyDetails famDtls;
 			Userfamily fam = usr.getUserfamilies().get(0);
-			if (null != fam.getKids().get(0) || fam.getKids().size() > 0) {
+			if (fam.getKids().size() > 0) {
 				List<UserKidsDetails> kidList = new ArrayList<UserKidsDetails>();
 
 				for (Userkid kid : fam.getKids()) {
